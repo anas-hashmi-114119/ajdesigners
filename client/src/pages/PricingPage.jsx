@@ -21,6 +21,7 @@ export default function PricingPage() {
   const [standalone, setStandalone] = useState([]);
   const [loading, setLoading] = useState(true);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const [pricingView, setPricingView] = useState('retainers');
 
   useEffect(() => {
     pricingAPI
@@ -104,23 +105,86 @@ export default function PricingPage() {
       {/* 2. THREE CORE MONTHLY PACKAGES */}
       <section className="py-20 bg-surface-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-3xl font-display font-extrabold text-navy-900 tracking-tight">
-              Monthly Social Media Packages
+          <div className="text-center max-w-2xl mx-auto mb-10">
+            <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-navy-900 tracking-tight">
+              Transparent Agency Investment
             </h2>
             <p className="mt-2 text-sm text-charcoal-600">
-              Complete creative production and publishing management for ambitious brands.
+              Select full-funnel monthly management retainers or individual creative production bundles.
             </p>
+          </div>
+
+          {/* Interactive Pricing View Toggle */}
+          <div className="flex items-center justify-center mb-14">
+            <div className="inline-flex items-center p-1.5 rounded-full bg-navy-900 border border-white/10 shadow-xl">
+              <button
+                onClick={() => setPricingView('retainers')}
+                data-cursor-text="RETAINERS"
+                className={`px-6 py-2.5 rounded-full text-xs font-bold transition-all duration-300 ${
+                  pricingView === 'retainers'
+                    ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue'
+                    : 'text-charcoal-400 hover:text-white'
+                }`}
+              >
+                Monthly Retainers (Starter, Growth, Premium)
+              </button>
+              <button
+                onClick={() => setPricingView('standalone')}
+                data-cursor-text="STANDALONE"
+                className={`px-6 py-2.5 rounded-full text-xs font-bold transition-all duration-300 ${
+                  pricingView === 'standalone'
+                    ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue'
+                    : 'text-charcoal-400 hover:text-white'
+                }`}
+              >
+                Standalone Creative Assets (From $99)
+              </button>
+            </div>
           </div>
 
           {loading ? (
             <div className="text-center py-20 text-charcoal-500 text-sm animate-pulse">
               Loading pricing plans...
             </div>
-          ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+          ) : pricingView === 'retainers' ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch animate-fadeIn">
               {packages.map((pkg) => (
                 <PricingCard key={pkg._id} pkg={pkg} />
+              ))}
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-fadeIn">
+              {standalone.map((item) => (
+                <div
+                  key={item._id}
+                  data-cursor-text="BUNDLE"
+                  className="bg-white rounded-3xl p-7 border border-charcoal-200/80 shadow-sm flex flex-col justify-between hover:border-electric-500/40 hover:shadow-card-elevated hover:-translate-y-1.5 transition-all"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-xs font-bold uppercase tracking-wider text-charcoal-500 bg-surface-light px-3 py-1 rounded-full border border-charcoal-200/60">
+                        Standalone Asset
+                      </span>
+                      <div className="text-2xl font-display font-extrabold text-navy-900">
+                        {item.currency || '$'}{item.startingPrice}
+                      </div>
+                    </div>
+                    <h3 className="text-lg font-display font-bold text-navy-900 mb-2">
+                      {item.name}
+                    </h3>
+                    <p className="text-xs text-charcoal-700 leading-relaxed mb-6">
+                      {item.description}
+                    </p>
+                  </div>
+
+                  <Link
+                    to={`/contact?service=${encodeURIComponent(item.name)}&budget=${item.currency || '$'}${item.startingPrice}`}
+                    className="w-full py-3 rounded-full text-xs font-bold bg-surface-light text-navy-900 hover:bg-electric-500 hover:text-white border border-charcoal-200 transition-all text-center flex items-center justify-center gap-1.5"
+                  >
+                    <span>Request This Asset</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
               ))}
             </div>
           )}

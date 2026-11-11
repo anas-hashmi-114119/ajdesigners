@@ -59,6 +59,7 @@ export default function FloatingWhatsApp() {
 
       <button
         onClick={() => setIsOpen(!isOpen)}
+        data-cursor-text="CHAT"
         className="w-14 h-14 rounded-full bg-gradient-to-tr from-electric-500 to-purple-brand text-white flex items-center justify-center shadow-glow-blue hover:scale-105 active:scale-95 transition-all duration-300 group"
         aria-label="Quick contact"
       >
@@ -71,3 +72,4 @@ export default function FloatingWhatsApp() {
     </div>
   );
 }
+

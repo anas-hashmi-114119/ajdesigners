@@ -3,6 +3,10 @@ import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import ScrollToTop from './components/common/ScrollToTop';
 import FloatingWhatsApp from './components/common/FloatingWhatsApp';
+import SmoothScrollProvider from './components/common/SmoothScrollProvider';
+import CustomCursor from './components/common/CustomCursor';
+import GrainOverlay from './components/common/GrainOverlay';
+import FluidBackgroundCanvas from './components/common/FluidBackgroundCanvas';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 
@@ -33,14 +37,19 @@ import AdminSettings from './pages/admin/AdminSettings';
 // Public Layout Container
 function PublicLayout() {
   return (
-    <div className="flex flex-col min-h-screen bg-surface-light text-charcoal-900 selection:bg-electric-500 selection:text-white">
-      <Navbar />
-      <main className="flex-1">
-        <Outlet />
-      </main>
-      <FloatingWhatsApp />
-      <Footer />
-    </div>
+    <SmoothScrollProvider>
+      <FluidBackgroundCanvas />
+      <GrainOverlay />
+      <CustomCursor />
+      <div className="flex flex-col min-h-screen bg-transparent text-charcoal-900 selection:bg-electric-500 selection:text-white relative">
+        <Navbar />
+        <main className="flex-1">
+          <Outlet />
+        </main>
+        <FloatingWhatsApp />
+        <Footer />
+      </div>
+    </SmoothScrollProvider>
   );
 }
 

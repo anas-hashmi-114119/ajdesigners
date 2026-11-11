@@ -320,16 +320,32 @@ export default function ContactPage() {
                       <label className="block text-xs font-bold uppercase tracking-wider text-charcoal-700 mb-1.5">
                         Business Type <span className="text-red-500">*</span>
                       </label>
-                      <select
-                        name="businessType"
-                        value={formData.businessType}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-surface-light border border-charcoal-200 text-xs focus:outline-none focus:border-electric-500"
-                      >
-                        <option value="B2B">B2B (Startups, SaaS, Consulting, Enterprise)</option>
-                        <option value="B2C">B2C (Fashion, E-commerce, Beauty, Lifestyle)</option>
-                        <option value="Other">Other / Personal Brand</option>
-                      </select>
+                      <div className="grid grid-cols-2 gap-2">
+                        <button
+                          type="button"
+                          onClick={() => setFormData(prev => ({ ...prev, businessType: 'B2B' }))}
+                          className={`p-2.5 rounded-xl border text-left transition-all ${
+                            formData.businessType === 'B2B'
+                              ? 'border-electric-500 bg-electric-500/10 text-navy-900 font-bold shadow-sm'
+                              : 'border-charcoal-200 bg-surface-light text-charcoal-700 hover:border-charcoal-300'
+                          }`}
+                        >
+                          <div className="text-xs font-bold">🏢 B2B Enterprise</div>
+                          <div className="text-[10px] text-charcoal-500">Startups, SaaS, Corporate</div>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setFormData(prev => ({ ...prev, businessType: 'B2C' }))}
+                          className={`p-2.5 rounded-xl border text-left transition-all ${
+                            formData.businessType === 'B2C'
+                              ? 'border-purple-brand bg-purple-brand/10 text-navy-900 font-bold shadow-sm'
+                              : 'border-charcoal-200 bg-surface-light text-charcoal-700 hover:border-charcoal-300'
+                          }`}
+                        >
+                          <div className="text-xs font-bold">🛍️ B2C Consumer</div>
+                          <div className="text-[10px] text-charcoal-500">Fashion, E-commerce, Lifestyle</div>
+                        </button>
+                      </div>
                     </div>
                   </div>
 
@@ -353,18 +369,41 @@ export default function ContactPage() {
 
                     <div>
                       <label className="block text-xs font-bold uppercase tracking-wider text-charcoal-700 mb-1.5">
-                        Estimated Budget <span className="text-red-500">*</span>
+                        Estimated Budget Tier <span className="text-red-500">*</span>
                       </label>
                       <select
                         name="estimatedBudget"
                         value={formData.estimatedBudget}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl bg-surface-light border border-charcoal-200 text-xs focus:outline-none focus:border-electric-500"
+                        className="w-full px-4 py-3 rounded-xl bg-surface-light border border-charcoal-200 text-xs focus:outline-none focus:border-electric-500 font-medium text-navy-900"
                       >
                         {budgetOptions.map((b) => (
                           <option key={b} value={b}>{b}</option>
                         ))}
                       </select>
+                    </div>
+                  </div>
+
+                  {/* Interactive Quick Budget Selector Pills */}
+                  <div>
+                    <label className="block text-[11px] font-bold uppercase tracking-wider text-charcoal-500 mb-2">
+                      Quick Budget Range Select:
+                    </label>
+                    <div className="flex flex-wrap gap-2">
+                      {budgetOptions.map((b) => (
+                        <button
+                          key={b}
+                          type="button"
+                          onClick={() => setFormData(prev => ({ ...prev, estimatedBudget: b }))}
+                          className={`px-3 py-1.5 rounded-full text-xs font-medium border transition-all ${
+                            formData.estimatedBudget === b
+                              ? 'bg-navy-900 text-white border-navy-900 shadow-sm font-bold'
+                              : 'bg-surface-light text-charcoal-700 border-charcoal-200 hover:border-charcoal-400'
+                          }`}
+                        >
+                          {b.split(' ')[0]} {b.split(' ')[1]} {b.split(' ')[2]}
+                        </button>
+                      ))}
                     </div>
                   </div>
 
@@ -390,17 +429,24 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  {/* Project Description */}
+                  {/* Project Description with Character Counter */}
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-charcoal-700 mb-1.5">
-                      Project Description & Business Goals <span className="text-red-500">*</span>
-                    </label>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-charcoal-700">
+                        Project Description & Business Goals <span className="text-red-500">*</span>
+                      </label>
+                      <span className={`text-[11px] font-medium ${
+                        formData.projectDescription.length >= 20 ? 'text-green-600' : 'text-charcoal-400'
+                      }`}>
+                        {formData.projectDescription.length} characters
+                      </span>
+                    </div>
                     <textarea
                       name="projectDescription"
                       rows={4}
                       value={formData.projectDescription}
                       onChange={handleChange}
-                      placeholder="Tell us about your brand, current challenges, timeline, and what you aim to achieve..."
+                      placeholder="Tell us about your brand, current challenges, target audience, and primary growth goals..."
                       className="w-full px-4 py-3 rounded-xl bg-surface-light border border-charcoal-200 text-xs focus:outline-none focus:border-electric-500 leading-relaxed"
                       required
                     />
@@ -411,6 +457,7 @@ export default function ContactPage() {
                     <button
                       type="submit"
                       disabled={loading}
+                      data-cursor-text="SEND"
                       className="w-full py-4 rounded-full text-xs font-bold text-white bg-gradient-to-r from-electric-500 to-purple-brand shadow-glow-blue hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 transition-all flex items-center justify-center gap-2"
                     >
                       {loading ? (

@@ -42,7 +42,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link to="/" data-cursor-text="HOME" className="flex items-center gap-2 group">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-electric-500 to-purple-brand flex items-center justify-center shadow-glow-blue group-hover:scale-105 transition-transform duration-300">
               <span className="font-display font-extrabold text-white text-lg tracking-wider">AJ</span>
             </div>
@@ -79,6 +79,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               to="/contact"
+              data-cursor-text="CONSULT"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-semibold text-white bg-gradient-to-r from-electric-500 via-electric-600 to-purple-brand hover:shadow-glow-blue hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
             >
               <span>Get a Free Consultation</span>

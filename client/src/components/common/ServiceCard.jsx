@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {
   Share2,
@@ -29,22 +29,45 @@ const iconMap = {
 
 export default function ServiceCard({ service, featured = false }) {
   const IconComponent = iconMap[service.iconName] || Sparkles;
+  const cardRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    cardRef.current.style.setProperty('--mouse-x', `${x}px`);
+    cardRef.current.style.setProperty('--mouse-y', `${y}px`);
+  };
 
   return (
     <div
-      className={`group relative rounded-2xl p-7 transition-all duration-300 flex flex-col justify-between ${
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      data-cursor-text="DETAILS"
+      className={`group relative rounded-3xl p-8 transition-all duration-300 flex flex-col justify-between overflow-hidden hover:-translate-y-1.5 ${
         featured
-          ? 'bg-navy-900 text-white border border-white/10 shadow-card-elevated hover:border-electric-500/50'
+          ? 'bg-navy-900 text-white border border-white/10 shadow-card-elevated hover:border-electric-500/60'
           : 'bg-white text-navy-900 border border-charcoal-200/80 shadow-sm hover:shadow-card-elevated hover:border-electric-500/40'
       }`}
     >
-      <div>
+      {/* Dynamic Cursor-Proximity Radial Sheen */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{
+          background: `radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${
+            featured ? 'rgba(59, 130, 246, 0.12)' : 'rgba(59, 130, 246, 0.06)'
+          }, transparent 70%)`,
+        }}
+      />
+
+      <div className="relative z-10">
         <div className="flex items-center justify-between mb-5">
           <div
-            className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-300 ${
+            className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 ${
               featured
                 ? 'bg-white/10 text-electric-400 group-hover:bg-electric-500 group-hover:text-white group-hover:shadow-glow-blue'
-                : 'bg-electric-100 text-electric-600 group-hover:bg-electric-500 group-hover:text-white'
+                : 'bg-electric-100 text-electric-600 group-hover:bg-electric-500 group-hover:text-white group-hover:shadow-glow-blue'
             }`}
           >
             <IconComponent className="w-6 h-6" />
@@ -88,7 +111,7 @@ export default function ServiceCard({ service, featured = false }) {
         )}
       </div>
 
-      <div className="pt-4 border-t border-charcoal-200/20">
+      <div className="pt-4 border-t border-charcoal-200/20 relative z-10">
         <Link
           to={`/services/${service.slug}`}
           className={`inline-flex items-center gap-1.5 text-xs font-bold transition-all group-hover:gap-2.5 ${

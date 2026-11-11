@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import gsap from 'gsap';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -24,6 +25,42 @@ export default function HomePage() {
   const [services, setServices] = useState([]);
   const [featuredProjects, setFeaturedProjects] = useState([]);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [heroTab, setHeroTab] = useState('workflow');
+
+  // 3D Perspective Card Tilt
+  const [cardTilt, setCardTilt] = useState({ x: 0, y: 0, sheenX: 50, sheenY: 50 });
+  const cardRef = useRef(null);
+  const heroHeadingRef = useRef(null);
+
+  const handleMouseMoveCard = (e) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = ((y - centerY) / centerY) * -10;
+    const rotateY = ((x - centerX) / centerX) * 10;
+    const sheenX = (x / rect.width) * 100;
+    const sheenY = (y / rect.height) * 100;
+
+    setCardTilt({ x: rotateX, y: rotateY, sheenX, sheenY });
+  };
+
+  const handleMouseLeaveCard = () => {
+    setCardTilt({ x: 0, y: 0, sheenX: 50, sheenY: 50 });
+  };
+
+  useEffect(() => {
+    if (heroHeadingRef.current) {
+      gsap.fromTo(
+        heroHeadingRef.current,
+        { y: 35, opacity: 0 },
+        { y: 0, opacity: 1, duration: 1.1, ease: 'power4.out', delay: 0.15 }
+      );
+    }
+  }, []);
 
   useEffect(() => {
     // Fetch core services
@@ -107,17 +144,40 @@ export default function HomePage() {
                 <span>Creative Minds. Digital Growth.</span>
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight leading-[1.1]">
-                Creative Digital Solutions That Move Your Business Forward.
+              <h1
+                ref={heroHeadingRef}
+                className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight leading-[1.1]"
+              >
+                Creative Digital Solutions That{' '}
+                <span className="bg-gradient-to-r from-electric-400 via-purple-300 to-pink-400 bg-clip-text text-transparent">
+                  Move Your Business Forward.
+                </span>
               </h1>
 
               <p className="text-base sm:text-lg text-charcoal-300 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                 From social media management and content creation to AI-powered creative solutions and digital marketing, AJDesigners helps businesses build stronger brands and grow their online presence.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+              {/* Value Pillar Chips */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 pt-1 text-xs text-charcoal-300">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-electric-400" />
+                  <span>No Template Clones</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10">
+                  <Sparkles className="w-3.5 h-3.5 text-purple-300" />
+                  <span>Human Artistry + AI Agility</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10">
+                  <Globe2 className="w-3.5 h-3.5 text-blue-400" />
+                  <span>Global Timezone Coverage</span>
+                </span>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-3">
                 <Link
                   to="/contact"
+                  data-cursor-text="CONSULT"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-bold text-white bg-gradient-to-r from-electric-500 via-electric-600 to-purple-brand shadow-glow-blue hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
                 >
                   <span>Get a Free Consultation</span>
@@ -126,6 +186,7 @@ export default function HomePage() {
 
                 <Link
                   to="/services"
+                  data-cursor-text="EXPLORE"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-semibold text-charcoal-200 bg-white/5 border border-white/10 hover:bg-white/10 hover:text-white transition-all duration-200"
                 >
                   <span>Explore Our Services</span>
@@ -134,100 +195,246 @@ export default function HomePage() {
               </div>
 
               {/* International Markets Strip */}
-              <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-4 sm:gap-6 text-xs text-charcoal-400">
-                <span className="font-semibold text-white">Target Markets:</span>
-                <span className="hover:text-electric-400 transition-colors">United States</span>
-                <span>•</span>
-                <span className="hover:text-electric-400 transition-colors">United Kingdom</span>
-                <span>•</span>
-                <span className="hover:text-electric-400 transition-colors">Canada</span>
-                <span>•</span>
-                <span className="hover:text-electric-400 transition-colors">Australia</span>
-                <span>•</span>
-                <span className="hover:text-electric-400 transition-colors">UAE</span>
-                <span>•</span>
-                <span className="hover:text-electric-400 transition-colors">Europe</span>
+              <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-center lg:justify-start gap-2 sm:gap-2.5 text-xs text-charcoal-300">
+                <span className="font-semibold text-white flex items-center gap-1.5 mr-1">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                  </span>
+                  <span>Serving Global Markets:</span>
+                </span>
+                <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-charcoal-200 hover:text-white transition-colors">🇺🇸 United States</span>
+                <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-charcoal-200 hover:text-white transition-colors">🇬🇧 United Kingdom</span>
+                <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-charcoal-200 hover:text-white transition-colors">🇨🇦 Canada</span>
+                <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-charcoal-200 hover:text-white transition-colors">🇦🇺 Australia</span>
+                <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-charcoal-200 hover:text-white transition-colors">🇦🇪 UAE</span>
+                <span className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-charcoal-200 hover:text-white transition-colors">🇪🇺 Europe</span>
               </div>
             </div>
 
-            {/* Right Visual Composition */}
+            {/* Right Visual Composition with Interactive Tabs & 3D Spatial Tilt */}
             <div className="lg:col-span-5 relative">
               <div className="relative mx-auto max-w-md lg:max-w-none">
-                {/* Main Card Mockup */}
-                <div className="bg-navy-800/90 rounded-3xl p-6 border border-white/10 shadow-2xl backdrop-blur-xl relative z-20">
+                {/* 3D Spatial Tilt Card Mockup */}
+                <div
+                  ref={cardRef}
+                  onMouseMove={handleMouseMoveCard}
+                  onMouseLeave={handleMouseLeaveCard}
+                  style={{
+                    transform: `perspective(1000px) rotateX(${cardTilt.x}deg) rotateY(${cardTilt.y}deg)`,
+                    transition: 'transform 0.15s ease-out',
+                  }}
+                  className="bg-navy-800/90 rounded-3xl p-6 border border-white/10 shadow-2xl backdrop-blur-xl relative z-20 overflow-hidden group"
+                >
+                  {/* Dynamic Specular Sheen Reflection tracking cursor */}
+                  <div
+                    className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      background: `radial-gradient(circle at ${cardTilt.sheenX}% ${cardTilt.sheenY}%, rgba(255,255,255,0.12) 0%, transparent 65%)`,
+                    }}
+                  />
                   <div className="flex items-center justify-between pb-4 border-b border-white/10 mb-5">
                     <div className="flex items-center gap-2">
                       <div className="w-3 h-3 rounded-full bg-red-500/80" />
                       <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                       <div className="w-3 h-3 rounded-full bg-green-500/80" />
                     </div>
-                    <span className="text-[11px] font-mono text-charcoal-400">ajdesigners.workspace</span>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div className="p-4 rounded-2xl bg-navy-900/80 border border-white/5 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-electric-500/20 text-electric-400 flex items-center justify-center">
-                          <Sparkles className="w-5 h-5" />
-                        </div>
-                        <div>
-                          <div className="text-xs font-bold text-white">Monthly Content Strategy</div>
-                          <div className="text-[10px] text-charcoal-400">12 Designs + 8 Short-Form Videos</div>
-                        </div>
-                      </div>
-                      <span className="text-[10px] font-semibold text-green-400 bg-green-500/10 px-2 py-0.5 rounded-full">
-                        Approved
-                      </span>
-                    </div>
-
-                    <div className="p-4 rounded-2xl bg-navy-900/80 border border-white/5 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-purple-brand/20 text-purple-brand flex items-center justify-center">
-                          <Cpu className="w-5 h-5" />
-                        </div>
-                        <div>
-                          <div className="text-xs font-bold text-white">AI Creative Production</div>
-                          <div className="text-[10px] text-charcoal-400">Generative Lifestyle Staging</div>
-                        </div>
-                      </div>
-                      <span className="text-[10px] font-semibold text-purple-300 bg-purple-500/10 px-2 py-0.5 rounded-full">
-                        Curated
-                      </span>
-                    </div>
-
-                    <div className="p-4 rounded-2xl bg-navy-900/80 border border-white/5 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center">
-                          <Globe2 className="w-5 h-5" />
-                        </div>
-                        <div>
-                          <div className="text-xs font-bold text-white">B2B Multi-Platform Reach</div>
-                          <div className="text-[10px] text-charcoal-400">LinkedIn + Meta Ads Optimization</div>
-                        </div>
-                      </div>
-                      <span className="text-[10px] font-semibold text-electric-300 bg-electric-500/10 px-2 py-0.5 rounded-full">
-                        Active
-                      </span>
+                    {/* Interactive Tab Switcher */}
+                    <div className="flex items-center gap-1 bg-navy-900/90 p-1 rounded-xl border border-white/5 text-[10px]">
+                      <button
+                        onClick={() => setHeroTab('workflow')}
+                        className={`px-2.5 py-1 rounded-lg font-medium transition-all ${
+                          heroTab === 'workflow' ? 'bg-electric-500 text-white shadow-sm' : 'text-charcoal-400 hover:text-white'
+                        }`}
+                      >
+                        Workflow
+                      </button>
+                      <button
+                        onClick={() => setHeroTab('ai')}
+                        className={`px-2.5 py-1 rounded-lg font-medium transition-all ${
+                          heroTab === 'ai' ? 'bg-purple-brand text-white shadow-sm' : 'text-charcoal-400 hover:text-white'
+                        }`}
+                      >
+                        AI Engine
+                      </button>
+                      <button
+                        onClick={() => setHeroTab('b2b')}
+                        className={`px-2.5 py-1 rounded-lg font-medium transition-all ${
+                          heroTab === 'b2b' ? 'bg-blue-600 text-white shadow-sm' : 'text-charcoal-400 hover:text-white'
+                        }`}
+                      >
+                        Growth
+                      </button>
                     </div>
                   </div>
 
-                  <div className="mt-6 pt-4 border-t border-white/10 flex items-center justify-between text-[11px] text-charcoal-400">
-                    <span>100% Human Reviewed</span>
-                    <span className="text-electric-400 font-semibold">Remote Collaboration Ready</span>
+                  {heroTab === 'workflow' && (
+                    <div className="space-y-3.5 animate-fadeIn">
+                      <div className="p-3.5 rounded-2xl bg-navy-900/80 border border-white/5 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-electric-500/20 text-electric-400 flex items-center justify-center shrink-0">
+                            <Sparkles className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white">Monthly Content Strategy</div>
+                            <div className="text-[10px] text-charcoal-400">12 High-Converting Posts + 8 Reels</div>
+                          </div>
+                        </div>
+                        <span className="text-[10px] font-semibold text-green-400 bg-green-500/10 px-2 py-0.5 rounded-full">
+                          Approved
+                        </span>
+                      </div>
+
+                      <div className="p-3.5 rounded-2xl bg-navy-900/80 border border-white/5 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-purple-brand/20 text-purple-brand flex items-center justify-center shrink-0">
+                            <Cpu className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white">Visual Identity Refresh</div>
+                            <div className="text-[10px] text-charcoal-400">Typography, Palette & Guidelines</div>
+                          </div>
+                        </div>
+                        <span className="text-[10px] font-semibold text-purple-300 bg-purple-500/10 px-2 py-0.5 rounded-full">
+                          Published
+                        </span>
+                      </div>
+
+                      <div className="p-3.5 rounded-2xl bg-navy-900/80 border border-white/5 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                            <Globe2 className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white">Multi-Channel Distribution</div>
+                            <div className="text-[10px] text-charcoal-400">Instagram, LinkedIn, TikTok Sync</div>
+                          </div>
+                        </div>
+                        <span className="text-[10px] font-semibold text-electric-300 bg-electric-500/10 px-2 py-0.5 rounded-full">
+                          Scheduled
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  {heroTab === 'ai' && (
+                    <div className="space-y-3.5 animate-fadeIn">
+                      <div className="p-3.5 rounded-2xl bg-navy-900/80 border border-white/5 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-purple-brand/20 text-purple-brand flex items-center justify-center shrink-0">
+                            <Sparkles className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white">Photorealistic Product Staging</div>
+                            <div className="text-[10px] text-charcoal-400">Generative 3D studio background rendering</div>
+                          </div>
+                        </div>
+                        <span className="text-[10px] font-semibold text-purple-300 bg-purple-500/10 px-2 py-0.5 rounded-full">
+                          Rendered
+                        </span>
+                      </div>
+
+                      <div className="p-3.5 rounded-2xl bg-navy-900/80 border border-white/5 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-electric-500/20 text-electric-400 flex items-center justify-center shrink-0">
+                            <Cpu className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white">Human Art Direction Audit</div>
+                            <div className="text-[10px] text-charcoal-400">Brand compliance & typography review</div>
+                          </div>
+                        </div>
+                        <span className="text-[10px] font-semibold text-green-400 bg-green-500/10 px-2 py-0.5 rounded-full">
+                          Verified
+                        </span>
+                      </div>
+
+                      <div className="p-3.5 rounded-2xl bg-navy-900/80 border border-white/5 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-pink-500/20 text-pink-400 flex items-center justify-center shrink-0">
+                            <Layers className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white">Multi-Ratio Asset Export</div>
+                            <div className="text-[10px] text-charcoal-400">9:16 Reels, 1:1 Feed & 16:9 Landscape</div>
+                          </div>
+                        </div>
+                        <span className="text-[10px] font-semibold text-pink-300 bg-pink-500/10 px-2 py-0.5 rounded-full">
+                          Ready
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  {heroTab === 'b2b' && (
+                    <div className="space-y-3.5 animate-fadeIn">
+                      <div className="p-3.5 rounded-2xl bg-navy-900/80 border border-white/5 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-400 flex items-center justify-center shrink-0">
+                            <Building2 className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white">Executive LinkedIn Ghostwriting</div>
+                            <div className="text-[10px] text-charcoal-400">8 Founder thought leadership articles</div>
+                          </div>
+                        </div>
+                        <span className="text-[10px] font-semibold text-blue-300 bg-blue-500/10 px-2 py-0.5 rounded-full">
+                          Queued
+                        </span>
+                      </div>
+
+                      <div className="p-3.5 rounded-2xl bg-navy-900/80 border border-white/5 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                            <ShieldCheck className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white">Lead Generation Magnet</div>
+                            <div className="text-[10px] text-charcoal-400">Custom B2B benchmark report PDF</div>
+                          </div>
+                        </div>
+                        <span className="text-[10px] font-semibold text-emerald-300 bg-emerald-500/10 px-2 py-0.5 rounded-full">
+                          Live
+                        </span>
+                      </div>
+
+                      <div className="p-3.5 rounded-2xl bg-navy-900/80 border border-white/5 flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-xl bg-purple-brand/20 text-purple-brand flex items-center justify-center shrink-0">
+                            <Users2 className="w-5 h-5" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-bold text-white">High-Intent Inbound Pipeline</div>
+                            <div className="text-[10px] text-charcoal-400">Qualified commercial inquiries</div>
+                          </div>
+                        </div>
+                        <span className="text-[10px] font-semibold text-purple-300 bg-purple-500/10 px-2 py-0.5 rounded-full">
+                          Converting
+                        </span>
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between text-[11px] text-charcoal-400">
+                    <span className="flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-400"></span>
+                      <span>100% Quality Controlled</span>
+                    </span>
+                    <span className="text-electric-400 font-semibold">Led by Yashwa & Aroosa</span>
                   </div>
                 </div>
 
                 {/* Floating Decorative Badges */}
-                <div className="absolute -top-6 -right-6 bg-gradient-to-tr from-electric-500 to-purple-brand p-4 rounded-2xl shadow-glow-blue z-30 hidden sm:block animate-pulse">
+                <div className="absolute -top-5 -right-5 bg-gradient-to-tr from-electric-500 to-purple-brand p-4 rounded-2xl shadow-glow-blue z-30 hidden sm:block">
                   <div className="text-xs font-extrabold text-white">Strategic Growth</div>
-                  <div className="text-[10px] text-white/80">Tailored Campaigns</div>
+                  <div className="text-[10px] text-white/80">Tailored Roadmaps</div>
                 </div>
 
-                <div className="absolute -bottom-6 -left-6 bg-navy-800 border border-white/10 p-4 rounded-2xl shadow-xl z-30 hidden sm:block backdrop-blur-md">
+                <div className="absolute -bottom-5 -left-5 bg-navy-800 border border-white/10 p-4 rounded-2xl shadow-xl z-30 hidden sm:block backdrop-blur-md">
                   <div className="flex items-center gap-2">
                     <ShieldCheck className="w-5 h-5 text-electric-400" />
                     <div>
-                      <div className="text-xs font-bold text-white">B2B & B2C Ready</div>
+                      <div className="text-xs font-bold text-white">B2B & B2C Certified</div>
                       <div className="text-[10px] text-charcoal-400">International Delivery</div>
                     </div>
                   </div>

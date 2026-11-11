@@ -80,6 +80,7 @@ export default function PricingCard({ pkg }) {
       <div>
         <Link
           to={`/contact?plan=${pkg.tierKey}&service=${encodeURIComponent(pkg.planTitle)}`}
+          data-cursor-text="SELECT"
           className={`w-full py-3.5 px-6 rounded-full text-xs font-bold inline-flex items-center justify-center gap-2 transition-all duration-200 ${
             isRecommended
               ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue hover:scale-[1.02] active:scale-[0.98]'

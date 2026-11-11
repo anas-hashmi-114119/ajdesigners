@@ -51,3 +51,4 @@ export default function SmoothScrollProvider({ children }) {
 
   return <div className="smooth-scroll-wrapper">{children}</div>;
 }
+

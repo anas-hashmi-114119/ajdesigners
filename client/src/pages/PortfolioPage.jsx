@@ -13,12 +13,14 @@ import {
 import { portfolioAPI } from '../services/api';
 import ProjectCard from '../components/common/ProjectCard';
 import CTASection from '../components/common/CTASection';
+import { MacBookMockup, IPhoneMockup, BillboardMockup } from '../components/common/DeviceMockups';
 
 export default function PortfolioPage() {
   const [projects, setProjects] = useState([]);
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedProject, setSelectedProject] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [mockupTab, setMockupTab] = useState('macbook');
 
   const categories = [
     'All',
@@ -71,7 +73,81 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* 2. CATEGORY FILTER TABS & PORTFOLIO GRID */}
+      {/* 2. 3D DEVICE FRAME STUDIO */}
+      <section className="py-16 bg-navy-950 text-white border-b border-white/10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-electric-400 text-xs font-semibold mb-3">
+            <Sparkles className="w-3.5 h-3.5" />
+            <span>3D Interactive Mockup Studio</span>
+          </div>
+          <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-white mb-2">
+            Staged in Realistic 3D Device Frames
+          </h2>
+          <p className="text-xs sm:text-sm text-charcoal-400 max-w-xl mx-auto mb-8">
+            Experience our client campaigns placed inside realistic MacBook Pro, iPhone 16 Pro, and Urban Outdoor Billboard environments.
+          </p>
+
+          {/* Interactive Frame Switcher */}
+          <div className="inline-flex items-center p-1.5 rounded-full bg-navy-900 border border-white/10 mb-10 shadow-2xl">
+            <button
+              type="button"
+              onClick={() => setMockupTab('macbook')}
+              className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all ${
+                mockupTab === 'macbook' ? 'bg-electric-500 text-white shadow-glow-blue' : 'text-charcoal-400 hover:text-white'
+              }`}
+            >
+              💻 MacBook Pro (SaaS & B2B)
+            </button>
+            <button
+              type="button"
+              onClick={() => setMockupTab('iphone')}
+              className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all ${
+                mockupTab === 'iphone' ? 'bg-purple-brand text-white shadow-glow-purple' : 'text-charcoal-400 hover:text-white'
+              }`}
+            >
+              📱 iPhone 16 Pro (Viral Reels)
+            </button>
+            <button
+              type="button"
+              onClick={() => setMockupTab('billboard')}
+              className={`px-5 py-2.5 rounded-full text-xs font-bold transition-all ${
+                mockupTab === 'billboard' ? 'bg-blue-600 text-white shadow-sm' : 'text-charcoal-400 hover:text-white'
+              }`}
+            >
+              🏙️ Urban Billboard (Branding)
+            </button>
+          </div>
+
+          {/* Active 3D Mockup Display */}
+          <div className="max-w-3xl mx-auto animate-fadeIn">
+            {mockupTab === 'macbook' && (
+              <MacBookMockup
+                imageUrl="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80"
+                title="CloudScale SaaS Growth Platform"
+                badge="Enterprise Marketing"
+              />
+            )}
+            {mockupTab === 'iphone' && (
+              <div className="flex justify-center">
+                <IPhoneMockup
+                  imageUrl="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80"
+                  brandName="@vogue.haute"
+                  caption="Autumn Haute Couture collection launch with kinetic motion subtitles."
+                />
+              </div>
+            )}
+            {mockupTab === 'billboard' && (
+              <BillboardMockup
+                imageUrl="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1200&q=80"
+                brand="AURORA BOTANICALS"
+                headline="Redefining Organic Radiance Worldwide"
+              />
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. CATEGORY FILTER TABS & PORTFOLIO GRID */}
       <section className="py-20 bg-surface-light min-h-[50vh]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Filter Pills */}

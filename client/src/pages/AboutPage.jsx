@@ -193,19 +193,18 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
             {/* Founder 1: Yashwa */}
-            <div className="bg-surface-light rounded-3xl p-8 border border-charcoal-200/80 shadow-sm flex flex-col justify-between group hover:border-electric-500/40 transition-all">
+            <div className="bg-surface-light rounded-3xl p-8 border border-charcoal-200/80 shadow-sm flex flex-col justify-between group hover:border-electric-500/40 hover:shadow-card-elevated transition-all">
               <div>
-                {/* Photo Placeholder */}
-                <div className="aspect-[4/3] rounded-2xl bg-navy-800 border border-charcoal-200 overflow-hidden relative mb-6 flex items-center justify-center text-charcoal-400">
-                  <div className="text-center p-6">
-                    <div className="w-16 h-16 rounded-full bg-navy-700 text-electric-400 mx-auto flex items-center justify-center mb-3">
-                      <UserCheck className="w-8 h-8" />
-                    </div>
-                    <div className="text-sm font-semibold text-white">Yashwa</div>
-                    <div className="text-xs text-charcoal-400">Co-Founder, AJDesigners</div>
-                    <div className="text-[11px] text-charcoal-500 mt-1 italic">
-                      [Official founder profile & portrait placeholder]
-                    </div>
+                {/* Photo */}
+                <div className="aspect-[4/3] rounded-2xl overflow-hidden relative mb-6 shadow-md border border-charcoal-200">
+                  <img
+                    src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"
+                    alt="Yashwa - Co-Founder"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-3 text-white text-xs font-bold">
+                    Yashwa • Co-Founder
                   </div>
                 </div>
 
@@ -230,19 +229,18 @@ export default function AboutPage() {
             </div>
 
             {/* Founder 2: Aroosa */}
-            <div className="bg-surface-light rounded-3xl p-8 border border-charcoal-200/80 shadow-sm flex flex-col justify-between group hover:border-purple-brand/40 transition-all">
+            <div className="bg-surface-light rounded-3xl p-8 border border-charcoal-200/80 shadow-sm flex flex-col justify-between group hover:border-purple-brand/40 hover:shadow-card-elevated transition-all">
               <div>
-                {/* Photo Placeholder */}
-                <div className="aspect-[4/3] rounded-2xl bg-navy-800 border border-charcoal-200 overflow-hidden relative mb-6 flex items-center justify-center text-charcoal-400">
-                  <div className="text-center p-6">
-                    <div className="w-16 h-16 rounded-full bg-navy-700 text-purple-brand mx-auto flex items-center justify-center mb-3">
-                      <UserCheck className="w-8 h-8" />
-                    </div>
-                    <div className="text-sm font-semibold text-white">Aroosa</div>
-                    <div className="text-xs text-charcoal-400">Co-Founder, AJDesigners</div>
-                    <div className="text-[11px] text-charcoal-500 mt-1 italic">
-                      [Official founder profile & portrait placeholder]
-                    </div>
+                {/* Photo */}
+                <div className="aspect-[4/3] rounded-2xl overflow-hidden relative mb-6 shadow-md border border-charcoal-200">
+                  <img
+                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80"
+                    alt="Aroosa - Co-Founder"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent" />
+                  <div className="absolute bottom-3 left-3 text-white text-xs font-bold">
+                    Aroosa • Co-Founder
                   </div>
                 </div>
 

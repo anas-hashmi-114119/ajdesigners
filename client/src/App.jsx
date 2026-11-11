@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import ScrollToTop from './components/common/ScrollToTop';
+import FloatingWhatsApp from './components/common/FloatingWhatsApp';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 
@@ -37,6 +38,7 @@ function PublicLayout() {
       <main className="flex-1">
         <Outlet />
       </main>
+      <FloatingWhatsApp />
       <Footer />
     </div>
   );

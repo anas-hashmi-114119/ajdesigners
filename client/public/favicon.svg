@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <defs>
+    <linearGradient id="ajGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#7C3AED" />
+    </linearGradient>
+  </defs>
+  <rect width="100" height="100" rx="24" fill="#101828" />
+  <path d="M26 72L44 26H56L74 72H62L57.5 60H42.5L38 72H26ZM46 51H54L50 39.5L46 51Z" fill="url(#ajGrad)" />
+  <circle cx="74" cy="30" r="6" fill="#7C3AED" />
+</svg>

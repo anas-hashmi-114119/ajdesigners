@@ -282,161 +282,154 @@ export default function IndustriesPage() {
   const CurrentIcon = current.icon;
 
   return (
-    <div className="pt-24">
+    <div className="pt-24 bg-[#070709] min-h-screen text-gray-100">
       {/* 1. HERO SECTION */}
-      <section className="py-20 lg:py-28 bg-navy-900 text-white relative overflow-hidden">
+      <section className="py-20 lg:py-28 relative overflow-hidden">
         <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-electric-500/15 rounded-full blur-[140px] pointer-events-none" />
         <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-purple-brand/15 rounded-full blur-[140px] pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-electric-400 text-xs font-semibold mb-6">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-electric-400 text-xs font-semibold mb-6">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Tailored Industry Solutions</span>
+            <span>Tailored Industry Blueprints</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight leading-tight">
-            Specialized Digital Strategies for Your Industry.
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight leading-tight text-white">
+            Specialized Digital Strategies for <span className="gradient-text">Your Industry.</span>
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg text-charcoal-300 leading-relaxed">
-            Every market sector possesses distinct buying journeys, customer objections, and algorithmic dynamics. Explore how AJDesigners configures marketing and creative solutions for 12 key industries.
+          <p className="mt-6 text-base sm:text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto">
+            Every market sector possesses distinct buying journeys, customer objections, and algorithmic dynamics. Explore how AJDesigners configures marketing and creative solutions for 12 key global industries.
           </p>
         </div>
       </section>
 
       {/* 2. INDUSTRY SELECTOR TABS & DETAIL VIEW */}
-      <section className="py-20 bg-surface-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Horizontal Scrollable Tabs */}
-          <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none">
-            {industries.map((ind) => {
-              const Icon = ind.icon;
-              const isSelected = selectedIndustry === ind.id;
-              return (
-                <button
-                  key={ind.id}
-                  onClick={() => setSelectedIndustry(ind.id)}
-                  className={`px-4 py-2.5 rounded-full text-xs font-bold whitespace-nowrap flex items-center gap-2 transition-all shrink-0 ${
-                    isSelected
-                      ? 'bg-navy-900 text-white shadow-md border border-electric-500'
-                      : 'bg-white text-charcoal-700 hover:text-navy-900 hover:bg-charcoal-100 border border-charcoal-200'
-                  }`}
-                >
-                  <Icon className={`w-3.5 h-3.5 ${isSelected ? 'text-electric-400' : 'text-charcoal-500'}`} />
-                  <span>{ind.name}</span>
-                </button>
-              );
-            })}
-          </div>
+      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Horizontal Scrollable Tabs */}
+        <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-10 scrollbar-none">
+          {industries.map((ind) => {
+            const Icon = ind.icon;
+            const isSelected = selectedIndustry === ind.id;
+            return (
+              <button
+                key={ind.id}
+                onClick={() => setSelectedIndustry(ind.id)}
+                className={`px-4 py-2.5 rounded-full text-xs font-bold whitespace-nowrap flex items-center gap-2 transition-all shrink-0 ${
+                  isSelected
+                    ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue border border-white/20'
+                    : 'bg-[#111116] text-gray-400 hover:text-white hover:bg-white/[0.06] border border-white/[0.08]'
+                }`}
+              >
+                <Icon className={`w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-gray-400'}`} />
+                <span>{ind.name}</span>
+              </button>
+            );
+          })}
+        </div>
 
-          {/* Active Industry Showcase Card */}
-          <div className="bg-white rounded-3xl p-8 sm:p-12 border border-charcoal-200/80 shadow-card-elevated">
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-charcoal-200/80 mb-8">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-electric-500 to-purple-brand text-white flex items-center justify-center shadow-glow-blue shrink-0">
-                  <CurrentIcon className="w-8 h-8" />
-                </div>
-                <div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-electric-600">
-                    Industry Blueprint
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-navy-900">
-                    {current.name}
-                  </h2>
-                  <p className="text-xs sm:text-sm text-charcoal-600 mt-1">
-                    {current.tagline}
-                  </p>
-                </div>
+        {/* Active Industry Showcase Card */}
+        <div className="bg-[#111116] rounded-3xl p-8 sm:p-12 border border-white/[0.08] shadow-2xl relative overflow-hidden backdrop-blur-xl">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-white/[0.08] mb-8">
+            <div className="flex items-center gap-4">
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-electric-500 to-purple-brand text-white flex items-center justify-center shadow-glow-blue shrink-0">
+                <CurrentIcon className="w-8 h-8" />
               </div>
-
               <div>
-                <Link
-                  to={`/contact?industry=${encodeURIComponent(current.name)}`}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold text-white bg-navy-900 hover:bg-electric-600 transition-colors shadow-sm"
-                >
-                  <span>Book {current.name} Consultation</span>
-                  <ArrowUpRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Overview */}
-            <div className="mb-10">
-              <h3 className="text-base font-display font-bold text-navy-900 mb-2">
-                Industry Context & Dynamics:
-              </h3>
-              <p className="text-xs sm:text-sm text-charcoal-700 leading-relaxed max-w-4xl">
-                {current.overview}
-              </p>
-            </div>
-
-            {/* Two Column Breakdown: Challenges vs Solutions */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
-              {/* Challenges */}
-              <div className="p-6 rounded-2xl bg-surface-light border border-charcoal-200/80">
-                <div className="flex items-center gap-2 text-red-600 font-bold text-xs uppercase tracking-wider mb-4">
-                  <AlertCircle className="w-4 h-4" />
-                  <span>Common Marketing Challenges</span>
-                </div>
-                <ul className="space-y-3">
-                  {current.challenges.map((ch, idx) => (
-                    <li key={idx} className="flex items-start gap-2.5 text-xs text-charcoal-700">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-500 mt-1.5 shrink-0" />
-                      <span>{ch}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Potential Solutions */}
-              <div className="p-6 rounded-2xl bg-electric-100/50 border border-electric-200">
-                <div className="flex items-center gap-2 text-electric-700 font-bold text-xs uppercase tracking-wider mb-4">
-                  <CheckCircle2 className="w-4 h-4" />
-                  <span>AJDesigners Growth Architecture</span>
-                </div>
-                <p className="text-xs text-charcoal-800 leading-relaxed">
-                  {current.solution}
+                <span className="text-xs font-bold uppercase tracking-wider text-electric-400">
+                  Industry Blueprint
+                </span>
+                <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-white">
+                  {current.name}
+                </h2>
+                <p className="text-xs sm:text-sm text-gray-400 mt-1">
+                  {current.tagline}
                 </p>
               </div>
             </div>
 
-            {/* Recommended Services Strip */}
-            <div className="pt-6 border-t border-charcoal-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-charcoal-500 block mb-2">
-                  Recommended Core Services for {current.name}:
-                </span>
-                <div className="flex flex-wrap gap-2">
-                  {current.relevantServices.map((srv, idx) => (
-                    <span
-                      key={idx}
-                      className="text-xs font-semibold px-3 py-1 rounded-lg bg-surface-light text-navy-900 border border-charcoal-200"
-                    >
-                      {srv}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <Link
-                to={`/contact?industry=${encodeURIComponent(current.name)}`}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-electric-600 hover:text-electric-700 shrink-0"
+            <div>
+              <a
+                href="#booking-calendar"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold text-white bg-gradient-to-r from-electric-500 to-purple-brand hover:scale-[1.02] transition-transform shadow-glow-blue"
               >
-                <span>Request Customized Strategy</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+                <span>Book {current.name} Call</span>
+                <ArrowUpRight className="w-4 h-4" />
+              </a>
             </div>
+          </div>
+
+          {/* Overview */}
+          <div className="mb-10">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-gray-300 mb-2 font-mono">
+              Market Context & Consumer Psychology:
+            </h3>
+            <p className="text-sm text-gray-300 leading-relaxed max-w-4xl">
+              {current.overview}
+            </p>
+          </div>
+
+          {/* Two Column Breakdown: Challenges vs Solutions */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+            {/* Challenges */}
+            <div className="p-6 rounded-2xl bg-[#181820] border border-white/[0.06]">
+              <div className="flex items-center gap-2 text-rose-400 font-bold text-xs uppercase tracking-wider mb-4">
+                <AlertCircle className="w-4 h-4" />
+                <span>Common Industry Friction Points</span>
+              </div>
+              <ul className="space-y-3">
+                {current.challenges.map((ch, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5 text-xs text-gray-300">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-400 mt-1.5 shrink-0" />
+                    <span>{ch}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Potential Solutions */}
+            <div className="p-6 rounded-2xl bg-electric-500/10 border border-electric-500/20">
+              <div className="flex items-center gap-2 text-electric-400 font-bold text-xs uppercase tracking-wider mb-4">
+                <CheckCircle2 className="w-4 h-4" />
+                <span>AJDesigners Growth Architecture</span>
+              </div>
+              <p className="text-xs sm:text-sm text-gray-200 leading-relaxed">
+                {current.solution}
+              </p>
+            </div>
+          </div>
+
+          {/* Recommended Services Strip */}
+          <div className="pt-6 border-t border-white/[0.08] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400 block mb-2 font-mono">
+                Recommended Core Services for {current.name}:
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {current.relevantServices.map((srv, idx) => (
+                  <span
+                    key={idx}
+                    className="text-xs font-medium px-3 py-1 rounded-lg bg-[#181820] text-gray-200 border border-white/[0.08]"
+                  >
+                    {srv}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <a
+              href="#booking-calendar"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-electric-400 hover:text-white transition-colors shrink-0"
+            >
+              <span>Schedule Strategy Call</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
       </section>
 
-      {/* 3. CTA SECTION */}
-      <CTASection
-        heading="Tailored Marketing for Your Business Sector"
-        subheading="Discuss your specific operational model and customer profile with our team. We formulate actionable digital roadmaps built around your exact industry reality."
-        buttonText="Discuss Your Industry Project"
-        buttonLink="/contact"
-      />
+      {/* 3. EMBEDDED BOOKING CALENDAR */}
+      <BookingCalendarWidget />
     </div>
   );
 }

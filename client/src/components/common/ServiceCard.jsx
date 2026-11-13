@@ -12,6 +12,7 @@ import {
   Search,
   ArrowRight,
   Sparkles,
+  CheckCircle2,
 } from 'lucide-react';
 
 const iconMap = {
@@ -44,83 +45,59 @@ export default function ServiceCard({ service, featured = false }) {
     <div
       ref={cardRef}
       onMouseMove={handleMouseMove}
-      data-cursor-text="DETAILS"
-      className={`group relative rounded-3xl p-8 transition-all duration-300 flex flex-col justify-between overflow-hidden hover:-translate-y-1.5 ${
-        featured
-          ? 'bg-navy-900 text-white border border-white/10 shadow-card-elevated hover:border-electric-500/60'
-          : 'bg-white text-navy-900 border border-charcoal-200/80 shadow-sm hover:shadow-card-elevated hover:border-electric-500/40'
-      }`}
+      data-cursor-text="EXPLORE"
+      className="group relative rounded-3xl p-8 bg-[#111116] border border-white/[0.08] hover:border-electric-500/50 hover:shadow-glow-blue transition-all duration-300 flex flex-col justify-between overflow-hidden hover:-translate-y-1.5"
     >
       {/* Dynamic Cursor-Proximity Radial Sheen */}
       <div
         className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{
-          background: `radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${
-            featured ? 'rgba(59, 130, 246, 0.12)' : 'rgba(59, 130, 246, 0.06)'
-          }, transparent 70%)`,
+          background: `radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.12), transparent 70%)`,
         }}
       />
 
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-5">
-          <div
-            className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 ${
-              featured
-                ? 'bg-white/10 text-electric-400 group-hover:bg-electric-500 group-hover:text-white group-hover:shadow-glow-blue'
-                : 'bg-electric-100 text-electric-600 group-hover:bg-electric-500 group-hover:text-white group-hover:shadow-glow-blue'
-            }`}
-          >
+          <div className="w-12 h-12 rounded-2xl bg-electric-500/15 border border-electric-400/20 text-electric-400 flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-electric-500 group-hover:text-white group-hover:shadow-glow-blue">
             <IconComponent className="w-6 h-6" />
           </div>
-          <span
-            className={`text-xs font-mono font-bold px-2.5 py-1 rounded-md ${
-              featured ? 'bg-white/5 text-charcoal-400' : 'bg-charcoal-100 text-charcoal-500'
-            }`}
-          >
+          <span className="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-white/[0.04] text-gray-400 border border-white/[0.06]">
             {service.number || '01'}
           </span>
         </div>
 
-        <h3
-          className={`text-xl font-display font-bold tracking-tight mb-2 group-hover:text-electric-500 transition-colors ${
-            featured ? 'text-white' : 'text-navy-900'
-          }`}
-        >
+        <h3 className="text-xl font-display font-bold text-white group-hover:text-electric-300 transition-colors">
           {service.title}
         </h3>
 
-        <p
-          className={`text-xs leading-relaxed mb-5 ${
-            featured ? 'text-charcoal-300' : 'text-charcoal-700'
-          }`}
-        >
+        <p className="mt-3 text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-3">
           {service.shortDescription}
         </p>
 
         {service.deliverables && service.deliverables.length > 0 && (
-          <div className="space-y-1.5 mb-6">
+          <div className="mt-6 pt-5 border-t border-white/[0.06] space-y-2">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-gray-500 block">
+              Core Deliverables
+            </span>
             {service.deliverables.slice(0, 3).map((item, idx) => (
-              <div key={idx} className="flex items-start gap-2 text-xs">
-                <span className="text-electric-500 font-bold mt-0.5">•</span>
-                <span className={featured ? 'text-charcoal-400' : 'text-charcoal-600'}>
-                  {item}
-                </span>
+              <div key={idx} className="flex items-center gap-2 text-xs text-gray-300">
+                <CheckCircle2 className="w-3.5 h-3.5 text-electric-400 shrink-0" />
+                <span className="truncate">{item}</span>
               </div>
             ))}
           </div>
         )}
       </div>
 
-      <div className="pt-4 border-t border-charcoal-200/20 relative z-10">
+      <div className="mt-8 pt-5 border-t border-white/[0.08] flex items-center justify-between relative z-10">
         <Link
           to={`/services/${service.slug}`}
-          className={`inline-flex items-center gap-1.5 text-xs font-bold transition-all group-hover:gap-2.5 ${
-            featured ? 'text-electric-400 hover:text-electric-300' : 'text-electric-600 hover:text-electric-700'
-          }`}
+          className="text-xs font-bold text-electric-400 group-hover:text-white inline-flex items-center gap-1.5 transition-colors"
         >
-          <span>Explore Service Details</span>
-          <ArrowRight className="w-3.5 h-3.5" />
+          <span>Explore Discipline</span>
+          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
         </Link>
+        <span className="text-[10px] font-mono text-gray-500">48h Sprints</span>
       </div>
     </div>
   );

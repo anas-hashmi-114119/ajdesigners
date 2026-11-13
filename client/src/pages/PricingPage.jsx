@@ -1,356 +1,445 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useMemo } from 'react';
 import {
   Sparkles,
   Check,
-  X,
+  ShieldCheck,
+  Zap,
+  ArrowRight,
+  Sliders,
+  CheckCircle2,
   HelpCircle,
   ChevronDown,
   ChevronUp,
-  ArrowRight,
-  ArrowUpRight,
-  ShieldCheck,
-  Layers,
 } from 'lucide-react';
-import { pricingAPI } from '../services/api';
-import PricingCard from '../components/common/PricingCard';
-import CTASection from '../components/common/CTASection';
+import BookingCalendarWidget from '../components/common/BookingCalendarWidget';
 
 export default function PricingPage() {
-  const [packages, setPackages] = useState([]);
-  const [standalone, setStandalone] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // Plan Calculator State
+  const [assetVolume, setAssetVolume] = useState(30);
+  const [includeAIUGC, setIncludeAIUGC] = useState(true);
+  const [includeMultiPlatform, setIncludeMultiPlatform] = useState(true);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
-  const [pricingView, setPricingView] = useState('retainers');
 
-  useEffect(() => {
-    pricingAPI
-      .getPricing()
-      .then((res) => {
-        if (res.data.success) {
-          setPackages(res.data.packages);
-          setStandalone(res.data.standalone);
-        }
-      })
-      .catch((err) => console.error('Error fetching pricing:', err))
-      .finally(() => setLoading(false));
-  }, []);
+  // Live Price Calculation
+  const calculatedPrice = useMemo(() => {
+    const basePerAsset = 24; // $24 per creative asset
+    let price = assetVolume * basePerAsset;
+    if (includeAIUGC) price += 350;
+    if (includeMultiPlatform) price += 280;
+    return price;
+  }, [assetVolume, includeAIUGC, includeMultiPlatform]);
 
-  const pricingFaqs = [
+  const pricingTiers = [
+    {
+      name: 'Starter',
+      price: '$399',
+      period: '/month',
+      badge: null,
+      description: 'Ideal for early-stage startups and niche founders establishing consistent brand presence.',
+      features: [
+        '12 High-Impact Static Graphic Designs',
+        '4 Short-Form Video Edits / Reels (up to 30s)',
+        '1 Core Platform Managed & Scheduled',
+        'Monthly Content Strategy Roadmap',
+        'Captions & Platform-Native Hashtag Sets',
+        '48-Hour Average Turnaround',
+        'Async Notion Dashboard & Slack Portal',
+      ],
+      highlighted: false,
+      ctaText: 'Select Starter Sprint',
+    },
+    {
+      name: 'Growth',
+      price: '$1,200',
+      period: '/month',
+      badge: 'MOST POPULAR • BEST ROI',
+      description: 'Engineered for high-growth SaaS, E-Commerce, and B2B brands scaling qualified customer pipelines.',
+      features: [
+        '28 High-Converting Static Designs & Carousels',
+        '12 AI UGC Video Ads & Short-Form Reels',
+        '3 Platforms Managed (Instagram, TikTok, LinkedIn)',
+        'Paid Ad Creative Variant Testing (Meta / TikTok)',
+        'Bi-Weekly Growth Analytics & Competitor Audits',
+        'Priority 24-48h Asset Turnaround',
+        'Direct Slack Channel with Yashwa & Aroosa',
+        '2 Revision Rounds per Asset with Rapid Iteration',
+      ],
+      highlighted: true,
+      ctaText: 'Claim Growth Retainer',
+    },
+    {
+      name: 'Scale',
+      price: '$2,200',
+      period: '/month',
+      badge: 'ENTERPRISE VELOCITY',
+      description: 'A full-stack creative department on demand for international brands dominating global markets.',
+      features: [
+        '60+ Omnichannel Creative Assets & Motion Design',
+        '24 AI UGC Video Ads with Native Voiceovers',
+        'Full Multi-Platform Distribution & Community Care',
+        'Dedicated Performance Ad Campaign Scaling',
+        'High-Converting Landing Page Design & CRO Mockups',
+        'Dedicated Creative Director Oversight',
+        'Unlimited Revision Rounds within Scope',
+        'Weekly Synchronous Video Strategy Reviews',
+      ],
+      highlighted: false,
+      ctaText: 'Partner on Enterprise Scale',
+    },
+  ];
+
+  const faqs = [
     {
       q: 'Are these pricing packages locked into long-term contracts?',
-      a: 'No. Our monthly packages operate on a flexible month-to-month retainer agreement. You can pause, upgrade, or adjust your service tier at the conclusion of any 30-day cycle with 14 days notice.',
+      a: 'No. Our monthly packages operate on a flexible month-to-month agreement. You can pause, upgrade, or adjust your service tier at the conclusion of any 30-day cycle with 14 days notice.',
     },
     {
       q: 'Do you require client-supplied raw footage and brand assets?',
-      a: 'Yes. For short-form video edits and product-specific content, packages assume client-supplied raw video clips, high-res logos, and product photography. We handle the strategic editing, typography, sound design, and captioning.',
+      a: 'For product-specific e-commerce shots, high-resolution logos and product files are helpful. For AI UGC Ads, we synthesize hyper-realistic AI creators and motion scripts entirely in-house without requiring filming.',
     },
     {
-      q: 'Can we customize a package between Starter, Growth, or Premium?',
-      a: 'Absolutely. If your business requires more video edits, additional platform scheduling, or custom ad creative testing, we configure a custom monthly retainer tailored precisely to your scope.',
+      q: 'Can we build a custom monthly retainer?',
+      a: 'Absolutely. Use our live plan calculator above or book a 1-on-1 strategy session. We customize asset deliverables, platform distribution, and turnaround sprint speeds to fit your exact budget.',
     },
     {
       q: 'In which currency are international invoices billed?',
-      a: 'All standard quotes are presented in USD ($), but we accommodate payments in EUR (€), GBP (£), CAD, AUD, and AED via secure international bank transfer or corporate card processing.',
+      a: 'All standard quotes are presented in USD ($), but we easily process payments in EUR (€), GBP (£), CAD, AUD, and AED via secure international bank transfer, Stripe, or corporate cards.',
     },
     {
-      q: 'How do revision rounds work?',
-      a: 'Each creative asset includes dedicated revision rounds (1 round for Starter, 2 rounds for Growth and Premium) to ensure copy, layout, and visual tone match your brand expectations before publication.',
+      q: 'Who owns the intellectual property of the creative work?',
+      a: 'You retain 100% full commercial IP ownership of all final designs, video renders, scripts, and campaign assets once delivered.',
     },
   ];
 
-  const comparisonRows = [
-    { feature: 'Static Social Media Graphic Designs', starter: '8 designs', growth: '12 designs', premium: '20 designs' },
-    { feature: 'Short-Form Video Edits (up to 30s each)', starter: '4 videos', growth: '8 videos', premium: '12 videos' },
-    { feature: 'Educational Carousel Posts', starter: '—', growth: '4 carousels', premium: '4 carousels' },
-    { feature: 'Captions & Hashtag Sets', starter: '12 sets', growth: 'Included', premium: 'Included' },
-    { feature: 'Platforms Managed & Scheduled', starter: '1 platform', growth: '2 platforms', premium: '3 platforms' },
-    { feature: 'Monthly Content Strategy Calendar', starter: 'Standard calendar', growth: 'Comprehensive roadmap', premium: 'Full-funnel strategy' },
-    { feature: 'Community Engagement Hours', starter: '—', growth: 'Basic (defined hours)', premium: 'Active community management' },
-    { feature: 'Performance & Analytics Reporting', starter: 'Basic monthly report', growth: 'Monthly report', premium: 'In-depth recommendations' },
-    { feature: 'Monthly Strategy Alignment Meeting', starter: '—', growth: '—', premium: 'Monthly video meeting' },
-    { feature: 'Revision Rounds per Creative', starter: '1 round', growth: '2 rounds', premium: '2 rounds' },
-  ];
+  const handleScrollToBooking = () => {
+    const el = document.getElementById('booking-calendar');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
-    <div className="pt-24">
+    <div className="pt-24 bg-[#070709] min-h-screen text-gray-100">
       {/* 1. HERO SECTION */}
-      <section className="py-20 lg:py-28 bg-navy-900 text-white relative overflow-hidden">
+      <section className="py-20 lg:py-28 relative overflow-hidden">
         <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-electric-500/15 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] bg-purple-brand/15 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute bottom-0 left-1/3 w-[450px] h-[450px] bg-purple-brand/15 rounded-full blur-[140px] pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center max-w-3xl">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-white/5 border border-white/10 text-electric-400 text-xs font-semibold mb-6">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-electric-400 text-xs font-semibold uppercase tracking-wider mb-6 shadow-sm">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>Transparent Investment Plans</span>
+            <span>Transparent Investment • Zero Fluff</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-extrabold tracking-tight leading-tight">
-            Flexible Packages Designed to Scale With Your Growth.
+          <h1 className="text-4xl sm:text-6xl font-display font-extrabold tracking-tight leading-tight text-white">
+            Build Your Plan. <br className="hidden sm:inline" />
+            <span className="gradient-text">See The Price Live.</span>
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg text-charcoal-300 leading-relaxed">
-            Choose a structured monthly social media retainer or select standalone creative bundles. Clear deliverables, zero hidden fees, and transparent collaboration.
+          <p className="mt-6 text-base sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
+            Interactive, scalable creative retainers tailored to international growth goals. No hidden retainers, no surprise invoices.
           </p>
+        </div>
+      </section>
 
-          <div className="mt-6 p-4 rounded-2xl bg-white/5 border border-white/10 text-xs text-charcoal-400 max-w-xl mx-auto">
-            <ShieldCheck className="w-4 h-4 text-electric-400 inline mr-1.5 -mt-0.5" />
-            <span>
-              Pricing reflects our proposed launch structure. Packages assume client-supplied raw footage and brand assets where applicable. Custom retainers available upon consultation.
+      {/* 2. INTERACTIVE PLAN CALCULATOR */}
+      <section className="py-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-[#111116] border border-white/[0.08] rounded-3xl p-8 sm:p-12 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+          <div className="flex flex-col md:flex-row items-start md:items-center justify-between pb-8 mb-8 border-b border-white/[0.08] gap-4">
+            <div>
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-electric-400 mb-1">
+                <Sliders className="w-4 h-4" />
+                <span>Interactive Cost Calculator</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-white">
+                Customize Your Monthly Creative Output
+              </h2>
+            </div>
+            <span className="text-xs text-gray-400 bg-white/[0.04] px-3.5 py-1.5 rounded-full border border-white/[0.06]">
+              Real-time USD estimate
             </span>
           </div>
-        </div>
-      </section>
 
-      {/* 2. THREE CORE MONTHLY PACKAGES */}
-      <section className="py-20 bg-surface-light">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-navy-900 tracking-tight">
-              Transparent Agency Investment
-            </h2>
-            <p className="mt-2 text-sm text-charcoal-600">
-              Select full-funnel monthly management retainers or individual creative production bundles.
-            </p>
-          </div>
-
-          {/* Interactive Pricing View Toggle */}
-          <div className="flex items-center justify-center mb-14">
-            <div className="inline-flex items-center p-1.5 rounded-full bg-navy-900 border border-white/10 shadow-xl">
-              <button
-                onClick={() => setPricingView('retainers')}
-                data-cursor-text="RETAINERS"
-                className={`px-6 py-2.5 rounded-full text-xs font-bold transition-all duration-300 ${
-                  pricingView === 'retainers'
-                    ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue'
-                    : 'text-charcoal-400 hover:text-white'
-                }`}
-              >
-                Monthly Retainers (Starter, Growth, Premium)
-              </button>
-              <button
-                onClick={() => setPricingView('standalone')}
-                data-cursor-text="STANDALONE"
-                className={`px-6 py-2.5 rounded-full text-xs font-bold transition-all duration-300 ${
-                  pricingView === 'standalone'
-                    ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue'
-                    : 'text-charcoal-400 hover:text-white'
-                }`}
-              >
-                Standalone Creative Assets (From $99)
-              </button>
-            </div>
-          </div>
-
-          {loading ? (
-            <div className="text-center py-20 text-charcoal-500 text-sm animate-pulse">
-              Loading pricing plans...
-            </div>
-          ) : pricingView === 'retainers' ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch animate-fadeIn">
-              {packages.map((pkg) => (
-                <PricingCard key={pkg._id} pkg={pkg} />
-              ))}
-            </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 animate-fadeIn">
-              {standalone.map((item) => (
-                <div
-                  key={item._id}
-                  data-cursor-text="BUNDLE"
-                  className="bg-white rounded-3xl p-7 border border-charcoal-200/80 shadow-sm flex flex-col justify-between hover:border-electric-500/40 hover:shadow-card-elevated hover:-translate-y-1.5 transition-all"
-                >
-                  <div>
-                    <div className="flex items-center justify-between mb-4">
-                      <span className="text-xs font-bold uppercase tracking-wider text-charcoal-500 bg-surface-light px-3 py-1 rounded-full border border-charcoal-200/60">
-                        Standalone Asset
-                      </span>
-                      <div className="text-2xl font-display font-extrabold text-navy-900">
-                        {item.currency || '$'}{item.startingPrice}
-                      </div>
-                    </div>
-                    <h3 className="text-lg font-display font-bold text-navy-900 mb-2">
-                      {item.name}
-                    </h3>
-                    <p className="text-xs text-charcoal-700 leading-relaxed mb-6">
-                      {item.description}
-                    </p>
-                  </div>
-
-                  <Link
-                    to={`/contact?service=${encodeURIComponent(item.name)}&budget=${item.currency || '$'}${item.startingPrice}`}
-                    className="w-full py-3 rounded-full text-xs font-bold bg-surface-light text-navy-900 hover:bg-electric-500 hover:text-white border border-charcoal-200 transition-all text-center flex items-center justify-center gap-1.5"
-                  >
-                    <span>Request This Asset</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            {/* Slider & Toggles */}
+            <div className="lg:col-span-7 space-y-8">
+              {/* Asset Volume Slider */}
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <label className="text-sm font-bold text-gray-200">
+                    Monthly Creative Volume
+                  </label>
+                  <span className="px-3.5 py-1 rounded-full bg-electric-500/15 border border-electric-400/40 text-electric-400 text-sm font-bold font-mono">
+                    {assetVolume} Assets / mo
+                  </span>
                 </div>
-              ))}
-            </div>
-          )}
-        </div>
-      </section>
-
-      {/* 3. PACKAGE COMPARISON TABLE */}
-      <section className="py-20 bg-white border-t border-charcoal-200/60">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-navy-900 tracking-tight">
-              Package Deliverables Comparison
-            </h2>
-            <p className="mt-2 text-xs sm:text-sm text-charcoal-600">
-              Direct feature comparison across our three monthly management tiers.
-            </p>
-          </div>
-
-          <div className="overflow-x-auto border border-charcoal-200 rounded-3xl shadow-sm">
-            <table className="w-full text-left border-collapse text-xs sm:text-sm">
-              <thead>
-                <tr className="bg-navy-900 text-white font-display">
-                  <th className="py-4 px-6 font-bold w-2/5">Deliverable / Capability</th>
-                  <th className="py-4 px-6 font-bold text-center w-1/5">Starter ($199)</th>
-                  <th className="py-4 px-6 font-bold text-center w-1/5 text-electric-400 bg-navy-800">Growth ($399)</th>
-                  <th className="py-4 px-6 font-bold text-center w-1/5">Premium ($699)</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-charcoal-200/80">
-                {comparisonRows.map((row, idx) => (
-                  <tr key={idx} className={idx % 2 === 0 ? 'bg-surface-light' : 'bg-white'}>
-                    <td className="py-4 px-6 font-medium text-navy-900">{row.feature}</td>
-                    <td className="py-4 px-6 text-center text-charcoal-700">{row.starter}</td>
-                    <td className="py-4 px-6 text-center font-semibold text-navy-900 bg-electric-100/30">
-                      {row.growth}
-                    </td>
-                    <td className="py-4 px-6 text-center text-charcoal-700">{row.premium}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* 4. STANDALONE SERVICES TABLE */}
-      <section className="py-20 bg-surface-light border-t border-charcoal-200/60">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-bold uppercase tracking-wider text-electric-600">
-              Individual Scope Options
-            </span>
-            <h2 className="text-3xl font-display font-extrabold text-navy-900 tracking-tight mt-1">
-              Standalone Services & Creative Bundles
-            </h2>
-            <p className="mt-3 text-xs sm:text-sm text-charcoal-600">
-              For businesses that require specific design assets, video editing, or copy without complete monthly management.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {standalone.map((item) => (
-              <div
-                key={item._id}
-                className="bg-white rounded-2xl p-6 border border-charcoal-200/80 shadow-sm flex flex-col justify-between hover:border-electric-500/40 hover:shadow-card-elevated transition-all"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-xs font-bold text-charcoal-500">Standalone</span>
-                    <div className="text-lg font-display font-extrabold text-navy-900">
-                      {item.currency || '$'}{item.startingPrice}
-                    </div>
-                  </div>
-                  <h3 className="text-base font-display font-bold text-navy-900 mb-2">
-                    {item.name}
-                  </h3>
-                  <p className="text-xs text-charcoal-700 leading-relaxed mb-4">
-                    {item.description}
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-charcoal-100">
-                  <Link
-                    to={`/contact?service=${encodeURIComponent(item.name)}&budget=${encodeURIComponent(
-                      (item.currency || '$') + item.startingPrice
-                    )}`}
-                    className="w-full py-2.5 rounded-full text-xs font-bold text-electric-600 bg-electric-100/60 hover:bg-electric-500 hover:text-white transition-colors flex items-center justify-center gap-1.5"
-                  >
-                    <span>Inquire About This Service</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
+                <input
+                  type="range"
+                  min="10"
+                  max="100"
+                  step="5"
+                  value={assetVolume}
+                  onChange={(e) => setAssetVolume(Number(e.target.value))}
+                  className="w-full h-2.5 bg-[#181820] rounded-lg appearance-none cursor-pointer accent-electric-500"
+                />
+                <div className="flex justify-between text-[11px] text-gray-500 mt-2 font-mono">
+                  <span>10 Assets (Starter)</span>
+                  <span>50 Assets (Growth)</span>
+                  <span>100 Assets (Hyper-Scale)</span>
                 </div>
               </div>
-            ))}
-          </div>
 
-          {/* Custom Retainer Notice */}
-          <div className="mt-12 p-8 rounded-3xl bg-navy-900 text-white text-center border border-white/10 shadow-lg">
-            <h3 className="text-xl font-display font-extrabold mb-2">
-              Looking for a Customized Monthly Retainer?
-            </h3>
-            <p className="text-xs sm:text-sm text-charcoal-300 max-w-xl mx-auto mb-6">
-              If your requirements exceed standard packages or require blended multi-channel execution, we formulate bespoke contracts suited to your exact organizational rhythm.
-            </p>
-            <Link
-              to="/contact?service=Custom%20Retainer"
-              className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-xs font-bold text-white bg-gradient-to-r from-electric-500 to-purple-brand shadow-glow-blue hover:scale-[1.02] active:scale-[0.98] transition-all"
-            >
-              <span>Request Custom Quotation</span>
-              <ArrowUpRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. PRICING FAQS ACCORDION */}
-      <section className="py-20 bg-white border-t border-charcoal-200/60">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-navy-900">
-              Frequently Asked Questions About Pricing
-            </h2>
-            <p className="mt-2 text-xs sm:text-sm text-charcoal-600">
-              Everything you need to know about billing, contracts, and revisions.
-            </p>
-          </div>
-
-          <div className="space-y-4">
-            {pricingFaqs.map((faq, idx) => {
-              const isOpen = openFaqIndex === idx;
-              return (
+              {/* Toggles */}
+              <div className="space-y-4 pt-4 border-t border-white/[0.08]">
+                {/* Toggle 1: AI UGC Video Ads */}
                 <div
-                  key={idx}
-                  className="bg-surface-light rounded-2xl border border-charcoal-200/80 overflow-hidden"
+                  onClick={() => setIncludeAIUGC(!includeAIUGC)}
+                  className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-center justify-between ${
+                    includeAIUGC
+                      ? 'bg-electric-500/10 border-electric-500/40 text-white'
+                      : 'bg-[#181820] border-white/[0.06] text-gray-400 hover:text-white'
+                  }`}
                 >
-                  <button
-                    onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                    className="w-full p-5 text-left flex items-center justify-between gap-4 font-display font-bold text-sm text-navy-900 hover:text-electric-600 transition-colors"
+                  <div>
+                    <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                      <span>AI UGC Video Ads Engine</span>
+                      {includeAIUGC && (
+                        <span className="text-[10px] bg-electric-500 text-white px-2 py-0.5 rounded-full font-mono">
+                          Active
+                        </span>
+                      )}
+                    </h4>
+                    <p className="text-xs text-gray-400 mt-0.5">
+                      Includes AI actor generation, dynamic captions, viral hooks & sound design.
+                    </p>
+                  </div>
+                  <div
+                    className={`w-12 h-6 rounded-full transition-colors relative flex items-center p-1 ${
+                      includeAIUGC ? 'bg-electric-500' : 'bg-gray-700'
+                    }`}
                   >
-                    <span>{faq.q}</span>
-                    {isOpen ? (
-                      <ChevronUp className="w-4 h-4 text-electric-600 shrink-0" />
-                    ) : (
-                      <ChevronDown className="w-4 h-4 text-charcoal-400 shrink-0" />
-                    )}
-                  </button>
-                  {isOpen && (
-                    <div className="px-5 pb-5 text-xs sm:text-sm text-charcoal-700 leading-relaxed border-t border-charcoal-200/60 pt-3">
-                      {faq.a}
-                    </div>
-                  )}
+                    <div
+                      className={`w-4 h-4 rounded-full bg-white transition-transform ${
+                        includeAIUGC ? 'translate-x-6' : 'translate-x-0'
+                      }`}
+                    />
+                  </div>
                 </div>
-              );
-            })}
+
+                {/* Toggle 2: Multi-Platform Management */}
+                <div
+                  onClick={() => setIncludeMultiPlatform(!includeMultiPlatform)}
+                  className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-center justify-between ${
+                    includeMultiPlatform
+                      ? 'bg-purple-brand/10 border-purple-brand/40 text-white'
+                      : 'bg-[#181820] border-white/[0.06] text-gray-400 hover:text-white'
+                  }`}
+                >
+                  <div>
+                    <h4 className="text-sm font-bold text-white flex items-center gap-2">
+                      <span>Multi-Platform Management & Scheduling</span>
+                      {includeMultiPlatform && (
+                        <span className="text-[10px] bg-purple-brand text-white px-2 py-0.5 rounded-full font-mono">
+                          Active
+                        </span>
+                      )}
+                    </h4>
+                    <p className="text-xs text-gray-400 mt-0.5">
+                      Covers Instagram, TikTok, LinkedIn, and Facebook with audience scheduling.
+                    </p>
+                  </div>
+                  <div
+                    className={`w-12 h-6 rounded-full transition-colors relative flex items-center p-1 ${
+                      includeMultiPlatform ? 'bg-purple-brand' : 'bg-gray-700'
+                    }`}
+                  >
+                    <div
+                      className={`w-4 h-4 rounded-full bg-white transition-transform ${
+                        includeMultiPlatform ? 'translate-x-6' : 'translate-x-0'
+                      }`}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Live Recommendation Box */}
+            <div className="lg:col-span-5 p-8 rounded-2xl bg-[#181820] border border-white/[0.08] flex flex-col justify-between">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
+                  Estimated Retainer
+                </span>
+                <div className="mt-2 flex items-baseline gap-2">
+                  <span className="text-4xl sm:text-5xl font-display font-extrabold text-white">
+                    ${calculatedPrice.toLocaleString()}
+                  </span>
+                  <span className="text-sm text-gray-400 font-mono">/ month</span>
+                </div>
+                <p className="mt-2 text-xs text-gray-400 leading-relaxed">
+                  Based on {assetVolume} assets/mo {includeAIUGC ? '+ AI UGC Ads' : ''}{' '}
+                  {includeMultiPlatform ? '+ Multi-Platform' : ''}.
+                </p>
+
+                <div className="mt-6 pt-6 border-t border-white/[0.08] space-y-2.5">
+                  <div className="flex items-center gap-2 text-xs text-gray-300">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-electric-400" />
+                    <span>Dedicated Slack channel & Notion board</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs text-gray-300">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-electric-400" />
+                    <span>Average 48-hour sprint turnaround</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-xs text-gray-300">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-electric-400" />
+                    <span>100% Commercial IP Ownership</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8">
+                <button
+                  onClick={handleScrollToBooking}
+                  className="w-full py-3.5 rounded-full bg-gradient-to-r from-electric-500 to-purple-brand text-white font-bold text-xs uppercase tracking-wider shadow-glow-blue hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                >
+                  <span>Book 15-Min Call to Lock Plan</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 6. CTA SECTION */}
-      <CTASection
-        heading="Let's Accelerate Your Brand's Digital Growth"
-        subheading="Ready to get started? Tell us about your goals and we'll help you select the most effective package structure."
-        buttonText="Get a Free Consultation"
-        buttonLink="/contact"
-      />
+      {/* 3. THREE CORE TIER CARDS */}
+      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-white">
+            Pre-Built Monthly Growth Sprints
+          </h2>
+          <p className="mt-3 text-sm sm:text-base text-gray-400">
+            Select a structured tier or let us tailor one for your scale. No long-term lock-in.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+          {pricingTiers.map((tier) => (
+            <div
+              key={tier.name}
+              className={`rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 relative ${
+                tier.highlighted
+                  ? 'bg-[#13131c] border-2 border-electric-500 shadow-glow-blue lg:-translate-y-2'
+                  : 'bg-[#111116] border border-white/[0.08] hover:border-white/20'
+              }`}
+            >
+              {tier.badge && (
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-electric-500 to-purple-brand text-white text-[10px] font-extrabold tracking-widest uppercase shadow-glow-blue">
+                  {tier.badge}
+                </div>
+              )}
+
+              <div>
+                <h3 className="text-xl font-display font-extrabold text-white">{tier.name}</h3>
+                <p className="mt-2 text-xs text-gray-400 min-h-[36px]">{tier.description}</p>
+
+                <div className="mt-6 flex items-baseline gap-1">
+                  <span className="text-4xl sm:text-5xl font-display font-extrabold text-white">
+                    {tier.price}
+                  </span>
+                  <span className="text-xs text-gray-400 font-mono">{tier.period}</span>
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-white/[0.08] space-y-3.5">
+                  <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider block">
+                    What's Included:
+                  </span>
+                  {tier.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-start gap-2.5 text-xs text-gray-300">
+                      <Check className="w-4 h-4 text-electric-400 shrink-0 mt-0.5" />
+                      <span>{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-8 pt-6 border-t border-white/[0.08]">
+                <button
+                  onClick={handleScrollToBooking}
+                  className={`w-full py-3 rounded-full text-xs font-bold transition-all ${
+                    tier.highlighted
+                      ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue hover:scale-[1.02]'
+                      : 'bg-white/[0.06] hover:bg-white/[0.1] text-white border border-white/10'
+                  }`}
+                >
+                  {tier.ctaText}
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 4. GUARANTEE BANNER */}
+      <section className="py-12 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-r from-electric-500/10 via-purple-brand/10 to-transparent border border-white/[0.1] backdrop-blur-md flex flex-col md:flex-row items-center gap-6">
+          <div className="w-16 h-16 rounded-2xl bg-electric-500/20 border border-electric-400/30 text-electric-400 flex items-center justify-center shrink-0 shadow-glow-blue">
+            <ShieldCheck className="w-8 h-8" />
+          </div>
+          <div className="flex-1 text-center md:text-left">
+            <h3 className="text-xl font-display font-bold text-white">
+              100% Satisfaction & 48-Hour Turnaround Guarantee
+            </h3>
+            <p className="mt-2 text-xs sm:text-sm text-gray-300 leading-relaxed">
+              We stand behind our craft with an ironclad onboarding guarantee. If your first batch of creative deliverables does not exceed your expectations, we revise until it's flawless or refund your initial retainer with zero friction.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. PRICING FAQ ACCORDION */}
+      <section className="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-white">
+            Frequently Asked Questions
+          </h2>
+          <p className="mt-2 text-xs sm:text-sm text-gray-400">
+            Everything international clients need to know before onboarding.
+          </p>
+        </div>
+
+        <div className="space-y-4">
+          {faqs.map((faq, idx) => {
+            const isOpen = openFaqIndex === idx;
+            return (
+              <div
+                key={idx}
+                className="rounded-2xl bg-[#111116] border border-white/[0.08] overflow-hidden transition-colors"
+              >
+                <button
+                  onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none"
+                >
+                  <span className="text-sm sm:text-base font-semibold text-white">
+                    {faq.q}
+                  </span>
+                  {isOpen ? (
+                    <ChevronUp className="w-4 h-4 text-electric-400 shrink-0" />
+                  ) : (
+                    <ChevronDown className="w-4 h-4 text-gray-500 shrink-0" />
+                  )}
+                </button>
+                {isOpen && (
+                  <div className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-white/[0.05] pt-4">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 6. EMBEDDED STRATEGY CALL CALENDAR (BOTTOM) */}
+      <BookingCalendarWidget />
     </div>
   );
 }
-

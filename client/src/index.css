@@ -165,3 +165,54 @@ a, button, [role="button"] {
 .animate-pulse-subtle {
   animation: pulse-subtle 2.5s infinite ease-in-out;
 }
+
+/* Hero Floating 3D Card Animation */
+@keyframes hero-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-hero-float {
+  animation: hero-float 6s ease-in-out infinite;
+}
+
+/* Audio Equalizer dancing bars for video preview */
+@keyframes equalizer-1 {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+
+@keyframes equalizer-2 {
+  0%, 100% { height: 12px; }
+  50% { height: 5px; }
+}
+
+@keyframes equalizer-3 {
+  0%, 100% { height: 7px; }
+  50% { height: 15px; }
+}
+
+@keyframes equalizer-4 {
+  0%, 100% { height: 15px; }
+  50% { height: 6px; }
+}
+
+.animate-equalizer-1 {
+  animation: equalizer-1 0.9s ease-in-out infinite;
+}
+
+.animate-equalizer-2 {
+  animation: equalizer-2 0.75s ease-in-out infinite 0.15s;
+}
+
+.animate-equalizer-3 {
+  animation: equalizer-3 0.85s ease-in-out infinite 0.3s;
+}
+
+.animate-equalizer-4 {
+  animation: equalizer-4 1s ease-in-out infinite 0.1s;
+}

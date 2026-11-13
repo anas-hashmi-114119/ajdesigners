@@ -31,19 +31,62 @@ import AuthorityGuides from '../components/home/AuthorityGuides';
 import BookingCalendarWidget from '../components/common/BookingCalendarWidget';
 import HeroCanvasShader from '../components/common/HeroCanvasShader';
 import ShowreelModal from '../components/common/ShowreelModal';
+import HeroVisualMotionCard from '../components/home/HeroVisualMotionCard';
+
+// Smooth GPU-accelerated Number Count-Up for Hero Stats
+function StatCounter({ target, suffix = '', prefix = '', duration = 1600 }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let startTimestamp = null;
+    let frameId;
+
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      // easeOutCubic
+      const easeProgress = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(easeProgress * target));
+
+      if (progress < 1) {
+        frameId = requestAnimationFrame(step);
+      } else {
+        setCount(target);
+      }
+    };
+
+    frameId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(frameId);
+  }, [target, duration]);
+
+  return <span>{prefix}{count}{suffix}</span>;
+}
 
 export default function HomePage() {
   const [showreelOpen, setShowreelOpen] = useState(false);
   const [hoveredService, setHoveredService] = useState(null);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
-  const heroHeadingRef = useRef(null);
+  const heroLeftRef = useRef(null);
+  const heroCardRef = useRef(null);
 
+  // Staggered Entrance Animations on Initial Page Load
   useEffect(() => {
-    if (heroHeadingRef.current) {
-      gsap.fromTo(
-        heroHeadingRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 1, ease: 'power4.out', delay: 0.1 }
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+    if (heroLeftRef.current) {
+      tl.fromTo(
+        heroLeftRef.current.children,
+        { opacity: 0, y: 28 },
+        { opacity: 1, y: 0, duration: 0.85, stagger: 0.12, delay: 0.05 }
+      );
+    }
+
+    if (heroCardRef.current) {
+      tl.fromTo(
+        heroCardRef.current,
+        { opacity: 0, y: 24, scale: 0.96 },
+        { opacity: 1, y: 0, scale: 1, duration: 0.95, ease: 'power2.out' },
+        '-=0.7'
       );
     }
   }, []);
@@ -231,67 +274,67 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Hero Left Copy */}
-            <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
+            <div ref={heroLeftRef} className="lg:col-span-7 space-y-6 text-center lg:text-left">
               {/* Eyebrow Badge */}
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-electric-400 text-xs font-semibold uppercase tracking-wider shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-electric-400 animate-pulse" />
                 <span>END-TO-END DIGITAL & CREATIVE GROWTH</span>
               </div>
 
-              {/* Massive Headline */}
-              <h1
-                ref={heroHeadingRef}
-                className="text-4xl sm:text-6xl lg:text-7xl font-display font-extrabold tracking-tight text-white leading-[1.08]"
-              >
+              {/* Massive Headline with Responsive Clamp & Tight Line-height */}
+              <h1 className="text-[clamp(2.5rem,4.2vw,3.75rem)] font-display font-extrabold tracking-tight text-white leading-[1.1]">
                 Stop the Scroll. <br />
                 <span className="gradient-text">Scale Your Brand.</span>
               </h1>
 
-              {/* Concise 2-line Subheadline */}
-              <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-xl mx-auto lg:mx-0 leading-relaxed">
+              {/* Concise Subheadline constrained to max-w-[520px] */}
+              <p className="text-sm sm:text-base text-gray-300 max-w-[520px] mx-auto lg:mx-0 leading-relaxed font-normal">
                 We engineer high-converting AI creative production, full-funnel social media management, and performance campaigns that turn passive scrollers into high-ticket clients worldwide.
               </p>
 
-              {/* Dual CTAs + Showreel Trigger */}
-              <div className="pt-2 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+              {/* Single Horizontal Row CTAs (whitespace-nowrap with hover glow & micro-interactions) */}
+              <div className="pt-2 flex flex-row items-center justify-center lg:justify-start gap-3 whitespace-nowrap overflow-x-auto sm:overflow-visible pb-2 sm:pb-0 scrollbar-none">
+                {/* 1. Primary Strategy Call CTA */}
                 <a
                   href="#booking-calendar"
                   onClick={handleScrollToCalendar}
                   data-cursor-text="BOOK CALL"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-bold text-white bg-gradient-to-r from-electric-500 via-blue-600 to-purple-brand hover:shadow-glow-blue hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 border border-white/20"
+                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-electric-500 via-blue-600 to-purple-brand hover:shadow-glow-blue hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 border border-white/20 shrink-0 shadow-lg"
                 >
-                  <Calendar className="w-4 h-4" />
+                  <Calendar className="w-4 h-4 shrink-0" />
                   <span>Book a Free Strategy Call</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 shrink-0" />
                 </a>
 
+                {/* 2. Secondary Explore Services CTA */}
                 <a
                   href="#services-section"
                   onClick={handleScrollToServices}
                   data-cursor-text="SERVICES"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full text-sm font-semibold text-gray-200 bg-[#111116] hover:bg-[#181820] hover:text-white border border-white/[0.08] hover:border-white/20 transition-all duration-200"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-gray-200 bg-[#111116] hover:bg-[#181820] hover:text-white border border-white/[0.08] hover:border-white/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shrink-0"
                 >
                   <span>Explore Services</span>
-                  <ArrowUpRight className="w-4 h-4 text-gray-400" />
+                  <ArrowUpRight className="w-4 h-4 text-gray-400 shrink-0" />
                 </a>
 
+                {/* 3. Watch Showreel Trigger */}
                 <button
                   onClick={() => setShowreelOpen(true)}
                   data-cursor-text="WATCH"
-                  className="inline-flex items-center gap-2 text-xs font-semibold text-gray-400 hover:text-electric-300 transition-colors py-2 px-3"
+                  className="group inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-gray-300 hover:text-white px-3.5 sm:px-4 py-3.5 rounded-full bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.06] hover:border-white/15 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shrink-0"
                 >
-                  <div className="w-8 h-8 rounded-full bg-white/[0.05] border border-white/10 flex items-center justify-center text-electric-400 group-hover:scale-110">
-                    <Play className="w-3 h-3 fill-current ml-0.5" />
+                  <div className="w-6 h-6 rounded-full bg-electric-500/20 text-electric-400 flex items-center justify-center group-hover:bg-electric-500 group-hover:text-white transition-all duration-300">
+                    <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
                   </div>
                   <span>Watch 2025 Showreel</span>
                 </button>
               </div>
 
-              {/* Social Proof Strip */}
+              {/* Social Proof Strip with Live Count-Up Animations */}
               <div className="pt-8 border-t border-white/[0.08] grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
                 <div>
                   <div className="text-2xl sm:text-3xl font-display font-extrabold text-white">
-                    180+
+                    <StatCounter target={180} suffix="+" />
                   </div>
                   <div className="text-xs text-gray-400 font-medium mt-0.5">
                     Clients Unblocked
@@ -299,7 +342,7 @@ export default function HomePage() {
                 </div>
                 <div className="border-x border-white/[0.08] px-3">
                   <div className="text-2xl sm:text-3xl font-display font-extrabold text-electric-400">
-                    48hr
+                    <StatCounter target={48} suffix="hr" />
                   </div>
                   <div className="text-xs text-gray-400 font-medium mt-0.5">
                     Average Turnaround
@@ -307,7 +350,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <div className="text-2xl sm:text-3xl font-display font-extrabold text-purple-soft">
-                    2x
+                    <StatCounter target={2} suffix="x" />
                   </div>
                   <div className="text-xs text-gray-400 font-medium mt-0.5">
                     Growth Rate
@@ -316,115 +359,9 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Hero Right Interactive Visual: Dark UI Dashboard Mockup */}
-            <div className="lg:col-span-5 relative">
-              <div className="relative mx-auto max-w-md lg:max-w-none rounded-3xl bg-[#111116] border border-white/[0.08] p-6 shadow-2xl backdrop-blur-xl">
-                {/* Mockup Top Window Bar */}
-                <div className="flex items-center justify-between pb-4 border-b border-white/[0.08]">
-                  <div className="flex items-center gap-2">
-                    <span className="w-3 h-3 rounded-full bg-red-500/80" />
-                    <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                    <span className="w-3 h-3 rounded-full bg-green-500/80" />
-                    <span className="text-[11px] font-mono text-gray-400 ml-2">
-                      aj-growth-engine.live
-                    </span>
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20 flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    <span>Real-time Active</span>
-                  </span>
-                </div>
-
-                {/* Dashboard Metrics Header */}
-                <div className="mt-5 grid grid-cols-3 gap-3">
-                  <div className="p-3.5 rounded-2xl bg-[#181820] border border-white/[0.06]">
-                    <span className="text-[10px] uppercase font-bold text-gray-400 block">
-                      Live Reach
-                    </span>
-                    <span className="text-lg font-bold text-white mt-1 block">+184%</span>
-                    <span className="text-[10px] text-emerald-400 font-mono">↑ MoM Lift</span>
-                  </div>
-                  <div className="p-3.5 rounded-2xl bg-[#181820] border border-white/[0.06]">
-                    <span className="text-[10px] uppercase font-bold text-gray-400 block">
-                      Ad ROAS
-                    </span>
-                    <span className="text-lg font-bold text-electric-400 mt-1 block">3.8x</span>
-                    <span className="text-[10px] text-electric-300 font-mono">Meta & TikTok</span>
-                  </div>
-                  <div className="p-3.5 rounded-2xl bg-[#181820] border border-white/[0.06]">
-                    <span className="text-[10px] uppercase font-bold text-gray-400 block">
-                      Conversion
-                    </span>
-                    <span className="text-lg font-bold text-purple-soft mt-1 block">+210%</span>
-                    <span className="text-[10px] text-purple-300 font-mono">Inbound Leads</span>
-                  </div>
-                </div>
-
-                {/* Live Campaign Statuses (Required in prompt) */}
-                <div className="mt-6 space-y-3">
-                  <span className="text-[11px] font-bold uppercase tracking-widest text-gray-400 block">
-                    Active Client Pipeline Status
-                  </span>
-
-                  {/* Status 1 */}
-                  <div className="p-3.5 rounded-2xl bg-[#181820] border border-white/[0.06] flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 flex items-center justify-center">
-                        <Check className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <h4 className="text-xs font-bold text-white">Monthly Content Strategy</h4>
-                        <span className="text-[11px] text-gray-400">12 Visual Carousels & Copy</span>
-                      </div>
-                    </div>
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20">
-                      Approved
-                    </span>
-                  </div>
-
-                  {/* Status 2 */}
-                  <div className="p-3.5 rounded-2xl bg-[#181820] border border-white/[0.06] flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-electric-500/15 border border-electric-500/30 text-electric-400 flex items-center justify-center">
-                        <Flame className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <h4 className="text-xs font-bold text-white">AI Creative Production</h4>
-                        <span className="text-[11px] text-gray-400">16 UGC Video Variations</span>
-                      </div>
-                    </div>
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-electric-400 bg-electric-500/10 border border-electric-500/20">
-                      Curated
-                    </span>
-                  </div>
-
-                  {/* Status 3 */}
-                  <div className="p-3.5 rounded-2xl bg-[#181820] border border-white/[0.06] flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <div className="w-8 h-8 rounded-xl bg-purple-brand/15 border border-purple-brand/30 text-purple-brand flex items-center justify-center">
-                        <Globe2 className="w-4 h-4" />
-                      </div>
-                      <div>
-                        <h4 className="text-xs font-bold text-white">B2B Multi-Platform Reach</h4>
-                        <span className="text-[11px] text-gray-400">US, UK, UAE & EU Distribution</span>
-                      </div>
-                    </div>
-                    <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider text-purple-soft bg-purple-brand/15 border border-purple-brand/30 flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-purple-brand animate-ping" />
-                      <span>Active</span>
-                    </span>
-                  </div>
-                </div>
-
-                {/* Footer of Card */}
-                <div className="mt-5 pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-gray-400">
-                  <span className="flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-electric-400" />
-                    <span>Sprint Cycle: Day 14 of 30</span>
-                  </span>
-                  <span className="font-mono text-gray-300">Yashwa & Aroosa Lead</span>
-                </div>
-              </div>
+            {/* Hero Right Visual Motion Card (3D Tilt, Live SVG Chart, Video Preview & ROAS Gauge) */}
+            <div ref={heroCardRef} className="lg:col-span-5 relative">
+              <HeroVisualMotionCard />
             </div>
           </div>
         </div>

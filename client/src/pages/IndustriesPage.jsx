@@ -315,11 +315,10 @@ export default function IndustriesPage() {
               <button
                 key={ind.id}
                 onClick={() => setSelectedIndustry(ind.id)}
-                className={`px-4 py-2.5 rounded-full text-xs font-bold whitespace-nowrap flex items-center gap-2 transition-all shrink-0 ${
-                  isSelected
+                className={`px-4 py-2.5 rounded-full text-xs font-bold whitespace-nowrap flex items-center gap-2 transition-all shrink-0 ${isSelected
                     ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue border border-white/20'
                     : 'bg-[#111116] text-gray-400 hover:text-white hover:bg-white/[0.06] border border-white/[0.08]'
-                }`}
+                  }`}
               >
                 <Icon className={`w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-gray-400'}`} />
                 <span>{ind.name}</span>

@@ -107,14 +107,12 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* Custom Cursor Hide OS Pointer */
-body.custom-cursor-active,
-body.custom-cursor-active a,
-body.custom-cursor-active button,
-body.custom-cursor-active input,
-body.custom-cursor-active select,
-body.custom-cursor-active textarea {
-  cursor: none !important;
+/* Active cursor remains fully visible - never hide the OS pointer */
+body, a, button, input, select, textarea {
+  cursor: auto;
+}
+a, button, [role="button"] {
+  cursor: pointer;
 }
 
 /* 3D Spatial Transforms */

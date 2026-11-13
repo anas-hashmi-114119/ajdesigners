@@ -546,3 +546,4 @@ export default function BookingCalendarWidget({ className = '' }) {
     </section>
   );
 }
+

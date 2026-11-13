@@ -610,11 +610,10 @@ export default function HomePage() {
                   key={service.id}
                   onMouseEnter={() => setHoveredService(service.id)}
                   onMouseLeave={() => setHoveredService(null)}
-                  className={`service-row rounded-2xl bg-[#111116] border transition-all duration-300 overflow-hidden cursor-pointer ${
-                    isHovered
+                  className={`service-row rounded-2xl bg-[#111116] border transition-all duration-300 overflow-hidden cursor-pointer ${isHovered
                       ? 'border-electric-500/60 shadow-glow-blue bg-[#14141c]'
                       : 'border-white/[0.08]'
-                  }`}
+                    }`}
                 >
                   <div className="p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex items-center gap-6">

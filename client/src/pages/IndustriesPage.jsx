@@ -18,7 +18,7 @@ import {
   CheckCircle2,
   AlertCircle,
 } from 'lucide-react';
-import CTASection from '../components/common/CTASection';
+import BookingCalendarWidget from '../components/common/BookingCalendarWidget';
 
 export default function IndustriesPage() {
   const [selectedIndustry, setSelectedIndustry] = useState('ecommerce');

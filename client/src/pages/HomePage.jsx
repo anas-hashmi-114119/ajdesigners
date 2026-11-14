@@ -17,7 +17,7 @@ import HeroCanvasShader from '../components/common/HeroCanvasShader';
 import ShowreelModal from '../components/common/ShowreelModal';
 import HeroVisualMotionCard from '../components/home/HeroVisualMotionCard';
 import TargetClientSolutions from '../components/home/TargetClientSolutions';
-import CoreServicesShowcase from '../components/home/CoreServicesShowcase';
+import HorizontalServicesStage from '../components/home/HorizontalServicesStage';
 import EverythingWeHandleBento from '../components/home/EverythingWeHandleBento';
 import InteractiveWorkflowPipeline from '../components/home/InteractiveWorkflowPipeline';
 import InteractiveRoiCalculator from '../components/home/InteractiveRoiCalculator';
@@ -290,9 +290,9 @@ export default function HomePage() {
       <TargetClientSolutions onScrollToCalendar={handleScrollToCalendar} />
 
       {/* ========================================================= */}
-      {/* 4. INTERACTIVE SERVICES & DYNAMIC VISUAL MATRIX          */}
+      {/* 4. PINNED BIDIRECTIONAL HORIZONTAL SCROLL SERVICES STAGE  */}
       {/* ========================================================= */}
-      <CoreServicesShowcase />
+      <HorizontalServicesStage />
 
       {/* Expandable 3-Card Fanned Showcase */}
       <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

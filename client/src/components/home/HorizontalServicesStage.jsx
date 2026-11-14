@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 'framer-motion';
 import {
-  Sparkles,
   ArrowRight,
   ArrowUpRight,
   ChevronLeft,
@@ -324,31 +323,16 @@ export default function HorizontalServicesStage() {
     >
       {/* Sticky Viewport Stage (Locked in view while scrolling through 01 to 10) */}
       <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col justify-between py-6 sm:py-8 px-4 sm:px-8 select-none">
-        
+
         {/* Ambient Stage Lighting */}
         <div className="absolute top-1/4 left-1/3 w-[500px] h-[350px] bg-electric-500/10 rounded-full blur-[140px] pointer-events-none -z-10" />
         <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[350px] bg-purple-brand/10 rounded-full blur-[140px] pointer-events-none -z-10" />
 
-        {/* 1. Header with smaller, refined headline sizing */}
-        <div className="max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-start sm:items-end justify-between gap-3 z-20">
-          <div>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-electric-400 text-xs font-semibold uppercase tracking-wider mb-2 shadow-sm">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>SIGNATURE AGENCY DISCIPLINES • 01 TO 10</span>
-            </div>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-display font-extrabold text-white tracking-tight">
-              Precision Creative Engines.
-            </h2>
-            <p className="mt-1 text-xs sm:text-sm text-gray-400 max-w-lg leading-relaxed">
-              Scroll down to glide through our 10 core agency disciplines fanned in a 3-card round arc. Click any card to inspect full deliverables.
-            </p>
-          </div>
-
-          <div className="hidden md:flex items-center gap-3">
-            <span className="text-xs font-mono text-gray-400 bg-white/[0.04] px-3 py-1.5 rounded-full border border-white/[0.06]">
-              Interactive 3-Card Fanned Arc • Click to Expand
-            </span>
-          </div>
+        {/* 1. Section Header: Centered "Our Services" */}
+        <div className="max-w-xl mx-auto w-full text-center z-20 mb-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-white tracking-tight">
+            Our Services
+          </h2>
         </div>
 
         {/* 2. Pinned Horizontal Track Canvas with 3-Card Round Fanned Orientation */}
@@ -578,11 +562,10 @@ export default function HorizontalServicesStage() {
             <button
               onClick={handlePrev}
               disabled={activeCardIndex === 0}
-              className={`p-2.5 rounded-full border transition-all ${
-                activeCardIndex === 0
+              className={`p-2.5 rounded-full border transition-all ${activeCardIndex === 0
                   ? 'border-white/5 text-gray-600 cursor-not-allowed'
                   : 'border-white/10 text-gray-300 hover:text-white hover:bg-white/10 hover:border-white/20 active:scale-95'
-              }`}
+                }`}
               aria-label="Previous Service"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -590,11 +573,10 @@ export default function HorizontalServicesStage() {
             <button
               onClick={handleNext}
               disabled={activeCardIndex === ALL_10_SERVICES.length - 1}
-              className={`p-2.5 rounded-full border transition-all ${
-                activeCardIndex === ALL_10_SERVICES.length - 1
+              className={`p-2.5 rounded-full border transition-all ${activeCardIndex === ALL_10_SERVICES.length - 1
                   ? 'border-white/5 text-gray-600 cursor-not-allowed'
                   : 'border-white/10 text-gray-300 hover:text-white hover:bg-white/10 hover:border-white/20 active:scale-95'
-              }`}
+                }`}
               aria-label="Next Service"
             >
               <ChevronRight className="w-4 h-4" />

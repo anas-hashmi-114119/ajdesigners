@@ -11,6 +11,14 @@ import {
   Clock,
   ShieldCheck,
   Zap,
+  Smartphone,
+  Layers,
+  Palette,
+  TrendingUp,
+  Share2,
+  Monitor,
+  Search,
+  LayoutGrid,
 } from 'lucide-react';
 
 const ALL_10_SERVICES = [
@@ -18,12 +26,14 @@ const ALL_10_SERVICES = [
     id: '01',
     slug: 'social-media-management',
     number: '01',
+    categoryLabel: 'SERVICE 01 • SOCIAL MEDIA MANAGEMENT',
     title: 'Social Media Management',
-    microTagline: 'Full-funnel organic viral reach',
+    microTagline: 'Full-funnel organic viral reach & community distribution',
     image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
     overlayType: 'reach',
     overlayBadge: '+214% Reach',
     overlaySub: 'Omnichannel Algorithm Sync',
+    icon: Share2,
     description:
       'We architect and execute full-funnel organic content calendars across TikTok, Instagram, LinkedIn, and X. From strategic positioning to high-retention copywriting and community distribution, we transform passive audiences into loyal brand advocates without founder burnout.',
     deliverables: [
@@ -33,18 +43,20 @@ const ALL_10_SERVICES = [
       'Monthly Growth Analytics & Audience Sentiment Reporting',
     ],
     turnaround: '48h Sprints',
-    accentColor: 'from-blue-500 to-indigo-600',
+    typeBadge: 'Social Growth',
   },
   {
     id: '02',
     slug: 'content-creation',
     number: '02',
+    categoryLabel: 'SERVICE 02 • CONTENT CREATION',
     title: 'Content Creation',
-    microTagline: 'High-retention visual storytelling',
+    microTagline: 'High-retention visual storytelling & viral carousels',
     image: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=1200&q=80',
     overlayType: 'carousel',
     overlayBadge: 'Slide 03 / 08',
     overlaySub: '94% Hook Retention',
+    icon: Layers,
     description:
       'Bespoke visual storytelling designed to halt the infinite scroll. We craft multi-slide educational carousels, viral infographics, high-aesthetic photo sets, and editorial motion graphics that educate, inspire, and drive direct saves and shares.',
     deliverables: [
@@ -54,18 +66,20 @@ const ALL_10_SERVICES = [
       'Story & Feed Distribution Asset Kits',
     ],
     turnaround: '48h Sprints',
-    accentColor: 'from-purple-500 to-pink-600',
+    typeBadge: 'Visual Assets',
   },
   {
     id: '03',
     slug: 'ai-powered-creative-production',
     number: '03',
+    categoryLabel: 'SERVICE 03 • AI-POWERED PRODUCTION',
     title: 'AI-Powered Creative Production',
-    microTagline: 'Generative 4K photorealistic staging',
+    microTagline: 'Generative 4K photorealistic product staging',
     image: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80',
     overlayType: 'ai-render',
     overlayBadge: 'AI Studio Render',
     overlaySub: '4K Generative Lighting',
+    icon: Zap,
     description:
       'We merge custom-trained generative AI pipelines with elite human art direction. Generate photorealistic 3D environments, virtual product staging, and rapid visual variations in hours rather than weeks, cutting physical studio costs by over 60%.',
     deliverables: [
@@ -75,18 +89,20 @@ const ALL_10_SERVICES = [
       '4K Master Resolution Export with Commercial Rights',
     ],
     turnaround: '48h Sprints',
-    accentColor: 'from-electric-500 to-cyan-400',
+    typeBadge: 'Generative AI',
   },
   {
     id: '04',
     slug: 'graphic-design-branding',
     number: '04',
+    categoryLabel: 'SERVICE 04 • GRAPHIC DESIGN & BRANDING',
     title: 'Graphic Design & Branding',
-    microTagline: 'Luxury dark-mode design systems',
+    microTagline: 'Luxury dark-mode design systems & typography tokens',
     image: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1200&q=80',
     overlayType: 'palette',
     overlayBadge: '100% Vector IP',
     overlaySub: 'Obsidian & Electric Palette',
+    icon: Palette,
     description:
       'Command prestige and justify high-ticket pricing with an immaculate visual identity. We architect comprehensive dark-mode design systems, custom vector brandmarks, typography hierarchies, and luxury brand guidelines that elevate perceived brand value across US, UK, and European markets.',
     deliverables: [
@@ -96,18 +112,20 @@ const ALL_10_SERVICES = [
       'Luxury Packaging Mockups & Physical Collateral Systems',
     ],
     turnaround: '48h Sprints',
-    accentColor: 'from-amber-400 to-orange-500',
+    typeBadge: 'Brand Identity',
   },
   {
     id: '05',
     slug: 'short-form-video',
     number: '05',
+    categoryLabel: 'SERVICE 05 • SHORT-FORM VIDEO & REELS',
     title: 'Short-Form Video & Reels Creation',
-    microTagline: 'Scroll-stopping algorithmic hooks',
+    microTagline: 'Scroll-stopping algorithmic hooks & sound design',
     image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80',
     overlayType: 'waveform',
     overlayBadge: '9:16 Reels',
     overlaySub: 'Dynamic Audio Waveform',
+    icon: Smartphone,
     description:
       'Vertical video engineered for modern algorithmic retention curves. We script 3-second visual disruptors, edit with kinetic pacing, curate spatial sound design, and embed animated typography tailored specifically for TikTok, Instagram Reels, and YouTube Shorts.',
     deliverables: [
@@ -117,18 +135,20 @@ const ALL_10_SERVICES = [
       'Multi-Language Accent Localization (US, UK, AUS, UAE)',
     ],
     turnaround: '48h Sprints',
-    accentColor: 'from-rose-500 to-purple-600',
+    typeBadge: 'Viral Video',
   },
   {
     id: '06',
     slug: 'digital-advertising',
     number: '06',
+    categoryLabel: 'SERVICE 06 • DIGITAL ADS & PAID CAMPAIGNS',
     title: 'Digital Advertising & Paid Campaigns',
-    microTagline: 'Low CPA algorithmic scaling',
+    microTagline: 'Low CPA algorithmic scaling across Meta & TikTok',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80',
     overlayType: 'roas',
     overlayBadge: '3.8x Target ROAS',
     overlaySub: '-58% Average CPA Drop',
+    icon: TrendingUp,
     description:
       'Stop bleeding budget on ad fatigue. We manage full-funnel paid media campaigns across Meta, TikTok, and Google Ads with aggressive creative iteration, precision custom audience modeling, and real-time ROAS optimization that scales customer acquisition cost-effectively.',
     deliverables: [
@@ -138,18 +158,20 @@ const ALL_10_SERVICES = [
       'Transparent Weekly ROAS & Cost-Per-Acquisition Dashboards',
     ],
     turnaround: '48h Sprints',
-    accentColor: 'from-emerald-400 to-teal-500',
+    typeBadge: 'Paid Acquisition',
   },
   {
     id: '07',
     slug: 'b2b-lead-generation',
     number: '07',
+    categoryLabel: 'SERVICE 07 • B2B LEAD GENERATION',
     title: 'B2B Lead Generation',
-    microTagline: 'Predictable inbound enterprise pipeline',
+    microTagline: 'Predictable inbound enterprise customer pipeline',
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
     overlayType: 'pipeline',
     overlayBadge: 'Qualified Pipeline',
     overlaySub: '+$48.2k Monthly ARR',
+    icon: LayoutGrid,
     description:
       'Fill your executive calendar with pre-qualified decision makers. We combine account-based marketing (ABM), conversion-optimized outbound messaging, and targeted landing page funnels to attract enterprise SaaS and agency buyers consistently.',
     deliverables: [
@@ -159,18 +181,20 @@ const ALL_10_SERVICES = [
       'Direct Calendar Booking Funnels with Lead Pre-Qualification',
     ],
     turnaround: '48h Sprints',
-    accentColor: 'from-blue-600 to-cyan-500',
+    typeBadge: 'B2B Pipeline',
   },
   {
     id: '08',
     slug: 'linkedin-marketing',
     number: '08',
+    categoryLabel: 'SERVICE 08 • LINKEDIN & EXECUTIVE BRANDING',
     title: 'LinkedIn Marketing & Executive Branding',
-    microTagline: 'C-suite thought leadership on autopilot',
+    microTagline: 'C-suite thought leadership & organic authority',
     image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80',
     overlayType: 'linkedin',
     overlayBadge: 'Top Voice',
     overlaySub: '48k Executive Reach',
+    icon: Share2,
     description:
       'Transform founders and executive leadership into industry authorities. We ghostwrite high-engagement LinkedIn posts, design viral PDF carousel decks, and build outbound networking systems that establish market prestige and attract inbound capital and enterprise clients.',
     deliverables: [
@@ -180,18 +204,20 @@ const ALL_10_SERVICES = [
       'Asynchronous Weekly Review (Zero Founder Time Drag)',
     ],
     turnaround: '48h Sprints',
-    accentColor: 'from-sky-500 to-blue-700',
+    typeBadge: 'Executive Brand',
   },
   {
     id: '09',
     slug: 'landing-page-design',
     number: '09',
+    categoryLabel: 'SERVICE 09 • LANDING PAGE DESIGN',
     title: 'Website & Landing Page Content',
     microTagline: 'Ultra-fast conversion-optimized WebGL pages',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
     overlayType: 'wireframe',
     overlayBadge: '99.8% Speed',
     overlaySub: 'Conversion Wireframe',
+    icon: Monitor,
     description:
       'Turn cold traffic into high-intent inbound inquiries. We design and develop sleek, dark-mode landing pages with lightning-fast load times, interactive WebGL micro-interactions, and psychology-backed conversion architecture that outperforms traditional templates.',
     deliverables: [
@@ -201,18 +227,20 @@ const ALL_10_SERVICES = [
       'Direct Integration with Stripe, Cal.com & Lead Databases',
     ],
     turnaround: '48h Sprints',
-    accentColor: 'from-cyan-400 to-blue-600',
+    typeBadge: 'WebGL Web',
   },
   {
     id: '10',
     slug: 'seo-optimization',
     number: '10',
+    categoryLabel: 'SERVICE 10 • SEO & CONTENT OPTIMIZATION',
     title: 'SEO & Digital Content Optimization',
-    microTagline: 'Algorithmic search dominance & organic traffic',
+    microTagline: 'Algorithmic search dominance & organic pipeline',
     image: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&w=1200&q=80',
     overlayType: 'seo',
     overlayBadge: '#1 Search Ranking',
     overlaySub: 'Top 3 SERP Dominance',
+    icon: Search,
     description:
       'Capture high-intent organic search volume without paying for every click. We execute technical SEO audits, build programmatic topic clusters, optimize semantic schema markup, and write authority articles engineered to rank at the top of Google and AI search engines (Perplexity, ChatGPT).',
     deliverables: [
@@ -222,7 +250,7 @@ const ALL_10_SERVICES = [
       'Continuous Backlink Strategy & Monthly SERP Movement Tracking',
     ],
     turnaround: '48h Sprints',
-    accentColor: 'from-emerald-400 to-cyan-500',
+    typeBadge: 'SEO & Search',
   },
 ];
 
@@ -258,9 +286,9 @@ export default function HorizontalServicesStage() {
     setActiveCardIndex(idx);
   });
 
-  // Card geometry dimensions
-  const cardWidth = windowWidth < 640 ? 320 : windowWidth < 1024 ? 380 : 420;
-  const cardGap = windowWidth < 640 ? 20 : 32;
+  // Card geometry dimensions calibrated so exactly 3 cards fan out on screen
+  const cardWidth = windowWidth < 640 ? 300 : windowWidth < 1024 ? 350 : 380;
+  const cardGap = windowWidth < 640 ? 16 : 28;
   const cardPitch = cardWidth + cardGap;
   const totalTrackTravel = (ALL_10_SERVICES.length - 1) * cardPitch;
 
@@ -301,30 +329,30 @@ export default function HorizontalServicesStage() {
         <div className="absolute top-1/4 left-1/3 w-[500px] h-[350px] bg-electric-500/10 rounded-full blur-[140px] pointer-events-none -z-10" />
         <div className="absolute bottom-1/4 right-1/3 w-[500px] h-[350px] bg-purple-brand/10 rounded-full blur-[140px] pointer-events-none -z-10" />
 
-        {/* 1. Header (Fixed inside sticky stage) */}
-        <div className="max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 z-20">
+        {/* 1. Header with smaller, refined headline sizing */}
+        <div className="max-w-7xl mx-auto w-full flex flex-col sm:flex-row items-start sm:items-end justify-between gap-3 z-20">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-electric-400 text-xs font-semibold uppercase tracking-wider mb-2 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-electric-400 text-xs font-semibold uppercase tracking-wider mb-2 shadow-sm">
               <Sparkles className="w-3.5 h-3.5" />
               <span>SIGNATURE AGENCY DISCIPLINES • 01 TO 10</span>
             </div>
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-display font-extrabold text-white tracking-tight">
               Precision Creative Engines.
             </h2>
-            <p className="mt-1 text-xs sm:text-sm text-gray-400 max-w-xl">
-              Scroll down to glide horizontally through all 10 core disciplines. Click any card to inspect full deliverables.
+            <p className="mt-1 text-xs sm:text-sm text-gray-400 max-w-lg leading-relaxed">
+              Scroll down to glide through our 10 core agency disciplines fanned in a 3-card round arc. Click any card to inspect full deliverables.
             </p>
           </div>
 
           <div className="hidden md:flex items-center gap-3">
             <span className="text-xs font-mono text-gray-400 bg-white/[0.04] px-3 py-1.5 rounded-full border border-white/[0.06]">
-              Scroll to explore • 48h Turnaround
+              Interactive 3-Card Fanned Arc • Click to Expand
             </span>
           </div>
         </div>
 
-        {/* 2. Pinned Horizontal Track Canvas */}
-        <div className="relative w-full my-auto overflow-hidden py-4 z-10">
+        {/* 2. Pinned Horizontal Track Canvas with 3-Card Round Fanned Orientation */}
+        <div className="relative w-full my-auto overflow-hidden py-6 z-10">
           <motion.div
             style={{
               x: trackX,
@@ -334,8 +362,28 @@ export default function HorizontalServicesStage() {
             className="flex items-center will-change-transform"
           >
             {ALL_10_SERVICES.map((service, idx) => {
+              const Icon = service.icon;
               const isCenter = idx === activeCardIndex;
-              const distanceFromActive = Math.abs(idx - activeCardIndex);
+              const isLeftAdjacent = idx === activeCardIndex - 1;
+              const isRightAdjacent = idx === activeCardIndex + 1;
+
+              // 3-Card Fanned Orientation Arc (copied from the fanned showcase below):
+              // Center card: rotate-0, scale-105, elevated z-20, glow border
+              // Left adjacent card: -rotate-6 (tilted -6deg), scale-95
+              // Right adjacent card: rotate-6 (tilted +6deg), scale-95
+              // Hover: hover:rotate-0 hover:scale-110 hover:shadow-glow-blue
+              let cardFannedStyle = 'rotate-0 scale-90 opacity-25 z-0';
+              if (isCenter) {
+                cardFannedStyle = 'rotate-0 scale-105 opacity-100 z-20 border-electric-500/50 shadow-glow-blue hover:scale-110';
+              } else if (isLeftAdjacent) {
+                cardFannedStyle = '-rotate-6 hover:rotate-0 scale-[0.96] opacity-70 hover:opacity-100 z-10 hover:scale-105 hover:z-30 hover:border-electric-500/50 hover:shadow-glow-blue';
+              } else if (isRightAdjacent) {
+                cardFannedStyle = 'rotate-6 hover:rotate-0 scale-[0.96] opacity-70 hover:opacity-100 z-10 hover:scale-105 hover:z-30 hover:border-electric-500/50 hover:shadow-glow-blue';
+              } else if (idx < activeCardIndex) {
+                cardFannedStyle = '-rotate-12 scale-[0.85] opacity-20 z-0 pointer-events-none';
+              } else {
+                cardFannedStyle = 'rotate-12 scale-[0.85] opacity-20 z-0 pointer-events-none';
+              }
 
               return (
                 <div
@@ -344,39 +392,32 @@ export default function HorizontalServicesStage() {
                   style={{
                     width: `${cardWidth}px`,
                     marginRight: `${cardGap}px`,
+                    transformOrigin: 'bottom center',
                   }}
-                  className={`shrink-0 h-[460px] sm:h-[480px] rounded-3xl bg-[#111116] border transition-all duration-500 cursor-pointer overflow-hidden flex flex-col justify-between group relative select-none ${
-                    isCenter
-                      ? 'border-electric-500/60 shadow-2xl scale-100 opacity-100 z-20'
-                      : distanceFromActive === 1
-                      ? 'border-white/[0.08] scale-[0.92] opacity-55 hover:opacity-80 z-10'
-                      : 'border-white/[0.05] scale-[0.86] opacity-30 hover:opacity-60 z-0'
-                  }`}
-                  data-cursor-text="DELIVERABLES"
+                  className={`shrink-0 h-[460px] sm:h-[480px] rounded-3xl bg-[#111116] border border-white/[0.08] transition-all duration-500 ease-out cursor-pointer overflow-hidden flex flex-col justify-between group relative select-none transform ${cardFannedStyle}`}
+                  data-cursor-text="EXPAND"
                 >
-                  {/* TOP 70% VISUAL SHOWCASE CANVAS */}
-                  <div className="relative h-[68%] w-full overflow-hidden bg-black">
+                  {/* TOP 58% VISUAL SHOWCASE CANVAS */}
+                  <div className="relative h-56 sm:h-60 w-full overflow-hidden bg-black shrink-0">
                     <img
                       src={service.image}
                       alt={service.title}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 opacity-85 group-hover:opacity-100"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-85 group-hover:opacity-100"
                     />
                     {/* Gradient Fade to Bottom Container */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#111116] via-[#111116]/20 to-transparent" />
 
-                    {/* Top Left: Glowing Badge Number */}
-                    <div className="absolute top-4 left-4 z-10">
-                      <span className="px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-xs font-mono font-bold text-electric-400 shadow-md">
-                        {service.number}
-                      </span>
+                    {/* Top Left: Badge with Icon & Type */}
+                    <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-bold uppercase tracking-wider text-white flex items-center gap-1.5 shadow-md">
+                      <Icon className="w-3 h-3 text-electric-400" />
+                      <span>{service.typeBadge}</span>
                     </div>
 
-                    {/* Top Right: Click for Deliverables Pill */}
+                    {/* Top Right: Glowing Number Badge */}
                     <div className="absolute top-4 right-4 z-10">
-                      <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-semibold text-gray-300 group-hover:text-white group-hover:border-electric-500/40 transition-colors flex items-center gap-1">
-                        <span>Deliverables</span>
-                        <ArrowUpRight className="w-3 h-3 text-electric-400" />
+                      <span className="px-2.5 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/15 text-[11px] font-mono font-bold text-electric-400 shadow-md">
+                        {service.number}
                       </span>
                     </div>
 
@@ -474,10 +515,14 @@ export default function HorizontalServicesStage() {
                     </div>
                   </div>
 
-                  {/* BOTTOM 30% ULTRA-CLEAN TITLE BAR */}
-                  <div className="p-6 h-[32%] flex flex-col justify-between bg-[#111116] border-t border-white/[0.06]">
+                  {/* BOTTOM TEXT BODY: Explicitly writes which service it is */}
+                  <div className="p-6 flex-1 flex flex-col justify-between bg-[#111116] border-t border-white/[0.06]">
                     <div>
-                      <h3 className="text-lg sm:text-xl font-display font-bold text-white group-hover:text-electric-300 transition-colors leading-tight line-clamp-1">
+                      {/* Explicit Service Heading */}
+                      <span className="text-[11px] font-semibold text-electric-400 tracking-wider uppercase block font-mono">
+                        {service.categoryLabel}
+                      </span>
+                      <h3 className="mt-1.5 text-lg sm:text-xl font-display font-bold text-white group-hover:text-electric-300 transition-colors leading-snug line-clamp-1">
                         {service.title}
                       </h3>
                       <p className="mt-1 text-xs text-gray-400 line-clamp-1">
@@ -485,12 +530,12 @@ export default function HorizontalServicesStage() {
                       </p>
                     </div>
 
-                    <div className="pt-3 border-t border-white/[0.05] flex items-center justify-between text-xs">
-                      <span className="text-[11px] font-mono text-gray-500">
+                    <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs text-gray-400">
+                      <span className="font-mono text-[11px] text-gray-300">
                         {service.turnaround}
                       </span>
-                      <span className="inline-flex items-center gap-1 text-[11px] font-semibold text-electric-400 group-hover:translate-x-0.5 transition-transform">
-                        <span>Details & Scope</span>
+                      <span className="inline-flex items-center gap-1 text-electric-400 font-semibold group-hover:translate-x-1 transition-transform">
+                        <span>Inspect Deliverables</span>
                         <ArrowUpRight className="w-3.5 h-3.5" />
                       </span>
                     </div>
@@ -523,7 +568,7 @@ export default function HorizontalServicesStage() {
             <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-white/[0.06] border border-white/10 text-white shadow-sm">
               <span className="text-electric-400">{ALL_10_SERVICES[activeCardIndex].number}</span> / 10
             </span>
-            <span className="text-xs text-gray-400 font-medium truncate max-w-[200px] sm:max-w-xs">
+            <span className="text-xs text-gray-300 font-semibold truncate max-w-[200px] sm:max-w-xs">
               {ALL_10_SERVICES[activeCardIndex].title}
             </span>
           </div>
@@ -584,7 +629,7 @@ export default function HorizontalServicesStage() {
               <div className="absolute inset-0 bg-gradient-to-t from-[#111116] via-[#111116]/40 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
                 <span className="text-xs font-mono font-bold tracking-wider text-electric-400 bg-electric-500/10 px-3 py-1 rounded-full border border-electric-500/30">
-                  DISCIPLINE {selectedService.number} • 48H SPRINTS
+                  {selectedService.categoryLabel} • {selectedService.turnaround}
                 </span>
                 <h3 className="mt-3 text-2xl sm:text-3xl font-display font-extrabold text-white">
                   {selectedService.title}

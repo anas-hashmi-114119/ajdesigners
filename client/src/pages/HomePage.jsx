@@ -10,7 +10,6 @@ import {
   Play,
   CheckCircle2,
 } from 'lucide-react';
-import FannedPortfolioShowcase from '../components/home/FannedPortfolioShowcase';
 import AuthorityGuides from '../components/home/AuthorityGuides';
 import BookingCalendarWidget from '../components/common/BookingCalendarWidget';
 import HeroCanvasShader from '../components/common/HeroCanvasShader';
@@ -293,11 +292,6 @@ export default function HomePage() {
       {/* 4. PINNED BIDIRECTIONAL HORIZONTAL SCROLL SERVICES STAGE  */}
       {/* ========================================================= */}
       <HorizontalServicesStage />
-
-      {/* Expandable 3-Card Fanned Showcase */}
-      <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FannedPortfolioShowcase />
-      </section>
 
       {/* ========================================================= */}
       {/* 5. "EVERYTHING WE HANDLE" (6-CARD INTERACTIVE BENTO)     */}

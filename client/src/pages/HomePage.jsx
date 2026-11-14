@@ -17,7 +17,6 @@ import ShowreelModal from '../components/common/ShowreelModal';
 import HeroVisualMotionCard from '../components/home/HeroVisualMotionCard';
 import TargetClientSolutions from '../components/home/TargetClientSolutions';
 import HorizontalServicesStage from '../components/home/HorizontalServicesStage';
-import EverythingWeHandleBento from '../components/home/EverythingWeHandleBento';
 import InteractiveWorkflowPipeline from '../components/home/InteractiveWorkflowPipeline';
 import InteractiveRoiCalculator from '../components/home/InteractiveRoiCalculator';
 
@@ -294,27 +293,22 @@ export default function HomePage() {
       <HorizontalServicesStage />
 
       {/* ========================================================= */}
-      {/* 5. "EVERYTHING WE HANDLE" (6-CARD INTERACTIVE BENTO)     */}
-      {/* ========================================================= */}
-      <EverythingWeHandleBento />
-
-      {/* ========================================================= */}
-      {/* 6. "HOW IT WORKS" (5-STEP HORIZONTAL WORKFLOW PIPELINE)  */}
+      {/* 5. "HOW IT WORKS" (5-STEP HORIZONTAL WORKFLOW PIPELINE)  */}
       {/* ========================================================= */}
       <InteractiveWorkflowPipeline />
 
       {/* ========================================================= */}
-      {/* 7. "LEARN BEFORE YOU BUY" (AUTHORITY GUIDES)              */}
+      {/* 6. "LEARN BEFORE YOU BUY" (AUTHORITY GUIDES)              */}
       {/* ========================================================= */}
       <AuthorityGuides />
 
       {/* ========================================================= */}
-      {/* 8. INTERACTIVE ROI GROWTH CALCULATOR                     */}
+      {/* 7. INTERACTIVE ROI GROWTH CALCULATOR                     */}
       {/* ========================================================= */}
       <InteractiveRoiCalculator />
 
       {/* ========================================================= */}
-      {/* 9. CLIENT TESTIMONIALS & FAQ ACCORDION                   */}
+      {/* 8. CLIENT TESTIMONIALS & FAQ ACCORDION                   */}
       {/* ========================================================= */}
       <section className="py-24 bg-[#070709] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -425,7 +419,7 @@ export default function HomePage() {
       </section>
 
       {/* ========================================================= */}
-      {/* 10. EMBEDDED STRATEGY CALL CALENDAR (CRUCIAL CONVERSION)  */}
+      {/* 9. EMBEDDED STRATEGY CALL CALENDAR (CRUCIAL CONVERSION)   */}
       {/* ========================================================= */}
       <BookingCalendarWidget />
     </div>

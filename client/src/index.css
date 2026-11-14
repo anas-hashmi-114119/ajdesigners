@@ -107,12 +107,14 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* Active cursor remains fully visible - never hide the OS pointer */
-body, a, button, input, select, textarea {
-  cursor: auto;
-}
-a, button, [role="button"] {
-  cursor: pointer;
+/* Custom enlarged classic arrow cursor */
+@media (pointer: fine) {
+  html, body, a, button, [role="button"], select {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M4 3L4 20L8.5 15.5L13.5 22L16 20.5L11 14L18 14L4 3Z' fill='%23FFFFFF' stroke='%23070709' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 4 3, auto !important;
+  }
+  input, textarea {
+    cursor: text !important;
+  }
 }
 
 /* 3D Spatial Transforms */

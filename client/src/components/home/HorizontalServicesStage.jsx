@@ -7,7 +7,6 @@ import {
   ChevronRight,
   X,
   CheckCircle2,
-  Clock,
   ShieldCheck,
   Zap,
   Smartphone,
@@ -18,6 +17,8 @@ import {
   Monitor,
   Search,
   LayoutGrid,
+  Users,
+  Check,
 } from 'lucide-react';
 
 const ALL_10_SERVICES = [
@@ -33,16 +34,30 @@ const ALL_10_SERVICES = [
     overlayBadge: '+214% Reach',
     overlaySub: 'Omnichannel Algorithm Sync',
     icon: Share2,
-    description:
-      'We architect and execute full-funnel organic content calendars across TikTok, Instagram, LinkedIn, and X. From strategic positioning to high-retention copywriting and community distribution, we transform passive audiences into loyal brand advocates without founder burnout.',
-    deliverables: [
-      'Omnichannel Monthly Content Calendar (30+ High-Authority Assets)',
-      'Platform-Native Copywriting & Engagement Hook Loops',
-      'Community Management & Comment Funnel Optimization',
-      'Monthly Growth Analytics & Audience Sentiment Reporting',
-    ],
-    turnaround: '48h Sprints',
     typeBadge: 'Social Growth',
+    turnaround: '48h Sprints',
+    idealFor: 'Founders, CEOs & ambitious brands wanting consistent viral presence without founder burnout.',
+    plainSummary:
+      'We take over your entire organic social presence. We research, write, design, and publish high-converting content across TikTok, Instagram, and LinkedIn so your brand consistently gains followers and customer inquiries without eating up your personal time.',
+    businessImpact: '+214% Average Reach Lift • 20+ Hours Saved Weekly',
+    deliverables: [
+      {
+        title: '30+ Monthly Posts & Carousels',
+        desc: 'Custom-crafted for your business with viral-tested hook angles and platform-native formatting.',
+      },
+      {
+        title: 'Advance Monthly Content Calendar',
+        desc: 'Pre-scheduled and shared inside Notion & Slack with simple 1-click reviews and approvals.',
+      },
+      {
+        title: 'Daily Community & Comment Moderation',
+        desc: 'Fast replies to prospect comments and questions to guide warm leads into your sales funnel.',
+      },
+      {
+        title: 'Monthly Growth & Lead Report',
+        desc: 'Transparent analytics tracking profile reach, follower gains, and website booking clicks.',
+      },
+    ],
   },
   {
     id: '02',
@@ -56,16 +71,30 @@ const ALL_10_SERVICES = [
     overlayBadge: 'Slide 03 / 08',
     overlaySub: '94% Hook Retention',
     icon: Layers,
-    description:
-      'Bespoke visual storytelling designed to halt the infinite scroll. We craft multi-slide educational carousels, viral infographics, high-aesthetic photo sets, and editorial motion graphics that educate, inspire, and drive direct saves and shares.',
-    deliverables: [
-      'High-Converting Multi-Slide Visual Carousels',
-      'Data-Driven Infographics & Stat Visualizations',
-      'Brand-Aligned Photographic Editorial Retouching',
-      'Story & Feed Distribution Asset Kits',
-    ],
-    turnaround: '48h Sprints',
     typeBadge: 'Visual Assets',
+    turnaround: '48h Sprints',
+    idealFor: 'B2B SaaS, tech startups, and digital creators wanting maximum saves and shares.',
+    plainSummary:
+      'Turn complicated business concepts into eye-catching visual carousels and infographics that stop people from scrolling. Designed to educate your market, build instant credibility, and get saved and shared widely across LinkedIn and Instagram.',
+    businessImpact: '3.2x Higher Save Rate • 94% Hook Retention Across Feeds',
+    deliverables: [
+      {
+        title: 'Multi-Slide Visual Carousels',
+        desc: 'Structured with psychological hooks, high-contrast layouts, and clear actionable takeaways.',
+      },
+      {
+        title: 'Custom Data Infographics & Charts',
+        desc: 'Transforming industry research and statistics into viral visual assets that build authority.',
+      },
+      {
+        title: 'Feed & Story Distribution Asset Kits',
+        desc: 'Formatted in exact ratios for Instagram, LinkedIn, X, and Facebook.',
+      },
+      {
+        title: 'Full Editable Figma & PSD Source Files',
+        desc: '100% full commercial intellectual property ownership of all master artwork and vector assets.',
+      },
+    ],
   },
   {
     id: '03',
@@ -73,22 +102,36 @@ const ALL_10_SERVICES = [
     number: '03',
     categoryLabel: 'SERVICE 03 • AI-POWERED PRODUCTION',
     title: 'AI-Powered Creative Production',
-    microTagline: 'Generative 4K photorealistic product staging',
+    microTagline: 'Generative 4K photorealistic product staging & avatars',
     image: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80',
     overlayType: 'ai-render',
     overlayBadge: 'AI Studio Render',
     overlaySub: '4K Generative Lighting',
     icon: Zap,
-    description:
-      'We merge custom-trained generative AI pipelines with elite human art direction. Generate photorealistic 3D environments, virtual product staging, and rapid visual variations in hours rather than weeks, cutting physical studio costs by over 60%.',
-    deliverables: [
-      'Hyper-Realistic 3D AI Product Staging & Environments',
-      'Rapid Concept Exploration & Moodboard Synthesis',
-      'Custom AI Creator Avatars & Multi-Ratio Rendering',
-      '4K Master Resolution Export with Commercial Rights',
-    ],
-    turnaround: '48h Sprints',
     typeBadge: 'Generative AI',
+    turnaround: '48h Sprints',
+    idealFor: 'E-commerce, CPG, and luxury brands wanting studio-grade visuals without massive budgets.',
+    plainSummary:
+      'Create photorealistic 3D product staging, digital human models, and studio-quality imagery without renting an expensive photography studio or hiring a camera crew. We blend generative AI pipelines with human art direction for 10x faster output.',
+    businessImpact: '60% Lower Production Costs • 10x Faster Creative Velocity',
+    deliverables: [
+      {
+        title: 'Virtual 3D Product Staging',
+        desc: 'Placing your products in luxury environments with realistic lighting, textures, and shadows.',
+      },
+      {
+        title: 'Synthetic Creator Model Avatars',
+        desc: 'Custom digital personas representing your product across diverse demographics.',
+      },
+      {
+        title: '50+ Visual Variations in 48 Hours',
+        desc: 'Test multiple backgrounds, angles, and lighting setups rapidly for social and paid ads.',
+      },
+      {
+        title: '4K Master Ultra-High Resolution Exports',
+        desc: 'Crisp, print-ready, billboard-quality, and ad-ready image files with commercial rights.',
+      },
+    ],
   },
   {
     id: '04',
@@ -102,16 +145,30 @@ const ALL_10_SERVICES = [
     overlayBadge: '100% Vector IP',
     overlaySub: 'Obsidian & Electric Palette',
     icon: Palette,
-    description:
-      'Command prestige and justify high-ticket pricing with an immaculate visual identity. We architect comprehensive dark-mode design systems, custom vector brandmarks, typography hierarchies, and luxury brand guidelines that elevate perceived brand value across US, UK, and European markets.',
-    deliverables: [
-      'Comprehensive Brand Identity Guidelines & Design Tokens',
-      'Custom Typography Hierarchy & Scalable Vector Marks',
-      'High-Ticket Pitch Decks & Investor Presentation Kits',
-      'Luxury Packaging Mockups & Physical Collateral Systems',
-    ],
-    turnaround: '48h Sprints',
     typeBadge: 'Brand Identity',
+    turnaround: '48h Sprints',
+    idealFor: 'Startups, consulting firms, and agencies scaling into international markets.',
+    plainSummary:
+      'Upgrade your company visual identity so you can command premium international pricing. We build comprehensive brand systems—from bespoke vector marks and typography rules to complete investor pitch decks and packaging guidelines.',
+    businessImpact: 'Instant Enterprise Credibility • Commands 2x–5x Higher Contract Pricing',
+    deliverables: [
+      {
+        title: 'Complete Brand Identity Guide',
+        desc: 'Exact color token palettes, typography rules, and logo usage guidelines.',
+      },
+      {
+        title: 'Scalable Vector Logo Suite',
+        desc: 'Master files in SVG, PNG, EPS for web, mobile apps, physical merchandise, and print.',
+      },
+      {
+        title: 'High-Ticket Investor Pitch Deck',
+        desc: 'Polished dark-mode presentation slides that command respect from investors and clients.',
+      },
+      {
+        title: 'Packaging & Collateral Standards',
+        desc: 'Templates and mockups for merchandise, business cards, stationery, and digital assets.',
+      },
+    ],
   },
   {
     id: '05',
@@ -125,16 +182,30 @@ const ALL_10_SERVICES = [
     overlayBadge: '9:16 Reels',
     overlaySub: 'Dynamic Audio Waveform',
     icon: Smartphone,
-    description:
-      'Vertical video engineered for modern algorithmic retention curves. We script 3-second visual disruptors, edit with kinetic pacing, curate spatial sound design, and embed animated typography tailored specifically for TikTok, Instagram Reels, and YouTube Shorts.',
-    deliverables: [
-      '15–45s High-Retention Vertical Video Edits (9:16 Ratio)',
-      '3-Second Visual Hook Variations for Systematic A/B Testing',
-      'Kinetic Subtitles, B-Roll Integration & SFX Sound Design',
-      'Multi-Language Accent Localization (US, UK, AUS, UAE)',
-    ],
-    turnaround: '48h Sprints',
     typeBadge: 'Viral Video',
+    turnaround: '48h Sprints',
+    idealFor: 'Creators, founders, and e-commerce stores wanting viral short-form reach.',
+    plainSummary:
+      'Hook viewer attention in the first 3 seconds with high-energy vertical videos (9:16). We edit raw video clips with kinetic pacing, animated captions, and sound effects built specifically to maximize watch time on TikTok, Instagram Reels, and YouTube Shorts.',
+    businessImpact: '45%+ Average Watch-Through Rate • Algorithmic Recommendation Lift',
+    deliverables: [
+      {
+        title: '15–45s Vertical Video Edits (9:16)',
+        desc: 'Fast-paced cuts, zooms, and seamless transitions engineered for smartphone viewing.',
+      },
+      {
+        title: '3-Second Hook Testing Variations',
+        desc: 'Multiple alternative intro hooks per video to test which hook drives the lowest ad CPA.',
+      },
+      {
+        title: 'Kinetic Captions & Sound Design',
+        desc: 'Animated subtitles and sound effects that keep viewers engaged even on mute.',
+      },
+      {
+        title: 'Multi-Language Subtitle Localization',
+        desc: 'Subtitle localization and voice accents tailored for US, UK, and UAE audiences.',
+      },
+    ],
   },
   {
     id: '06',
@@ -148,16 +219,30 @@ const ALL_10_SERVICES = [
     overlayBadge: '3.8x Target ROAS',
     overlaySub: '-58% Average CPA Drop',
     icon: TrendingUp,
-    description:
-      'Stop bleeding budget on ad fatigue. We manage full-funnel paid media campaigns across Meta, TikTok, and Google Ads with aggressive creative iteration, precision custom audience modeling, and real-time ROAS optimization that scales customer acquisition cost-effectively.',
-    deliverables: [
-      'Full Ad Account Architecture & Pixel Attribution Setup',
-      'Weekly Creative Refresh Cycles to Defeat Ad Fatigue',
-      'Audience Segmentation & High-Intent Retargeting Funnels',
-      'Transparent Weekly ROAS & Cost-Per-Acquisition Dashboards',
-    ],
-    turnaround: '48h Sprints',
     typeBadge: 'Paid Acquisition',
+    turnaround: '48h Sprints',
+    idealFor: 'Brands spending $3k–$50k/mo wanting measurable, profitable customer acquisition.',
+    plainSummary:
+      'Stop wasting money on ads that do not convert. We build and manage high-converting ad campaigns across Meta, TikTok, and Google Ads with aggressive weekly creative testing to lower your cost-per-acquisition and scale revenue predictably.',
+    businessImpact: '3.5x+ Target ROAS • -45% Average Drop in Cost-Per-Acquisition',
+    deliverables: [
+      {
+        title: 'Complete Pixel & Tracking Attribution',
+        desc: 'Server-side CAPI and conversion tracking verified so every dollar is accounted for.',
+      },
+      {
+        title: 'Weekly Creative Refresh Sprints',
+        desc: 'Continuous delivery of fresh ad angles and formats to permanently defeat ad fatigue.',
+      },
+      {
+        title: 'High-Intent Retargeting Funnels',
+        desc: 'Bringing warm visitors back to complete purchases, sign up, or book strategy calls.',
+      },
+      {
+        title: 'Real-Time ROAS Dashboard',
+        desc: 'Live dashboard tracking ad spend, cost per lead, and revenue return daily.',
+      },
+    ],
   },
   {
     id: '07',
@@ -171,16 +256,30 @@ const ALL_10_SERVICES = [
     overlayBadge: 'Qualified Pipeline',
     overlaySub: '+$48.2k Monthly ARR',
     icon: LayoutGrid,
-    description:
-      'Fill your executive calendar with pre-qualified decision makers. We combine account-based marketing (ABM), conversion-optimized outbound messaging, and targeted landing page funnels to attract enterprise SaaS and agency buyers consistently.',
-    deliverables: [
-      'Ideal Customer Profile (ICP) & TAM Account Mapping',
-      'High-Converting Multi-Touch Outbound Sequences',
-      'Automated CRM Integration (HubSpot, Salesforce, Notion)',
-      'Direct Calendar Booking Funnels with Lead Pre-Qualification',
-    ],
-    turnaround: '48h Sprints',
     typeBadge: 'B2B Pipeline',
+    turnaround: '48h Sprints',
+    idealFor: 'B2B SaaS, enterprise consulting, and high-ticket service agencies.',
+    plainSummary:
+      'Fill your sales calendar with qualified corporate decision-makers. We pinpoint your ideal customer profile, craft personalized multi-channel outreach, and book qualified sales appointments directly onto your calendar on autopilot.',
+    businessImpact: '15–35 Pre-Qualified Decision-Maker Discovery Calls Monthly',
+    deliverables: [
+      {
+        title: 'Verified Ideal Customer List',
+        desc: 'Accurate executive contacts with verified work emails and direct LinkedIn profiles.',
+      },
+      {
+        title: 'Multi-Touch Outreach Sequences',
+        desc: 'Highly personalized, non-spammy email & LinkedIn messages that spark conversations.',
+      },
+      {
+        title: 'Direct Calendar Booking Integration',
+        desc: 'Interested prospects book directly onto your team calendar with pre-qualification questions.',
+      },
+      {
+        title: 'CRM Handover & Lead Tracking',
+        desc: 'Automated sync into HubSpot, Notion, or Salesforce with complete prospect notes.',
+      },
+    ],
   },
   {
     id: '08',
@@ -194,16 +293,30 @@ const ALL_10_SERVICES = [
     overlayBadge: 'Top Voice',
     overlaySub: '48k Executive Reach',
     icon: Share2,
-    description:
-      'Transform founders and executive leadership into industry authorities. We ghostwrite high-engagement LinkedIn posts, design viral PDF carousel decks, and build outbound networking systems that establish market prestige and attract inbound capital and enterprise clients.',
-    deliverables: [
-      'Founder Storytelling & Thought Leadership Ghostwriting',
-      'Viral Visual PDF Carousels & Infographics',
-      'Profile Optimization for High-Ticket Lead Conversion',
-      'Asynchronous Weekly Review (Zero Founder Time Drag)',
-    ],
-    turnaround: '48h Sprints',
     typeBadge: 'Executive Brand',
+    turnaround: '48h Sprints',
+    idealFor: 'CEOs, venture-backed founders, partners, and high-ticket consultants.',
+    plainSummary:
+      'Position yourself as an undeniable authority in your industry. We ghostwrite compelling thought-leadership articles and design viral slide decks so enterprise clients, investors, and partners come directly to you.',
+    businessImpact: '50,000+ Monthly Executive Impressions • Inbound Enterprise Dealflow',
+    deliverables: [
+      {
+        title: 'Executive Ghostwriting (3–5 Posts / Week)',
+        desc: 'Thought leadership written in your authentic voice with zero buzzword fluff.',
+      },
+      {
+        title: 'Viral PDF Document Decks',
+        desc: 'High-authority multi-page slide decks formatted for maximum LinkedIn algorithm reach.',
+      },
+      {
+        title: 'Complete Profile Optimization',
+        desc: 'Transforming your personal headline, banner, and featured section into a landing page.',
+      },
+      {
+        title: '45-Minute Monthly Founder Time',
+        desc: 'Requires less than 1 hour of your time per month via a structured async interview.',
+      },
+    ],
   },
   {
     id: '09',
@@ -217,16 +330,30 @@ const ALL_10_SERVICES = [
     overlayBadge: '99.8% Speed',
     overlaySub: 'Conversion Wireframe',
     icon: Monitor,
-    description:
-      'Turn cold traffic into high-intent inbound inquiries. We design and develop sleek, dark-mode landing pages with lightning-fast load times, interactive WebGL micro-interactions, and psychology-backed conversion architecture that outperforms traditional templates.',
-    deliverables: [
-      'Conversion-Focused UI/UX Architecture & Copywriting',
-      'Ultra-Fast React / Tailwind / WebGL Development',
-      'Mobile-First Responsive Optimization (< 0.8s First Contentful Paint)',
-      'Direct Integration with Stripe, Cal.com & Lead Databases',
-    ],
-    turnaround: '48h Sprints',
     typeBadge: 'WebGL Web',
+    turnaround: '48h Sprints',
+    idealFor: 'New product launches, software platforms, and high-ticket service companies.',
+    plainSummary:
+      'Turn traffic into booked calls and paying customers. We design and build custom, ultra-fast landing pages with luxury dark-mode aesthetics, responsive layouts, and conversion-focused copywriting that outperforms generic templates.',
+    businessImpact: '2x–4x Higher Visitor-to-Lead Rate • <0.8s First Contentful Paint',
+    deliverables: [
+      {
+        title: 'Conversion UI/UX Architecture & Copywriting',
+        desc: 'Clear value propositions and structured benefit blocks that eliminate buyer hesitation.',
+      },
+      {
+        title: 'Ultra-Fast React / Tailwind / WebGL Code',
+        desc: 'Loads in under 0.8 seconds with smooth 60fps micro-interactions.',
+      },
+      {
+        title: '100% Mobile & Desktop Responsive',
+        desc: 'Tested and perfected across iPhone, iPad, Android, and 4K desktop screens.',
+      },
+      {
+        title: 'Stripe, Cal.com & CRM Integrations',
+        desc: 'Direct payment, appointment booking, and email capture connected out of the box.',
+      },
+    ],
   },
   {
     id: '10',
@@ -240,16 +367,30 @@ const ALL_10_SERVICES = [
     overlayBadge: '#1 Search Ranking',
     overlaySub: 'Top 3 SERP Dominance',
     icon: Search,
-    description:
-      'Capture high-intent organic search volume without paying for every click. We execute technical SEO audits, build programmatic topic clusters, optimize semantic schema markup, and write authority articles engineered to rank at the top of Google and AI search engines (Perplexity, ChatGPT).',
-    deliverables: [
-      'Technical SEO & Core Web Vitals Audit & Repair',
-      'High-Intent Keyword & Topic Cluster Blueprint',
-      'SEO-Engineered Long-Form Authority Articles & Schema Markup',
-      'Continuous Backlink Strategy & Monthly SERP Movement Tracking',
-    ],
-    turnaround: '48h Sprints',
     typeBadge: 'SEO & Search',
+    turnaround: '48h Sprints',
+    idealFor: 'Businesses wanting predictable organic leads without paying for every ad click.',
+    plainSummary:
+      'Get found by customers actively searching for your services on Google and modern AI engines like ChatGPT and Perplexity. We resolve technical SEO bottlenecks, structure programmatic keywords, and publish authority articles that rank #1.',
+    businessImpact: 'Top 3 Search Dominance • Zero Cost-Per-Click Organic Inbound Leads',
+    deliverables: [
+      {
+        title: 'Technical Website Audit & Speed Repair',
+        desc: 'Fixing Core Web Vitals, site crawlability, indexing errors, and structured schema tags.',
+      },
+      {
+        title: 'High-Intent Keyword Cluster Strategy',
+        desc: 'Targeting specific high-value terms that your ideal buyers type into search engines.',
+      },
+      {
+        title: 'Authority Long-Form Articles & Guides',
+        desc: 'In-depth educational articles engineered to win Google snippets and AI answer quotes.',
+      },
+      {
+        title: 'Monthly Ranking & Traffic Reporting',
+        desc: 'Clear monthly progress tracking keyword movements, impressions, and organic clicks.',
+      },
+    ],
   },
 ];
 
@@ -266,6 +407,31 @@ export default function HorizontalServicesStage() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Lock body scroll and pause Lenis when modal is open
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setSelectedService(null);
+    };
+
+    if (selectedService) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      // Pause global Lenis smooth scrolling so wheel events only scroll modal content
+      if (window.__lenis) {
+        window.__lenis.stop();
+      }
+      window.addEventListener('keydown', handleKeyDown);
+
+      return () => {
+        document.body.style.overflow = originalOverflow;
+        if (window.__lenis) {
+          window.__lenis.start();
+        }
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [selectedService]);
+
   // Continuous bidirectional scroll progress
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -279,13 +445,15 @@ export default function HorizontalServicesStage() {
     restDelta: 0.001,
   });
 
-  // Update active card index reactively on scroll
+  // Update active card index (0 to 9) based on continuous scroll progress
   useMotionValueEvent(smoothProgress, 'change', (latest) => {
-    const idx = Math.min(9, Math.max(0, Math.round(latest * 9)));
-    setActiveCardIndex(idx);
+    const clampedProgress = Math.min(1, Math.max(0, latest));
+    const rawIndex = Math.round(clampedProgress * (ALL_10_SERVICES.length - 1));
+    const safeIndex = Math.min(ALL_10_SERVICES.length - 1, Math.max(0, rawIndex));
+    setActiveCardIndex(safeIndex);
   });
 
-  // Card geometry dimensions calibrated so exactly 3 cards fan out on screen
+  // Card geometry: width and gap
   const cardWidth = windowWidth < 640 ? 300 : windowWidth < 1024 ? 350 : 380;
   const cardGap = windowWidth < 640 ? 16 : 28;
   const cardPitch = cardWidth + cardGap;
@@ -351,18 +519,17 @@ export default function HorizontalServicesStage() {
               const isLeftAdjacent = idx === activeCardIndex - 1;
               const isRightAdjacent = idx === activeCardIndex + 1;
 
-              // 3-Card Fanned Orientation Arc (copied from the fanned showcase below):
-              // Center card: rotate-0, scale-105, elevated z-20, glow border
-              // Left adjacent card: -rotate-6 (tilted -6deg), scale-95
-              // Right adjacent card: rotate-6 (tilted +6deg), scale-95
-              // Hover: hover:rotate-0 hover:scale-110 hover:shadow-glow-blue
+              // 3-Card Fanned Orientation Arc:
               let cardFannedStyle = 'rotate-0 scale-90 opacity-25 z-0';
               if (isCenter) {
-                cardFannedStyle = 'rotate-0 scale-105 opacity-100 z-20 border-electric-500/50 shadow-glow-blue hover:scale-110';
+                cardFannedStyle =
+                  'rotate-0 scale-105 opacity-100 z-20 border-electric-500/50 shadow-glow-blue hover:scale-110';
               } else if (isLeftAdjacent) {
-                cardFannedStyle = '-rotate-6 hover:rotate-0 scale-[0.96] opacity-70 hover:opacity-100 z-10 hover:scale-105 hover:z-30 hover:border-electric-500/50 hover:shadow-glow-blue';
+                cardFannedStyle =
+                  '-rotate-6 hover:rotate-0 scale-[0.96] opacity-70 hover:opacity-100 z-10 hover:scale-105 hover:z-30 hover:border-electric-500/50 hover:shadow-glow-blue';
               } else if (isRightAdjacent) {
-                cardFannedStyle = 'rotate-6 hover:rotate-0 scale-[0.96] opacity-70 hover:opacity-100 z-10 hover:scale-105 hover:z-30 hover:border-electric-500/50 hover:shadow-glow-blue';
+                cardFannedStyle =
+                  'rotate-6 hover:rotate-0 scale-[0.96] opacity-70 hover:opacity-100 z-10 hover:scale-105 hover:z-30 hover:border-electric-500/50 hover:shadow-glow-blue';
               } else if (idx < activeCardIndex) {
                 cardFannedStyle = '-rotate-12 scale-[0.85] opacity-20 z-0 pointer-events-none';
               } else {
@@ -452,34 +619,31 @@ export default function HorizontalServicesStage() {
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-black/75 backdrop-blur-md border border-rose-500/30 text-xs shadow-lg">
                           <div className="flex items-end gap-0.5 h-3.5">
                             <span className="w-1 bg-rose-400 rounded-full animate-pulse h-2" />
-                            <span className="w-1 bg-rose-400 rounded-full animate-pulse h-3.5" style={{ animationDelay: '100ms' }} />
-                            <span className="w-1 bg-rose-400 rounded-full animate-pulse h-1.5" style={{ animationDelay: '200ms' }} />
-                            <span className="w-1 bg-rose-400 rounded-full animate-pulse h-3" style={{ animationDelay: '300ms' }} />
+                            <span className="w-1 bg-rose-400 rounded-full animate-pulse h-3.5" />
+                            <span className="w-1 bg-rose-400 rounded-full animate-pulse h-1.5" />
                           </div>
                           <span className="font-bold text-white font-mono">{service.overlayBadge}</span>
-                          <span className="text-[10px] text-rose-300 font-mono">Viral Pacing</span>
                         </div>
                       )}
 
                       {service.overlayType === 'roas' && (
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-black/75 backdrop-blur-md border border-emerald-500/30 text-xs shadow-lg">
-                          <span className="text-emerald-400 font-bold font-mono">↗ {service.overlayBadge}</span>
-                          <span className="text-[10px] text-gray-400 font-mono">-58% CPA</span>
+                          <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
+                          <span className="font-bold text-emerald-400 font-mono">{service.overlayBadge}</span>
                         </div>
                       )}
 
                       {service.overlayType === 'pipeline' && (
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-black/75 backdrop-blur-md border border-blue-500/30 text-xs shadow-lg">
-                          <span className="w-2 h-2 rounded-full bg-blue-400 animate-ping" />
+                          <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
                           <span className="font-bold text-white font-mono">{service.overlayBadge}</span>
-                          <span className="text-[10px] text-blue-300 font-mono">ARR Growth</span>
                         </div>
                       )}
 
                       {service.overlayType === 'linkedin' && (
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-black/75 backdrop-blur-md border border-sky-500/30 text-xs shadow-lg">
-                          <span className="font-bold text-sky-400 font-mono">{service.overlayBadge}</span>
-                          <span className="text-[10px] text-gray-300 font-mono">Executive Influence</span>
+                        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-black/75 backdrop-blur-md border border-[#0A66C2]/40 text-xs shadow-lg">
+                          <span className="w-2 h-2 rounded-full bg-[#0A66C2] animate-pulse" />
+                          <span className="font-bold text-white font-mono">{service.overlayBadge}</span>
                         </div>
                       )}
 
@@ -562,10 +726,11 @@ export default function HorizontalServicesStage() {
             <button
               onClick={handlePrev}
               disabled={activeCardIndex === 0}
-              className={`p-2.5 rounded-full border transition-all ${activeCardIndex === 0
+              className={`p-2.5 rounded-full border transition-all ${
+                activeCardIndex === 0
                   ? 'border-white/5 text-gray-600 cursor-not-allowed'
                   : 'border-white/10 text-gray-300 hover:text-white hover:bg-white/10 hover:border-white/20 active:scale-95'
-                }`}
+              }`}
               aria-label="Previous Service"
             >
               <ChevronLeft className="w-4 h-4" />
@@ -573,10 +738,11 @@ export default function HorizontalServicesStage() {
             <button
               onClick={handleNext}
               disabled={activeCardIndex === ALL_10_SERVICES.length - 1}
-              className={`p-2.5 rounded-full border transition-all ${activeCardIndex === ALL_10_SERVICES.length - 1
+              className={`p-2.5 rounded-full border transition-all ${
+                activeCardIndex === ALL_10_SERVICES.length - 1
                   ? 'border-white/5 text-gray-600 cursor-not-allowed'
                   : 'border-white/10 text-gray-300 hover:text-white hover:bg-white/10 hover:border-white/20 active:scale-95'
-                }`}
+              }`}
               aria-label="Next Service"
             >
               <ChevronRight className="w-4 h-4" />
@@ -587,87 +753,131 @@ export default function HorizontalServicesStage() {
       </div>
 
       {/* ========================================================= */}
-      {/* 4. DETAIL MODAL / SLIDE-OVER DRAWER (CLICK-TO-REVEAL)    */}
+      {/* 4. DETAIL MODAL (SCROLL TRAPPED & MEANINGFUL CONTENT)     */}
       {/* ========================================================= */}
       {selectedService && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-xl animate-in fade-in duration-200">
-          <div className="relative w-full max-w-2xl bg-[#111116] border border-white/[0.12] rounded-3xl shadow-2xl overflow-hidden max-h-[90vh] overflow-y-auto">
-            {/* Close Button */}
-            <button
-              onClick={() => setSelectedService(null)}
-              className="absolute top-5 right-5 z-20 p-2.5 rounded-full bg-black/60 border border-white/20 text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
-              aria-label="Close Modal"
-            >
-              <X className="w-5 h-5" />
-            </button>
-
-            {/* Header Banner */}
-            <div className="relative h-60 sm:h-72 w-full overflow-hidden bg-black">
+        <div
+          data-lenis-prevent
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-black/85 backdrop-blur-xl animate-in fade-in duration-200"
+          onClick={() => setSelectedService(null)}
+          onWheel={(e) => e.stopPropagation()}
+          onTouchMove={(e) => e.stopPropagation()}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            data-lenis-prevent
+            onWheel={(e) => e.stopPropagation()}
+            onTouchMove={(e) => e.stopPropagation()}
+            className="relative w-full max-w-2xl bg-[#111116] border border-white/[0.12] rounded-3xl shadow-2xl flex flex-col max-h-[85vh] overflow-hidden overscroll-contain"
+          >
+            {/* Header Banner (Fixed / Shrink-0) */}
+            <div className="relative h-44 sm:h-52 w-full overflow-hidden bg-black shrink-0">
               <img
                 src={selectedService.image}
                 alt={selectedService.title}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover opacity-75"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#111116] via-[#111116]/40 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <span className="text-xs font-mono font-bold tracking-wider text-electric-400 bg-electric-500/10 px-3 py-1 rounded-full border border-electric-500/30">
-                  {selectedService.categoryLabel} • {selectedService.turnaround}
-                </span>
-                <h3 className="mt-3 text-2xl sm:text-3xl font-display font-extrabold text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#111116] via-[#111116]/50 to-black/40" />
+
+              {/* Close Button */}
+              <button
+                onClick={() => setSelectedService(null)}
+                className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/70 border border-white/20 text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
+                aria-label="Close Modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+
+              <div className="absolute bottom-4 left-5 right-5">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-[10px] font-mono font-bold tracking-wider text-electric-400 bg-electric-500/10 px-2.5 py-0.5 rounded-full border border-electric-500/30">
+                    {selectedService.categoryLabel}
+                  </span>
+                  <span className="text-[10px] font-mono text-gray-300 bg-white/[0.06] px-2.5 py-0.5 rounded-full border border-white/10">
+                    {selectedService.turnaround}
+                  </span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-display font-extrabold text-white leading-tight">
                   {selectedService.title}
                 </h3>
-                <p className="mt-1 text-xs sm:text-sm text-gray-300 font-mono">
-                  {selectedService.microTagline}
-                </p>
               </div>
             </div>
 
-            {/* Content Body */}
-            <div className="p-6 sm:p-8 space-y-6">
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-2">
-                  Discipline Overview
+            {/* Scrollable Body: Dedicated scroll container with overscroll-contain & data-lenis-prevent */}
+            <div
+              data-lenis-prevent
+              className="overflow-y-auto overscroll-contain flex-1 p-5 sm:p-7 space-y-6"
+            >
+              {/* 1. Plain-English Summary (Easy to Understand) */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#181820] border border-white/[0.08]">
+                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-electric-400 mb-2 flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-electric-400" />
+                  <span>What This Service Does For You</span>
                 </h4>
-                <p className="text-sm text-gray-300 leading-relaxed">
-                  {selectedService.description}
+                <p className="text-xs sm:text-sm text-gray-200 leading-relaxed">
+                  {selectedService.plainSummary}
                 </p>
+                <div className="mt-3 pt-3 border-t border-white/[0.06] flex items-center gap-2 text-[11px] text-gray-400">
+                  <Users className="w-3.5 h-3.5 text-purple-400 shrink-0" />
+                  <span><strong className="text-gray-300">Ideal For:</strong> {selectedService.idealFor}</span>
+                </div>
               </div>
 
-              {/* Core Deliverables Checklist */}
+              {/* 2. Core Deliverables (Tangible Outputs) */}
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3 flex items-center gap-1.5">
-                  <ShieldCheck className="w-3.5 h-3.5 text-electric-400" />
-                  <span>Core Deliverables & Execution Scope</span>
+                <h4 className="text-xs font-mono font-bold uppercase tracking-wider text-gray-300 mb-3 flex items-center gap-1.5">
+                  <Check className="w-4 h-4 text-emerald-400" />
+                  <span>Exact Deliverables & What You Receive</span>
                 </h4>
                 <div className="grid grid-cols-1 gap-2.5">
                   {selectedService.deliverables.map((item, idx) => (
                     <div
                       key={idx}
-                      className="p-3.5 rounded-xl bg-[#181820] border border-white/[0.06] text-xs sm:text-sm text-gray-200 flex items-start gap-3"
+                      className="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex items-start gap-3"
                     >
                       <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                      <span className="leading-snug">{item}</span>
+                      <div>
+                        <h5 className="text-xs sm:text-sm font-bold text-white leading-snug">
+                          {item.title}
+                        </h5>
+                        <p className="text-xs text-gray-400 mt-0.5 leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </div>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* Footer CTA & Guarantee */}
-              <div className="pt-4 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="flex items-center gap-2 text-xs font-mono text-gray-400">
-                  <Clock className="w-4 h-4 text-electric-400" />
-                  <span>Average Turnaround: 48 to 72 Hours</span>
+              {/* 3. Expected Business Impact Highlight */}
+              <div className="p-4 rounded-xl bg-gradient-to-r from-blue-950/40 to-purple-950/30 border border-electric-500/20 flex items-center gap-3">
+                <TrendingUp className="w-5 h-5 text-electric-400 shrink-0" />
+                <div>
+                  <span className="text-[10px] uppercase font-mono font-bold text-electric-400 block">
+                    Expected Outcome
+                  </span>
+                  <p className="text-xs sm:text-sm font-bold text-white">
+                    {selectedService.businessImpact}
+                  </p>
                 </div>
-
-                <a
-                  href="#booking-calendar"
-                  onClick={() => setSelectedService(null)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-electric-500 via-purple-brand to-cyan-400 text-white font-bold text-xs sm:text-sm shadow-glow-blue hover:scale-[1.02] transition-transform"
-                >
-                  <span>Book This Service</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
               </div>
+            </div>
+
+            {/* Modal Fixed Footer CTA (Shrink-0) */}
+            <div className="p-4 sm:p-5 border-t border-white/[0.08] bg-[#0E0E14] flex flex-col sm:flex-row items-center justify-between gap-3 shrink-0">
+              <div className="text-xs text-gray-400 flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>100% Commercial IP Rights • Slack & Notion Portals</span>
+              </div>
+
+              <a
+                href="#booking-calendar"
+                onClick={() => setSelectedService(null)}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-electric-500 via-purple-brand to-cyan-400 text-white font-bold text-xs sm:text-sm shadow-glow-blue hover:scale-[1.02] transition-transform"
+              >
+                <span>Book This Sprint</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
           </div>
         </div>

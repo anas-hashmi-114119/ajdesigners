@@ -6,12 +6,10 @@ import {
   Calendar,
   ChevronDown,
   ChevronUp,
-  Play,
 } from 'lucide-react';
 import AuthorityGuides from '../components/home/AuthorityGuides';
 import BookingCalendarWidget from '../components/common/BookingCalendarWidget';
 import HeroCanvasShader from '../components/common/HeroCanvasShader';
-import ShowreelModal from '../components/common/ShowreelModal';
 import HeroVisualMotionCard from '../components/home/HeroVisualMotionCard';
 import TargetClientSolutions from '../components/home/TargetClientSolutions';
 import HorizontalServicesStage from '../components/home/HorizontalServicesStage';
@@ -47,7 +45,6 @@ function StatCounter({ target, suffix = '', prefix = '', duration = 1600 }) {
 }
 
 export default function HomePage() {
-  const [showreelOpen, setShowreelOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const heroLeftRef = useRef(null);
   const heroCardRef = useRef(null);
@@ -112,9 +109,6 @@ export default function HomePage() {
 
   return (
     <div className="bg-[#070709] text-gray-100 min-h-screen">
-      {/* 4K Agency Master Showreel Modal */}
-      <ShowreelModal isOpen={showreelOpen} onClose={() => setShowreelOpen(false)} />
-
       {/* ========================================================= */}
       {/* 1. HERO SECTION                                           */}
       {/* ========================================================= */}
@@ -170,18 +164,6 @@ export default function HomePage() {
                   <span>Explore Services</span>
                   <ArrowUpRight className="w-4 h-4 text-gray-400 shrink-0" />
                 </a>
-
-                {/* 3. Watch Showreel Trigger */}
-                <button
-                  onClick={() => setShowreelOpen(true)}
-                  data-cursor-text="WATCH"
-                  className="group inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-gray-300 hover:text-white px-3.5 sm:px-4 py-3.5 rounded-full bg-white/[0.03] hover:bg-white/[0.07] border border-white/[0.06] hover:border-white/15 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shrink-0"
-                >
-                  <div className="w-6 h-6 rounded-full bg-electric-500/20 text-electric-400 flex items-center justify-center group-hover:bg-electric-500 group-hover:text-white transition-all duration-300">
-                    <Play className="w-2.5 h-2.5 fill-current ml-0.5" />
-                  </div>
-                  <span>Watch 2025 Showreel</span>
-                </button>
               </div>
 
               {/* Social Proof Strip with Live Count-Up Animations */}

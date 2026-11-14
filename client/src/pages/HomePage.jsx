@@ -32,6 +32,7 @@ import BookingCalendarWidget from '../components/common/BookingCalendarWidget';
 import HeroCanvasShader from '../components/common/HeroCanvasShader';
 import ShowreelModal from '../components/common/ShowreelModal';
 import HeroVisualMotionCard from '../components/home/HeroVisualMotionCard';
+import TargetClientSolutions from '../components/home/TargetClientSolutions';
 
 // Smooth GPU-accelerated Number Count-Up for Hero Stats
 function StatCounter({ target, suffix = '', prefix = '', duration = 1600 }) {
@@ -392,124 +393,9 @@ export default function HomePage() {
       </section>
 
       {/* ========================================================= */}
-      {/* 3. "WHO WE HELP" INTERACTIVE AUDIENCE CARDS              */}
+      {/* 3. TARGET CLIENT SOLUTIONS (SPLIT-CARD SCROLL ENGINE)    */}
       {/* ========================================================= */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-electric-400 text-xs font-semibold uppercase tracking-wider mb-4">
-            <Users2 className="w-3.5 h-3.5" />
-            <span>Target Client Solutions</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight">
-            Tailored Creative Engines for Ambitious Operators.
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-gray-300">
-            Whether you are validating market product-fit or scaling an established international enterprise.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Card 1: For Startups & SaaS */}
-          <div
-            data-cursor-text="STARTUPS"
-            className="p-8 sm:p-10 rounded-3xl bg-[#111116] border border-white/[0.08] hover:border-electric-500/50 hover:shadow-glow-blue hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
-          >
-            {/* Ambient hover glow */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-electric-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-electric-500/20 transition-all" />
-
-            <div>
-              {/* Floating animated badge inside */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181820] border border-white/[0.08] text-[11px] font-mono text-electric-400 mb-6 shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-electric-400 animate-pulse" />
-                <span>Sprint Velocity: 48h Turnaround • $48.2k MRR Pipeline</span>
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl font-display font-extrabold text-white group-hover:text-electric-300 transition-colors">
-                For Startups & SaaS
-              </h3>
-              <p className="mt-4 text-sm sm:text-base text-gray-300 leading-relaxed">
-                Rapidly validate creative hooks, deploy high-volume organic video assets, and construct high-ticket ARR customer pipelines without the friction or payroll overhead of hiring an in-house design department.
-              </p>
-
-              <div className="mt-8 space-y-3">
-                {[
-                  'Rapid hook validation across TikTok & Meta Ads',
-                  'Interactive product UI motion & feature walkthroughs',
-                  'Executive thought-leadership carousels for founders',
-                  'High-converting landing page art direction',
-                ].map((perk, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5 text-xs text-gray-300">
-                    <CheckCircle2 className="w-4 h-4 text-electric-400 shrink-0" />
-                    <span>{perk}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-10 pt-6 border-t border-white/[0.08] flex items-center justify-between">
-              <span className="text-xs font-bold text-gray-400">Launch in &lt; 48 Hours</span>
-              <a
-                href="#booking-calendar"
-                onClick={handleScrollToCalendar}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-electric-400 group-hover:text-electric-300 group-hover:translate-x-1 transition-all"
-              >
-                <span>Book Startup Growth Call</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-
-          {/* Card 2: For Established Brands & Agencies */}
-          <div
-            data-cursor-text="BRANDS"
-            className="p-8 sm:p-10 rounded-3xl bg-[#111116] border border-white/[0.08] hover:border-purple-brand/50 hover:shadow-glow-purple hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
-          >
-            {/* Ambient hover glow */}
-            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-brand/10 rounded-full blur-3xl pointer-events-none group-hover:bg-purple-brand/20 transition-all" />
-
-            <div>
-              {/* Floating animated badge inside */}
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#181820] border border-white/[0.08] text-[11px] font-mono text-purple-soft mb-6 shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-purple-brand animate-pulse" />
-                <span>Global Footprint: 6 Continents • 100+ Assets / mo</span>
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl font-display font-extrabold text-white group-hover:text-purple-300 transition-colors">
-                For Established Brands & Agencies
-              </h3>
-              <p className="mt-4 text-sm sm:text-base text-gray-300 leading-relaxed">
-                Scale omnichannel creative output across international markets (US, UK, UAE, EU), deploy 50+ AI-driven localized video variations, and cut creative production costs by 60% while maintaining luxury prestige.
-              </p>
-
-              <div className="mt-8 space-y-3">
-                {[
-                  'Omnichannel social distribution across 4+ networks',
-                  'Localized multi-voiceover AI dubbing (US/UK/EU/UAE)',
-                  'Full-funnel ad creative optimization & split testing',
-                  'Comprehensive brand guidelines & 3D luxury packaging',
-                ].map((perk, idx) => (
-                  <div key={idx} className="flex items-center gap-2.5 text-xs text-gray-300">
-                    <CheckCircle2 className="w-4 h-4 text-purple-brand shrink-0" />
-                    <span>{perk}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mt-10 pt-6 border-t border-white/[0.08] flex items-center justify-between">
-              <span className="text-xs font-bold text-gray-400">Enterprise Scale Output</span>
-              <a
-                href="#booking-calendar"
-                onClick={handleScrollToCalendar}
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-brand group-hover:text-purple-soft group-hover:translate-x-1 transition-all"
-              >
-                <span>Book Enterprise Call</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <TargetClientSolutions onScrollToCalendar={handleScrollToCalendar} />
 
       {/* ========================================================= */}
       {/* 4. INTERACTIVE SERVICES & EXPANDABLE 3-CARD SHOWCASE     */}

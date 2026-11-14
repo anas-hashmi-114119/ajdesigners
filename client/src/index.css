@@ -10,7 +10,12 @@
     overflow-x: hidden;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Plus Jakarta Sans', sans-serif;
     letter-spacing: -0.025em;
   }
@@ -21,13 +26,16 @@
   width: 7px;
   height: 7px;
 }
+
 ::-webkit-scrollbar-track {
   background: #070709;
 }
+
 ::-webkit-scrollbar-thumb {
   background: rgba(59, 130, 246, 0.3);
   border-radius: 9999px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(59, 130, 246, 0.6);
 }
@@ -73,6 +81,7 @@
 .gradient-border-glow {
   position: relative;
 }
+
 .gradient-border-glow::before {
   content: '';
   position: absolute;
@@ -87,7 +96,8 @@
 }
 
 /* Lenis Recommended Inertia Styles */
-html.lenis, html.lenis body {
+html.lenis,
+html.lenis body {
   height: auto;
 }
 
@@ -107,12 +117,21 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* Active cursor remains fully visible - never hide the OS pointer */
-body, a, button, input, select, textarea {
-  cursor: auto;
-}
-a, button, [role="button"] {
-  cursor: pointer;
+/* Custom Gaming Reticle Cursor for fine-pointer desktop devices */
+@media (pointer: fine) {
+
+  body,
+  a,
+  button,
+  [role="button"],
+  select {
+    cursor: none !important;
+  }
+
+  input,
+  textarea {
+    cursor: text !important;
+  }
 }
 
 /* 3D Spatial Transforms */
@@ -130,13 +149,23 @@ a, button, [role="button"] {
 
 /* Infinite Kinetic Ticker Marquee */
 @keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes marquee-reverse {
-  0% { transform: translateX(-50%); }
-  100% { transform: translateX(0%); }
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
 }
 
 .animate-marquee {
@@ -158,8 +187,17 @@ a, button, [role="button"] {
 
 /* Subtle Pulse for live status indicators */
 @keyframes pulse-subtle {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.6; transform: scale(0.95); }
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.6;
+    transform: scale(0.95);
+  }
 }
 
 .animate-pulse-subtle {
@@ -168,9 +206,12 @@ a, button, [role="button"] {
 
 /* Hero Floating 3D Card Animation */
 @keyframes hero-float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px);
   }
+
   50% {
     transform: translateY(-10px);
   }
@@ -182,23 +223,51 @@ a, button, [role="button"] {
 
 /* Audio Equalizer dancing bars for video preview */
 @keyframes equalizer-1 {
-  0%, 100% { height: 4px; }
-  50% { height: 16px; }
+
+  0%,
+  100% {
+    height: 4px;
+  }
+
+  50% {
+    height: 16px;
+  }
 }
 
 @keyframes equalizer-2 {
-  0%, 100% { height: 12px; }
-  50% { height: 5px; }
+
+  0%,
+  100% {
+    height: 12px;
+  }
+
+  50% {
+    height: 5px;
+  }
 }
 
 @keyframes equalizer-3 {
-  0%, 100% { height: 7px; }
-  50% { height: 15px; }
+
+  0%,
+  100% {
+    height: 7px;
+  }
+
+  50% {
+    height: 15px;
+  }
 }
 
 @keyframes equalizer-4 {
-  0%, 100% { height: 15px; }
-  50% { height: 6px; }
+
+  0%,
+  100% {
+    height: 15px;
+  }
+
+  50% {
+    height: 6px;
+  }
 }
 
 .animate-equalizer-1 {

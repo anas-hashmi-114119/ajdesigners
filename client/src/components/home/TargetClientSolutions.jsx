@@ -367,21 +367,21 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
                         <div className="flex items-center gap-1.5">
                           <span className="w-2 h-2 rounded-full bg-purple-brand" />
                           <span className="text-[11px] font-mono text-purple-soft font-bold">
-                            OMNICHANNEL PIPELINE
+                            24/7 GLOBAL PIPELINE
                           </span>
                         </div>
                         <span className="text-[9px] font-mono text-emerald-400 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full font-bold">
-                          MULTI-REGION
+                          ALL TIMEZONES
                         </span>
                       </div>
 
                       {/* Regional Node Matrix */}
                       <div className="grid grid-cols-4 gap-2 my-auto">
                         {[
-                          { code: 'US', label: 'EST / PST' },
-                          { code: 'UK', label: 'GMT' },
-                          { code: 'UAE', label: 'GST' },
-                          { code: 'EU', label: 'CET' },
+                          { code: 'AMER', label: 'UTC-10/-3' },
+                          { code: 'EMEA', label: 'UTC+0/+3' },
+                          { code: 'MENA/SA', label: 'UTC+4/+6' },
+                          { code: 'APAC/OCE', label: 'UTC+7/+12' },
                         ].map((loc, i) => (
                           <div
                             key={i}
@@ -393,7 +393,7 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
                                 {loc.code}
                               </span>
                             </div>
-                            <span className="text-[8px] font-mono text-purple-soft block mt-0.5">
+                            <span className="text-[8px] font-mono text-purple-soft block mt-0.5 font-bold">
                               {loc.label}
                             </span>
                           </div>
@@ -402,8 +402,8 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
 
                       {/* Banner Bottom Metrics */}
                       <div className="flex items-center justify-between text-[10px] font-mono text-gray-300 pt-1.5 border-t border-white/[0.06]">
-                        <span className="text-gray-300">ROAS Target: 3.8x</span>
-                        <span className="text-purple-soft font-bold">Meta + TikTok Active</span>
+                        <span className="text-gray-300">Continuous 24h Handover</span>
+                        <span className="text-purple-soft font-bold">Global Operations</span>
                       </div>
                     </div>
 

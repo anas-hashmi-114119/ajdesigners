@@ -18,12 +18,41 @@ import {
 import { inquiryAPI } from '../../services/api';
 
 const TIMEZONES = [
-  { label: 'GMT+0 (London, Dublin, Lisbon)', value: 'GMT' },
-  { label: 'EST / UTC-5 (New York, Toronto, Miami)', value: 'EST' },
-  { label: 'PST / UTC-8 (San Francisco, Los Angeles)', value: 'PST' },
-  { label: 'CET / UTC+1 (Berlin, Paris, Amsterdam)', value: 'CET' },
-  { label: 'GST / UTC+4 (Dubai, Abu Dhabi)', value: 'GST' },
-  { label: 'AEST / UTC+10 (Sydney, Melbourne)', value: 'AEST' },
+  // Americas & Pacific (UTC-10 to UTC-3)
+  { label: 'HST / UTC-10 (Honolulu, Hawaii, Tahiti)', value: 'HST' },
+  { label: 'AKST / UTC-9 (Anchorage, Fairbanks, Juneau)', value: 'AKST' },
+  { label: 'PST / UTC-8 (Los Angeles, San Francisco, Vancouver, Seattle)', value: 'PST' },
+  { label: 'MST / UTC-7 (Denver, Phoenix, Salt Lake City, Calgary)', value: 'MST' },
+  { label: 'CST / UTC-6 (Chicago, Dallas, Houston, Mexico City, Winnipeg)', value: 'CST' },
+  { label: 'EST / UTC-5 (New York, Toronto, Miami, Atlanta, Bogotá, Lima)', value: 'EST' },
+  { label: 'AST / UTC-4 (Santiago, Halifax, San Juan, Caracas, La Paz)', value: 'AST' },
+  { label: 'BRT / ART / UTC-3 (São Paulo, Buenos Aires, Rio de Janeiro, Montevideo)', value: 'BRT' },
+
+  // Western Europe & West Africa (UTC+0 to UTC+1)
+  { label: 'GMT / UTC+0 (London, Dublin, Lisbon, Casablanca, Accra, Reykjavik)', value: 'GMT' },
+  { label: 'CET / WAT / UTC+1 (Paris, Berlin, Amsterdam, Rome, Madrid, Lagos)', value: 'CET' },
+
+  // Eastern Europe, Middle East & Africa (UTC+2 to UTC+4)
+  { label: 'EET / CAT / UTC+2 (Cairo, Johannesburg, Athens, Helsinki, Kyiv, Beirut)', value: 'EET' },
+  { label: 'EAT / AST / UTC+3 (Riyadh, Nairobi, Istanbul, Doha, Kuwait, Addis Ababa)', value: 'EAT' },
+  { label: 'GST / UTC+4 (Dubai, Abu Dhabi, Muscat, Baku, Tbilisi, Yerevan)', value: 'GST' },
+
+  // Central & South Asia (UTC+4:30 to UTC+6)
+  { label: 'AFT / UTC+4:30 (Kabul)', value: 'AFT' },
+  { label: 'PKT / UTC+5 (Karachi, Islamabad, Lahore, Tashkent)', value: 'PKT' },
+  { label: 'IST / UTC+5:30 (Mumbai, New Delhi, Bengaluru, Colombo)', value: 'IST' },
+  { label: 'NPT / UTC+5:45 (Kathmandu)', value: 'NPT' },
+  { label: 'BST / UTC+6 (Dhaka, Almaty, Astana, Bishkek)', value: 'BST' },
+
+  // Southeast & East Asia (UTC+7 to UTC+9)
+  { label: 'ICT / UTC+7 (Bangkok, Jakarta, Ho Chi Minh City, Hanoi)', value: 'ICT' },
+  { label: 'SGT / HKT / CST / UTC+8 (Singapore, Hong Kong, Beijing, Taipei, Manila, Perth)', value: 'SGT' },
+  { label: 'JST / KST / UTC+9 (Tokyo, Seoul, Osaka)', value: 'JST' },
+
+  // Australia & Pacific (UTC+9:30 to UTC+12)
+  { label: 'ACST / UTC+9:30 (Adelaide, Darwin)', value: 'ACST' },
+  { label: 'AEST / UTC+10 (Sydney, Melbourne, Brisbane, Canberra, Guam)', value: 'AEST' },
+  { label: 'NZST / UTC+12 (Auckland, Wellington, Suva, Fiji)', value: 'NZST' },
 ];
 
 const TIME_SLOTS = [
@@ -39,7 +68,44 @@ export default function BookingCalendarWidget({ className = '' }) {
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedSlot, setSelectedSlot] = useState('');
-  const [timezone, setTimezone] = useState('EST');
+  // Auto-detect browser's local timezone offset or match
+  const [timezone, setTimezone] = useState(() => {
+    try {
+      const offsetMinutes = new Date().getTimezoneOffset();
+      const offsetMap = {
+        600: 'HST',
+        540: 'AKST',
+        480: 'PST',
+        420: 'MST',
+        360: 'CST',
+        300: 'EST',
+        240: 'AST',
+        180: 'BRT',
+        0: 'GMT',
+        '-60': 'CET',
+        '-120': 'EET',
+        '-180': 'EAT',
+        '-240': 'GST',
+        '-270': 'AFT',
+        '-300': 'PKT',
+        '-330': 'IST',
+        '-345': 'NPT',
+        '-360': 'BST',
+        '-420': 'ICT',
+        '-480': 'SGT',
+        '-540': 'JST',
+        '-570': 'ACST',
+        '-600': 'AEST',
+        '-720': 'NZST',
+      };
+      if (offsetMap[offsetMinutes]) {
+        return offsetMap[offsetMinutes];
+      }
+    } catch {
+      // fallback
+    }
+    return 'EST';
+  });
   const [bookingStep, setBookingStep] = useState('select'); // 'select' | 'details' | 'confirmed'
   const [submitting, setSubmitting] = useState(false);
 
@@ -387,6 +453,10 @@ export default function BookingCalendarWidget({ className = '' }) {
                     <div className="flex items-center gap-2.5 text-xs text-gray-300">
                       <Video className="w-4 h-4 text-purple-brand" />
                       <span>Google Meet Private Video Link</span>
+                    </div>
+                    <div className="flex items-center gap-2.5 text-xs text-gray-300">
+                      <Globe2 className="w-4 h-4 text-cyan-400" />
+                      <span>Worldwide Coverage (UTC-10 to UTC+12)</span>
                     </div>
                     <div className="flex items-center gap-2.5 text-xs text-gray-300">
                       <ShieldCheck className="w-4 h-4 text-emerald-400" />

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import {
   Sparkles,
   Target,
@@ -10,10 +9,6 @@ import {
   Lightbulb,
   ShieldCheck,
   TrendingUp,
-  ArrowUpRight,
-  UserCheck,
-  ArrowRight,
-  Globe2,
 } from 'lucide-react';
 import BookingCalendarWidget from '../components/common/BookingCalendarWidget';
 
@@ -96,7 +91,7 @@ export default function AboutPage() {
                 We believe modern digital marketing requires more than static graphic templates. It requires hyper-focused audience psychology, rapid creative iteration, and platform-native distribution that commands attention in crowded feeds.
               </p>
               <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-                By uniting senior human art direction with state-of-the-art AI synthesis, we provide ambitious brands in the US, UK, Canada, Australia, UAE, and Europe with Fortune 500-grade creative velocity.
+                By uniting senior human art direction with state-of-the-art AI synthesis, we provide ambitious brands worldwide across all continents and international time zones with Fortune 500-grade creative velocity.
               </p>
             </div>
 

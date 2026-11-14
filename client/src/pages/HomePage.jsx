@@ -94,8 +94,8 @@ export default function HomePage() {
       a: 'Most creative sprint assets, AI UGC video ads, and static designs are delivered within 48 to 72 hours through our dedicated Slack & Notion portals. Priority sprint tiers include 24-hour delivery.',
     },
     {
-      q: 'How do we collaborate across time zones?',
-      a: 'We operate asynchronously with structured sprint boards and synchronous strategy calls aligned with US (EST/PST), UK (GMT), and Middle East (GST) business hours. You receive immediate updates without scheduling friction.',
+      q: 'How do we collaborate across international time zones?',
+      a: 'We operate with ambitious brands worldwide across North America, South America, Europe, Africa, the Middle East, Asia-Pacific, and Oceania. Using our asynchronous sprint infrastructure (dedicated Slack channels & Notion portals) alongside flexible live strategy sessions spanning all global time zones (UTC-10 to UTC+12), you receive daily progress, rapid deliverables, and seamless communication with zero time zone friction.',
     },
     {
       q: 'Who owns the creative assets?',

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Globe2, Sparkles, ArrowUpRight, ShieldCheck, Phone } from 'lucide-react';
+import { Mail, Globe2, ArrowUpRight } from 'lucide-react';
 import { InstagramIcon, LinkedinIcon, FacebookIcon } from '../common/SocialIcons';
 
 export default function Footer() {
@@ -145,7 +145,7 @@ export default function Footer() {
                   Global Remote Operations
                 </span>
                 <span className="text-[11px] text-gray-400 leading-relaxed block">
-                  Synchronous client consultations aligned with Eastern (EST), Greenwich (GMT), and Gulf (GST) business hours.
+                  Collaborating with international clients worldwide across all global time zones (UTC-10 to UTC+12).
                 </span>
               </div>
               <div>

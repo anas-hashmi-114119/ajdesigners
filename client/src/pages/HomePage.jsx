@@ -66,7 +66,6 @@ function StatCounter({ target, suffix = '', prefix = '', duration = 1600 }) {
 
 export default function HomePage() {
   const [showreelOpen, setShowreelOpen] = useState(false);
-  const [hoveredService, setHoveredService] = useState(null);
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const heroLeftRef = useRef(null);
   const heroCardRef = useRef(null);
@@ -108,38 +107,6 @@ export default function HomePage() {
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
-  // Core 4 Services with Kinetic Marquee Strip on Hover
-  const coreServices = [
-    {
-      id: '01',
-      title: 'AI-Powered UGC Ads',
-      slug: 'ai-powered-content',
-      tagline: 'Hyper-realistic AI creator videos engineered for virality & high ROAS.',
-      marquee: 'AI CREATOR AVATARS • 9:16 VERTICAL HOOKS • MULTI-VOICEOVER DUBBING • 48H SPRINT • HIGH ROAS • RAPID A/B TESTING',
-    },
-    {
-      id: '02',
-      title: 'Social Media Management',
-      slug: 'social-media-management',
-      tagline: 'End-to-end strategic content calendars, copywriting & community distribution.',
-      marquee: 'OMNICHANNEL DISTRIBUTION • INSTAGRAM REELS • LINKEDIN THOUGHT LEADERSHIP • TIKTOK ALGORITHM MASTERY • COMMUNITY ENGAGEMENT',
-    },
-    {
-      id: '03',
-      title: 'Performance Paid Campaigns',
-      slug: 'digital-advertising',
-      tagline: 'Full-funnel Meta, TikTok, and Google ad management driving qualified pipeline.',
-      marquee: 'META ADS SPECIALIST • TIKTOK PIXEL SCALING • GOOGLE SEARCH & DISPLAY • LOW CPA • MAX ROAS • DATA ATTRIBUTION',
-    },
-    {
-      id: '04',
-      title: 'Brand & Graphic Design',
-      slug: 'graphic-design-branding',
-      tagline: 'Bespoke design systems, 3D motion assets, and high-ticket visual collateral.',
-      marquee: 'LUXURY DESIGN SYSTEMS • 3D PACKAGING RENDERS • PITCH DECKS • WEBGL LANDING PAGES • GLOBAL BRAND GUIDELINES',
-    },
-  ];
 
   // 6 Bento Grid Services ("Everything We Handle")
   const bentoServices = [
@@ -399,88 +366,13 @@ export default function HomePage() {
       <TargetClientSolutions onScrollToCalendar={handleScrollToCalendar} />
 
       {/* ========================================================= */}
-      {/* 4. INTERACTIVE SERVICES & EXPANDABLE 3-CARD SHOWCASE     */}
+      {/* 4. INTERACTIVE SERVICES & DYNAMIC VISUAL MATRIX          */}
       {/* ========================================================= */}
-      <section id="services-section" className="py-24 bg-[#09090d] border-y border-white/[0.08] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-electric-400 text-xs font-semibold uppercase tracking-wider mb-4">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Signature Service Matrix</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight">
-                Interactive Core Services.
-              </h2>
-              <p className="mt-3 text-base text-gray-300 max-w-xl">
-                Hover over any discipline to preview our tactical execution stack and explore expandable case sprint studies below.
-              </p>
-            </div>
-            <Link
-              to="/services"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-electric-400 hover:text-white transition-colors"
-            >
-              <span>View All 10 Agency Services</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
+      <CoreServicesShowcase />
 
-          {/* Vertical Interactive Service Rows */}
-          <div className="space-y-4">
-            {coreServices.map((service) => {
-              const isHovered = hoveredService === service.id;
-              return (
-                <div
-                  key={service.id}
-                  onMouseEnter={() => setHoveredService(service.id)}
-                  onMouseLeave={() => setHoveredService(null)}
-                  className={`service-row rounded-2xl bg-[#111116] border transition-all duration-300 overflow-hidden cursor-pointer ${isHovered
-                      ? 'border-electric-500/60 shadow-glow-blue bg-[#14141c]'
-                      : 'border-white/[0.08]'
-                    }`}
-                >
-                  <div className="p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div className="flex items-center gap-6">
-                      <span className="font-mono text-sm sm:text-base font-bold text-electric-400">
-                        {service.id}.
-                      </span>
-                      <div>
-                        <h3 className="text-xl sm:text-2xl font-display font-bold text-white">
-                          {service.title}
-                        </h3>
-                        <p className="text-xs sm:text-sm text-gray-400 mt-1">
-                          {service.tagline}
-                        </p>
-                      </div>
-                    </div>
-
-                    <Link
-                      to={`/services/${service.slug}`}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-300 hover:text-white self-start md:self-auto px-4 py-2 rounded-full bg-white/[0.04] border border-white/[0.08] hover:border-electric-400/50 transition-colors"
-                    >
-                      <span>Deep Dive</span>
-                      <ArrowUpRight className="w-3.5 h-3.5 text-electric-400" />
-                    </Link>
-                  </div>
-
-                  {/* Kinetic Marquee Strip revealed on hover */}
-                  {isHovered && (
-                    <div className="py-2.5 bg-gradient-to-r from-electric-500 via-blue-600 to-purple-brand text-white overflow-hidden animate-in fade-in duration-300">
-                      <div className="animate-marquee-fast flex items-center gap-8 text-[11px] font-mono font-bold tracking-widest uppercase">
-                        <span>{service.marquee}</span>
-                        <span>•</span>
-                        <span>{service.marquee}</span>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-
-          {/* Expandable 3-Card Fanned Showcase */}
-          <FannedPortfolioShowcase />
-        </div>
+      {/* Expandable 3-Card Fanned Showcase */}
+      <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <FannedPortfolioShowcase />
       </section>
 
       {/* ========================================================= */}

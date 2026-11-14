@@ -1,30 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import {
   ArrowRight,
   ArrowUpRight,
-  Sparkles,
-  CheckCircle2,
   Calendar,
-  Layers,
-  Monitor,
-  Smartphone,
-  LayoutGrid,
-  Zap,
-  TrendingUp,
-  Clock,
-  Globe2,
   ChevronDown,
   ChevronUp,
   Star,
-  Film,
-  BarChart3,
-  Flame,
-  Check,
-  ShieldCheck,
   Play,
-  Users2,
+  CheckCircle2,
 } from 'lucide-react';
 import FannedPortfolioShowcase from '../components/home/FannedPortfolioShowcase';
 import AuthorityGuides from '../components/home/AuthorityGuides';
@@ -34,6 +18,9 @@ import ShowreelModal from '../components/common/ShowreelModal';
 import HeroVisualMotionCard from '../components/home/HeroVisualMotionCard';
 import TargetClientSolutions from '../components/home/TargetClientSolutions';
 import CoreServicesShowcase from '../components/home/CoreServicesShowcase';
+import EverythingWeHandleBento from '../components/home/EverythingWeHandleBento';
+import InteractiveWorkflowPipeline from '../components/home/InteractiveWorkflowPipeline';
+import InteractiveRoiCalculator from '../components/home/InteractiveRoiCalculator';
 
 // Smooth GPU-accelerated Number Count-Up for Hero Stats
 function StatCounter({ target, suffix = '', prefix = '', duration = 1600 }) {
@@ -108,76 +95,7 @@ export default function HomePage() {
     }
   };
 
-  // 6 Bento Grid Services ("Everything We Handle")
-  const bentoServices = [
-    {
-      title: 'Social Media Strategy',
-      desc: 'Data-backed content calendars, positioning frameworks, and platform-native distribution that build brand authority.',
-      icon: TrendingUp,
-      badge: 'Organic Scale',
-    },
-    {
-      title: 'AI UGC Video Ads',
-      desc: 'High-velocity short-form ad creatives combining hyper-realistic AI video, authentic hooks, and conversion scripts.',
-      icon: Flame,
-      badge: 'High Conversion',
-    },
-    {
-      title: 'Short-Form Reels & TikToks',
-      desc: 'Retention-engineered 9:16 vertical video assets crafted to capture algorithmic feeds and ignite viral discovery.',
-      icon: Smartphone,
-      badge: 'Viral Pacing',
-    },
-    {
-      title: 'Graphic Design & Branding',
-      desc: 'High-end visual identities, marketing collateral, pitch decks, and brand guidelines that exude premium credibility.',
-      icon: LayoutGrid,
-      badge: 'Visual Identity',
-    },
-    {
-      title: 'Paid Ad Management',
-      desc: 'Full-funnel Meta, Google, and TikTok ad campaigns fine-tuned for lowest CPA, maximum ROAS, and scalable lead flow.',
-      icon: BarChart3,
-      badge: 'ROAS Focus',
-    },
-    {
-      title: 'Landing Page Design',
-      desc: 'Ultra-fast, conversion-optimized WebGL and Next-gen landing pages that turn cold ad traffic into paying customers.',
-      icon: Monitor,
-      badge: 'Conversion Rate',
-    },
-  ];
-
-  // 5-Step Horizontal Workflow
-  const workflowSteps = [
-    {
-      step: '01',
-      title: 'Audit & Strategy',
-      desc: 'We dissect your competitor landscape, uncover hook fatigue, and architect a 90-day multi-platform growth blueprint.',
-    },
-    {
-      step: '02',
-      title: 'Creative Direction',
-      desc: 'Yashwa & Aroosa develop bespoke visual moodboards, script frameworks, and high-converting storytelling angles.',
-    },
-    {
-      step: '03',
-      title: 'AI & Human Production',
-      desc: 'Our studio pairs AI generation algorithms with senior human motion designers to craft 30+ assets in rapid 48-hour sprints.',
-    },
-    {
-      step: '04',
-      title: 'Review & Polish',
-      desc: 'Collaborate asynchronously in your private Slack/Notion portal with frictionless revisions and frame-accurate feedback.',
-    },
-    {
-      step: '05',
-      title: 'Launch & Scale',
-      desc: 'Scheduled distribution, automated community posting, and live ROAS optimization across US, UK, EU, and UAE markets.',
-    },
-  ];
-
-  // Client Testimonials
+  // International Client Testimonials
   const testimonials = [
     {
       quote:
@@ -185,6 +103,8 @@ export default function HomePage() {
       author: 'Sarah Jenkins',
       role: 'CMO, Apex SaaS',
       location: 'San Francisco, USA',
+      avatar: 'SJ',
+      metrics: '-52% CAC • 2.8x Demos',
       rating: 5,
     },
     {
@@ -193,6 +113,8 @@ export default function HomePage() {
       author: 'Oliver Davies',
       role: 'Director of Growth, FinTech Labs',
       location: 'London, UK',
+      avatar: 'OD',
+      metrics: '80+ Assets • 0 Friction',
       rating: 5,
     },
     {
@@ -201,6 +123,8 @@ export default function HomePage() {
       author: 'Elena Rostova',
       role: 'Founder, Veloce Luxury',
       location: 'Zurich & Dubai',
+      avatar: 'ER',
+      metrics: '+240% Reach • 4 Flagships',
       rating: 5,
     },
   ];
@@ -376,109 +300,14 @@ export default function HomePage() {
       </section>
 
       {/* ========================================================= */}
-      {/* 5. "EVERYTHING WE HANDLE" (6-CARD BENTO GRID)            */}
+      {/* 5. "EVERYTHING WE HANDLE" (6-CARD INTERACTIVE BENTO)     */}
       {/* ========================================================= */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-purple-soft text-xs font-semibold uppercase tracking-wider mb-4">
-            <LayoutGrid className="w-3.5 h-3.5 text-purple-brand" />
-            <span>Comprehensive Execution</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight">
-            Everything We Handle.
-          </h2>
-          <p className="mt-3 text-base text-gray-400">
-            A cohesive 360° creative and performance marketing engine engineered for modern digital algorithms.
-          </p>
-        </div>
-
-        {/* Clean 3x2 Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {bentoServices.map((item, idx) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={idx}
-                className="p-8 rounded-3xl bg-[#111116] border border-white/[0.08] hover:border-electric-500/50 hover:shadow-glow-blue hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="w-12 h-12 rounded-2xl bg-electric-500/10 border border-electric-400/20 text-electric-400 flex items-center justify-center group-hover:scale-110 group-hover:bg-electric-500/20 transition-all">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 bg-white/[0.04] px-2.5 py-1 rounded-full border border-white/[0.06]">
-                      {item.badge}
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl font-display font-bold text-white group-hover:text-electric-300 transition-colors">
-                    {item.title}
-                  </h3>
-                  <p className="mt-3 text-xs sm:text-sm text-gray-400 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-
-                <div className="mt-8 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs text-gray-400 font-mono">
-                  <span>Deliverable Sprints</span>
-                  <span className="text-electric-400">Full Commercial IP</span>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
+      <EverythingWeHandleBento />
 
       {/* ========================================================= */}
-      {/* 6. "HOW IT WORKS" (5-STEP HORIZONTAL WORKFLOW)           */}
+      {/* 6. "HOW IT WORKS" (5-STEP HORIZONTAL WORKFLOW PIPELINE)  */}
       {/* ========================================================= */}
-      <section className="py-24 bg-[#09090d] border-y border-white/[0.08] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-electric-400 text-xs font-semibold uppercase tracking-wider mb-4">
-              <Clock className="w-3.5 h-3.5" />
-              <span>Predictable Timeline</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight">
-              How It Works.
-            </h2>
-            <p className="mt-3 text-base text-gray-400">
-              A streamlined 5-step collaborative workflow designed for frictionless international delivery.
-            </p>
-          </div>
-
-          {/* 5-Step Connected Timeline */}
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 relative">
-            {workflowSteps.map((s, idx) => (
-              <div
-                key={s.step}
-                className="p-6 rounded-3xl bg-[#111116] border border-white/[0.08] hover:border-electric-500/40 transition-colors flex flex-col justify-between relative group"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="w-10 h-10 rounded-full bg-electric-500/15 border border-electric-400/40 text-electric-400 flex items-center justify-center font-mono font-bold text-sm shadow-glow-blue">
-                      {s.step}
-                    </span>
-                    {idx < workflowSteps.length - 1 && (
-                      <span className="hidden md:block text-gray-600 font-bold">→</span>
-                    )}
-                  </div>
-                  <h3 className="text-lg font-display font-bold text-white group-hover:text-electric-300 transition-colors">
-                    {s.title}
-                  </h3>
-                  <p className="mt-2 text-xs text-gray-400 leading-relaxed">
-                    {s.desc}
-                  </p>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-white/[0.06] text-[11px] font-mono text-gray-500">
-                  Step {idx + 1} of 5
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <InteractiveWorkflowPipeline />
 
       {/* ========================================================= */}
       {/* 7. "LEARN BEFORE YOU BUY" (AUTHORITY GUIDES)              */}
@@ -486,13 +315,18 @@ export default function HomePage() {
       <AuthorityGuides />
 
       {/* ========================================================= */}
-      {/* 8. CLIENT TESTIMONIALS & FAQ ACCORDION                   */}
+      {/* 8. INTERACTIVE ROI GROWTH CALCULATOR                     */}
       {/* ========================================================= */}
-      <section className="py-24 bg-[#070709]">
+      <InteractiveRoiCalculator />
+
+      {/* ========================================================= */}
+      {/* 9. CLIENT TESTIMONIALS & FAQ ACCORDION                   */}
+      {/* ========================================================= */}
+      <section className="py-24 bg-[#070709] relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Testimonials Header */}
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
               <Star className="w-3.5 h-3.5 fill-current" />
               <span>International Client Praise</span>
             </div>
@@ -500,7 +334,7 @@ export default function HomePage() {
               Trusted by Ambitious Brands.
             </h2>
             <p className="mt-3 text-base text-gray-400">
-              Hear directly from founders and growth leaders partnering with AJDesigners across the globe.
+              Hear directly from founders and growth leaders partnering with AJDesigners across the US, UK, UAE, and Europe.
             </p>
           </div>
 
@@ -509,25 +343,39 @@ export default function HomePage() {
             {testimonials.map((t, idx) => (
               <div
                 key={idx}
-                className="p-8 rounded-3xl bg-[#111116] border border-white/[0.08] flex flex-col justify-between hover:border-white/20 transition-colors"
+                className="p-8 rounded-3xl bg-[#111116] border border-white/[0.08] flex flex-col justify-between hover:border-white/20 transition-all duration-300 group hover:shadow-2xl relative overflow-hidden"
               >
                 <div>
-                  <div className="flex items-center gap-1 text-amber-400 mb-4">
-                    {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-current" />
-                    ))}
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="flex items-center gap-1 text-amber-400">
+                      {[...Array(t.rating)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-current" />
+                      ))}
+                    </div>
+                    <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                      {t.metrics}
+                    </span>
                   </div>
+
                   <p className="text-sm text-gray-300 leading-relaxed italic">
                     "{t.quote}"
                   </p>
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-white/[0.08] flex items-center justify-between">
-                  <div>
-                    <h4 className="text-sm font-bold text-white">{t.author}</h4>
-                    <span className="text-xs text-gray-400">{t.role}</span>
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-electric-500 to-purple-brand text-white font-bold text-xs flex items-center justify-center shadow-sm">
+                      {t.avatar}
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-white flex items-center gap-1.5">
+                        <span>{t.author}</span>
+                        <CheckCircle2 className="w-3.5 h-3.5 text-electric-400" />
+                      </h4>
+                      <span className="text-xs text-gray-400">{t.role}</span>
+                    </div>
                   </div>
-                  <span className="text-[11px] font-mono text-electric-400 bg-electric-500/10 px-2.5 py-1 rounded-full border border-electric-500/20">
+                  <span className="text-[11px] font-mono text-gray-400 bg-white/[0.04] px-2.5 py-1 rounded-full border border-white/[0.06]">
                     {t.location}
                   </span>
                 </div>
@@ -552,7 +400,9 @@ export default function HomePage() {
                 return (
                   <div
                     key={idx}
-                    className="rounded-2xl bg-[#111116] border border-white/[0.08] overflow-hidden transition-colors"
+                    className={`rounded-2xl bg-[#111116] border transition-all duration-300 overflow-hidden ${
+                      isOpen ? 'border-electric-500/40 shadow-glow-blue' : 'border-white/[0.08] hover:border-white/20'
+                    }`}
                   >
                     <button
                       onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
@@ -581,7 +431,7 @@ export default function HomePage() {
       </section>
 
       {/* ========================================================= */}
-      {/* 9. EMBEDDED STRATEGY CALL CALENDAR (CRUCIAL CONVERSION)   */}
+      {/* 10. EMBEDDED STRATEGY CALL CALENDAR (CRUCIAL CONVERSION)  */}
       {/* ========================================================= */}
       <BookingCalendarWidget />
     </div>

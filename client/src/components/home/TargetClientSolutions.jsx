@@ -67,8 +67,12 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
   // Phase 1 (0.0 -> 0.20): Card stays unified so user reads heading comfortably
   // Phase 2 (0.20 -> 0.75): Card smoothly splits apart while pinned
   // Phase 3 (0.75 -> 1.0): Fully split, holds until unpinning
-  const leftX = useTransform(smoothProgress, [0, 0.2, 0.75, 1], [0, 0, -20, -20]);
-  const rightX = useTransform(smoothProgress, [0, 0.2, 0.75, 1], [0, 0, 20, 20]);
+  const leftX = useTransform(smoothProgress, [0, 0.2, 0.75, 1], [0, 0, -22, -22]);
+  const rightX = useTransform(smoothProgress, [0, 0.2, 0.75, 1], [0, 0, 22, 22]);
+
+  // Subtle cross-oriented fan rotation (cross-angled posture after splitting)
+  const leftRotate = useTransform(smoothProgress, [0, 0.2, 0.75, 1], [0, 0, -2.8, -2.8]);
+  const rightRotate = useTransform(smoothProgress, [0, 0.2, 0.75, 1], [0, 0, 2.8, 2.8]);
 
   // Main Heading Overlay over unified card:
   // Visible from 0 to 0.20, dissolves smoothly between 0.20 and 0.45
@@ -180,8 +184,12 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
               data-cursor-text="STARTUPS"
               onMouseMove={handleLeftMouseMove}
               onMouseLeave={() => setLeftSheen((s) => ({ ...s, active: false }))}
-              style={{ x: isDesktop ? leftX : 0 }}
-              className="w-full md:w-1/2 rounded-3xl bg-[#111116] border border-white/[0.1] hover:border-electric-500/50 p-6 flex flex-col justify-between group relative overflow-hidden shadow-2xl mb-6 md:mb-0 transition-colors duration-300"
+              style={{
+                x: isDesktop ? leftX : 0,
+                rotate: isDesktop ? leftRotate : 0,
+                transformOrigin: 'bottom right',
+              }}
+              className="w-full md:w-1/2 rounded-3xl bg-[#111116] border border-white/[0.1] hover:border-electric-500/50 p-6 flex flex-col justify-between group relative overflow-hidden shadow-2xl mb-6 md:mb-0 transition-colors duration-300 transform-gpu"
             >
               {/* Ambient Radial Hover Backlight */}
               <div className="absolute top-0 right-0 w-52 h-52 bg-electric-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-electric-500/20 transition-all duration-500" />
@@ -325,8 +333,12 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
               data-cursor-text="BRANDS"
               onMouseMove={handleRightMouseMove}
               onMouseLeave={() => setRightSheen((s) => ({ ...s, active: false }))}
-              style={{ x: isDesktop ? rightX : 0 }}
-              className="w-full md:w-1/2 rounded-3xl bg-[#111116] border border-white/[0.1] hover:border-purple-brand/50 p-6 flex flex-col justify-between group relative overflow-hidden shadow-2xl transition-colors duration-300"
+              style={{
+                x: isDesktop ? rightX : 0,
+                rotate: isDesktop ? rightRotate : 0,
+                transformOrigin: 'bottom left',
+              }}
+              className="w-full md:w-1/2 rounded-3xl bg-[#111116] border border-white/[0.1] hover:border-purple-brand/50 p-6 flex flex-col justify-between group relative overflow-hidden shadow-2xl transition-colors duration-300 transform-gpu"
             >
               {/* Ambient Radial Hover Backlight */}
               <div className="absolute top-0 right-0 w-52 h-52 bg-purple-brand/10 rounded-full blur-3xl pointer-events-none group-hover:bg-purple-brand/20 transition-all duration-500" />

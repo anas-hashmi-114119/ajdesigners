@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
-import { Menu, X, ArrowUpRight, Calendar, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowUpRight, Calendar } from 'lucide-react';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,7 +23,6 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Services', path: '/services' },
     { name: 'Industries', path: '/industries' },
     { name: 'Portfolio', path: '/portfolio' },
     { name: 'Pricing', path: '/pricing' },

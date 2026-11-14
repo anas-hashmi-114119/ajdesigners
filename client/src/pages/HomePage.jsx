@@ -6,9 +6,7 @@ import {
   Calendar,
   ChevronDown,
   ChevronUp,
-  Star,
   Play,
-  CheckCircle2,
 } from 'lucide-react';
 import AuthorityGuides from '../components/home/AuthorityGuides';
 import BookingCalendarWidget from '../components/common/BookingCalendarWidget';
@@ -91,40 +89,6 @@ export default function HomePage() {
       el.scrollIntoView({ behavior: 'smooth' });
     }
   };
-
-  // International Client Testimonials
-  const testimonials = [
-    {
-      quote:
-        'AJDesigners completely transformed our B2B pipeline. Their 48-hour asset turnaround and AI video creatives cut our customer acquisition cost in half within the first 60 days.',
-      author: 'Sarah Jenkins',
-      role: 'CMO, Apex SaaS',
-      location: 'San Francisco, USA',
-      avatar: 'SJ',
-      metrics: '-52% CAC • 2.8x Demos',
-      rating: 5,
-    },
-    {
-      quote:
-        'Yashwa and Aroosa operate at world-class agency standard. Seamless collaboration across time zones, immaculate design standards, and zero fluff. They feel like our own in-house creative department.',
-      author: 'Oliver Davies',
-      role: 'Director of Growth, FinTech Labs',
-      location: 'London, UK',
-      avatar: 'OD',
-      metrics: '80+ Assets • 0 Friction',
-      rating: 5,
-    },
-    {
-      quote:
-        'The quality of their short-form reels and luxury branding elevated our international prestige. Engagement increased 240% and our retail partners in Dubai and Zurich were blown away.',
-      author: 'Elena Rostova',
-      role: 'Founder, Veloce Luxury',
-      location: 'Zurich & Dubai',
-      avatar: 'ER',
-      metrics: '+240% Reach • 4 Flagships',
-      rating: 5,
-    },
-  ];
 
   // International Client FAQs
   const homepageFaqs = [
@@ -302,112 +266,50 @@ export default function HomePage() {
       <AuthorityGuides />
 
       {/* ========================================================= */}
-      {/* 7. CLIENT TESTIMONIALS & FAQ ACCORDION                   */}
+      {/* 7. FREQUENTLY ASKED QUESTIONS                            */}
       {/* ========================================================= */}
       <section className="py-24 bg-[#070709] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Testimonials Header */}
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
-              <Star className="w-3.5 h-3.5 fill-current" />
-              <span>International Client Praise</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-display font-extrabold text-white tracking-tight">
-              Trusted by Ambitious Brands.
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-white">
+              Frequently Asked Questions
             </h2>
-            <p className="mt-3 text-base text-gray-400">
-              Hear directly from founders and growth leaders partnering with AJDesigners across the US, UK, UAE, and Europe.
+            <p className="mt-2 text-xs sm:text-sm text-gray-400">
+              Key answers for international founders and enterprise teams.
             </p>
           </div>
 
-          {/* 3 Clean Dark Testimonial Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-24">
-            {testimonials.map((t, idx) => (
-              <div
-                key={idx}
-                className="p-8 rounded-3xl bg-[#111116] border border-white/[0.08] flex flex-col justify-between hover:border-white/20 transition-all duration-300 group hover:shadow-2xl relative overflow-hidden"
-              >
-                <div>
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="flex items-center gap-1 text-amber-400">
-                      {[...Array(t.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-current" />
-                      ))}
-                    </div>
-                    <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-                      {t.metrics}
-                    </span>
-                  </div>
-
-                  <p className="text-sm text-gray-300 leading-relaxed italic">
-                    "{t.quote}"
-                  </p>
-                </div>
-
-                <div className="mt-8 pt-6 border-t border-white/[0.08] flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-electric-500 to-purple-brand text-white font-bold text-xs flex items-center justify-center shadow-sm">
-                      {t.avatar}
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-white flex items-center gap-1.5">
-                        <span>{t.author}</span>
-                        <CheckCircle2 className="w-3.5 h-3.5 text-electric-400" />
-                      </h4>
-                      <span className="text-xs text-gray-400">{t.role}</span>
-                    </div>
-                  </div>
-                  <span className="text-[11px] font-mono text-gray-400 bg-white/[0.04] px-2.5 py-1 rounded-full border border-white/[0.06]">
-                    {t.location}
-                  </span>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* FAQ Accordion */}
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl sm:text-3xl font-display font-extrabold text-white">
-                Frequently Asked Questions
-              </h3>
-              <p className="mt-2 text-xs sm:text-sm text-gray-400">
-                Key answers for international founders and enterprise teams.
-              </p>
-            </div>
-
-            <div className="space-y-4">
-              {homepageFaqs.map((faq, idx) => {
-                const isOpen = openFaqIndex === idx;
-                return (
-                  <div
-                    key={idx}
-                    className={`rounded-2xl bg-[#111116] border transition-all duration-300 overflow-hidden ${
-                      isOpen ? 'border-electric-500/40 shadow-glow-blue' : 'border-white/[0.08] hover:border-white/20'
-                    }`}
+          <div className="space-y-4">
+            {homepageFaqs.map((faq, idx) => {
+              const isOpen = openFaqIndex === idx;
+              return (
+                <div
+                  key={idx}
+                  className={`rounded-2xl bg-[#111116] border transition-all duration-300 overflow-hidden ${
+                    isOpen ? 'border-electric-500/40 shadow-glow-blue' : 'border-white/[0.08] hover:border-white/20'
+                  }`}
+                >
+                  <button
+                    onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                    className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none"
                   >
-                    <button
-                      onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                      className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 focus:outline-none"
-                    >
-                      <span className="text-sm sm:text-base font-semibold text-white">
-                        {faq.q}
-                      </span>
-                      {isOpen ? (
-                        <ChevronUp className="w-4 h-4 text-electric-400 shrink-0" />
-                      ) : (
-                        <ChevronDown className="w-4 h-4 text-gray-500 shrink-0" />
-                      )}
-                    </button>
-                    {isOpen && (
-                      <div className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-white/[0.05] pt-4">
-                        {faq.a}
-                      </div>
+                    <span className="text-sm sm:text-base font-semibold text-white">
+                      {faq.q}
+                    </span>
+                    {isOpen ? (
+                      <ChevronUp className="w-4 h-4 text-electric-400 shrink-0" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4 text-gray-500 shrink-0" />
                     )}
-                  </div>
-                );
-              })}
-            </div>
+                  </button>
+                  {isOpen && (
+                    <div className="px-5 sm:px-6 pb-6 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-white/[0.05] pt-4">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -34,7 +34,12 @@ import {
  */
 export default function TargetClientSolutions({ onScrollToCalendar }) {
   const sectionRef = useRef(null);
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth >= 768;
+    }
+    return true;
+  });
 
   // Sheen light coordinates for cursor spotlight
   const [leftSheen, setLeftSheen] = useState({ x: 50, y: 50, active: false });
@@ -65,17 +70,35 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
 
   // Desktop Split Animation Transforms
   // Pure integer X-axis translation (NO rotation to prevent text rasterization/blurriness)
-  const leftX = useTransform(smoothProgress, [0, 1], [0, -18]);
-  const rightX = useTransform(smoothProgress, [0, 1], [0, 18]);
+  const leftX = useTransform(smoothProgress, (v) => (isDesktop ? v * -18 : 0));
+  const rightX = useTransform(smoothProgress, (v) => (isDesktop ? v * 18 : 0));
 
   // Center Main Heading Overlay over the unified card:
   // Starts 100% visible, fades and slightly scales out as cards split apart
-  const overlayOpacity = useTransform(smoothProgress, [0, 0.42], [1, 0]);
-  const overlayScale = useTransform(smoothProgress, [0, 0.42], [1, 0.94]);
-  const overlayY = useTransform(smoothProgress, [0, 0.42], [0, -16]);
+  const overlayOpacity = useTransform(smoothProgress, (v) => {
+    if (!isDesktop) return 0;
+    return v >= 0.42 ? 0 : 1 - (v / 0.42);
+  });
+  const overlayScale = useTransform(smoothProgress, (v) => {
+    if (!isDesktop) return 1;
+    return v >= 0.42 ? 0.94 : 1 - (v / 0.42) * 0.06;
+  });
+  const overlayY = useTransform(smoothProgress, (v) => {
+    if (!isDesktop) return 0;
+    return v >= 0.42 ? -16 : (v / 0.42) * -16;
+  });
+  const overlayPointerEvents = useTransform(smoothProgress, (v) => {
+    if (!isDesktop || v > 0.35) return 'none';
+    return 'auto';
+  });
 
   // Card details opacity: subtle fade-in as overlay dissolves
-  const cardContentOpacity = useTransform(smoothProgress, [0.15, 0.55], [0.35, 1]);
+  const cardContentOpacity = useTransform(smoothProgress, (v) => {
+    if (!isDesktop) return 1;
+    if (v < 0.15) return 0.35;
+    if (v > 0.55) return 1;
+    return 0.35 + ((v - 0.15) / 0.4) * 0.65;
+  });
 
   // Spotlight Sheen handlers
   const handleLeftMouseMove = (e) => {
@@ -128,12 +151,10 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
         {/* ========================================================= */}
         <motion.div
           style={{
-            opacity: isDesktop ? overlayOpacity : 0,
-            scale: isDesktop ? overlayScale : 1,
-            y: isDesktop ? overlayY : 0,
-            pointerEvents: isDesktop
-              ? useTransform(smoothProgress, (v) => (v > 0.35 ? 'none' : 'auto'))
-              : 'none',
+            opacity: overlayOpacity,
+            scale: overlayScale,
+            y: overlayY,
+            pointerEvents: overlayPointerEvents,
           }}
           className="hidden md:flex absolute inset-0 z-30 flex-col items-center justify-center p-8 text-center bg-[#070709]/85 backdrop-blur-[6px] rounded-3xl border border-white/[0.12] shadow-2xl transition-all"
         >
@@ -173,10 +194,7 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
             data-cursor-text="STARTUPS"
             onMouseMove={handleLeftMouseMove}
             onMouseLeave={() => setLeftSheen((s) => ({ ...s, active: false }))}
-            style={{
-              x: isDesktop ? leftX : 0,
-              // Strictly pure X-translation (NO rotate) to preserve 100% vector text sharpness
-            }}
+            style={{ x: leftX }}
             className="w-full md:w-1/2 rounded-3xl bg-[#111116] border border-white/[0.1] hover:border-electric-500/50 p-6 flex flex-col justify-between group relative overflow-hidden shadow-2xl mb-6 md:mb-0 transition-colors duration-300"
           >
             {/* Ambient Radial Hover Backlight */}
@@ -321,10 +339,7 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
             data-cursor-text="BRANDS"
             onMouseMove={handleRightMouseMove}
             onMouseLeave={() => setRightSheen((s) => ({ ...s, active: false }))}
-            style={{
-              x: isDesktop ? rightX : 0,
-              // Strictly pure X-translation (NO rotate) to preserve 100% vector text sharpness
-            }}
+            style={{ x: rightX }}
             className="w-full md:w-1/2 rounded-3xl bg-[#111116] border border-white/[0.1] hover:border-purple-brand/50 p-6 flex flex-col justify-between group relative overflow-hidden shadow-2xl transition-colors duration-300"
           >
             {/* Ambient Radial Hover Backlight */}

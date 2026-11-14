@@ -33,6 +33,7 @@ import HeroCanvasShader from '../components/common/HeroCanvasShader';
 import ShowreelModal from '../components/common/ShowreelModal';
 import HeroVisualMotionCard from '../components/home/HeroVisualMotionCard';
 import TargetClientSolutions from '../components/home/TargetClientSolutions';
+import CoreServicesShowcase from '../components/home/CoreServicesShowcase';
 
 // Smooth GPU-accelerated Number Count-Up for Hero Stats
 function StatCounter({ target, suffix = '', prefix = '', duration = 1600 }) {

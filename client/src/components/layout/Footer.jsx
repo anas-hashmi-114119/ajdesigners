@@ -176,12 +176,19 @@ export default function Footer() {
             </Link>
           </div>
         </div>
+      </div>
 
-        {/* Bottom Signature: Oversized Gradient Brandmark spanning entire width */}
-        <div className="mt-12 pt-4 select-none pointer-events-none text-center overflow-hidden">
-          <h1 className="text-[14vw] sm:text-[15vw] font-display font-black leading-none tracking-tighter uppercase bg-gradient-to-b from-white/15 via-white/[0.04] to-transparent bg-clip-text text-transparent transform translate-y-4">
-            AJDesigners
-          </h1>
+      {/* Bottom Signature: Continuous Kinetic Brandmark Marquee */}
+      <div className="w-full overflow-hidden select-none pointer-events-none border-t border-white/[0.04] pt-4 pb-2 relative z-10">
+        <div className="animate-marquee flex items-center gap-8 sm:gap-14 whitespace-nowrap will-change-transform">
+          {[1, 2, 3, 4].map((i) => (
+            <div key={i} className="flex items-center gap-8 sm:gap-14 shrink-0">
+              <span className="text-[13vw] sm:text-[14vw] lg:text-[15vw] font-display font-black leading-none tracking-tighter uppercase bg-gradient-to-b from-white/20 via-white/[0.05] to-transparent bg-clip-text text-transparent transform translate-y-2">
+                AJDESIGNERS<span className="text-gold-400">.</span>
+              </span>
+              <span className="w-3.5 h-3.5 sm:w-5 sm:h-5 rounded-full bg-gold-400 shadow-glow-gold shrink-0 opacity-80" />
+            </div>
+          ))}
         </div>
       </div>
     </footer>

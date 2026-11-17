@@ -1,11 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
   <defs>
-    <linearGradient id="ajGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#2563EB" />
-      <stop offset="100%" stop-color="#7C3AED" />
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5D791" />
+      <stop offset="50%" stop-color="#C69341" />
+      <stop offset="100%" stop-color="#8A5D20" />
     </linearGradient>
   </defs>
-  <rect width="100" height="100" rx="24" fill="#101828" />
-  <path d="M26 72L44 26H56L74 72H62L57.5 60H42.5L38 72H26ZM46 51H54L50 39.5L46 51Z" fill="url(#ajGrad)" />
-  <circle cx="74" cy="30" r="6" fill="#7C3AED" />
+  <rect width="100" height="100" rx="24" fill="#070709" stroke="rgba(198, 147, 65, 0.35)" stroke-width="2" />
+  <!-- Stylized Monogram A in light silver/white -->
+  <path d="M26 74L42 24H52L40 60H32L26 74ZM40 50H50L45 34L40 50Z" fill="#F3F4F6" />
+  <!-- Interlocking J in Artisan Gold -->
+  <path d="M46 38L62 24H74L56 74C52 82 42 80 38 76L42 68C44 70 48 71 50 67L54 55H44L46 38Z" fill="url(#goldGrad)" />
+  <circle cx="76" cy="24" r="5" fill="#C69341" />
 </svg>

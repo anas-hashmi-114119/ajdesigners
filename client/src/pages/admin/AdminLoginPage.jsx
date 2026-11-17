@@ -49,8 +49,8 @@ export default function AdminLoginPage() {
 
       <div className="max-w-md w-full bg-navy-800/90 rounded-3xl p-8 sm:p-10 border border-white/10 shadow-2xl backdrop-blur-xl relative z-10">
         <div className="text-center mb-8">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-electric-500 to-purple-brand text-white flex items-center justify-center mx-auto mb-4 shadow-glow-blue">
-            <Shield className="w-7 h-7" />
+          <div className="w-16 h-16 flex items-center justify-center mx-auto mb-4">
+            <img src="/logo.png" alt="AJDesigners" className="w-16 h-16 object-contain drop-shadow-[0_0_20px_rgba(198,147,65,0.4)]" />
           </div>
           <h1 className="text-2xl font-display font-extrabold text-white">
             AJDesigners Staff Portal

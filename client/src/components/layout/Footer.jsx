@@ -16,10 +16,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/[0.08]">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
-            <Link to="/" data-cursor-text="HOME" className="flex items-center gap-2.5 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#C69341] via-[#DDA74F] to-[#8A5D20] text-black flex items-center justify-center shadow-glow-gold border border-gold-300/30 group-hover:scale-105 transition-transform duration-300">
-                <span className="font-display font-extrabold text-black text-lg tracking-wider">AJ</span>
-              </div>
+            <Link to="/" data-cursor-text="HOME" className="flex items-center gap-3 group">
+              <img
+                src="/logo.png"
+                alt="AJDesigners Logo"
+                className="w-11 h-11 object-contain drop-shadow-[0_0_12px_rgba(198,147,65,0.35)] group-hover:scale-105 transition-transform duration-300"
+              />
               <span className="font-display font-extrabold text-2xl tracking-tight text-white group-hover:text-gold-400 transition-colors">
                 AJDesigners<span className="text-[#C69341]">.</span>
               </span>

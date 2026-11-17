@@ -51,10 +51,8 @@ export default function AdminLayout() {
     <div className="min-h-screen bg-surface-light flex flex-col lg:flex-row">
       {/* Mobile Top Bar */}
       <div className="lg:hidden bg-navy-900 text-white px-4 py-3 flex items-center justify-between border-b border-white/10 z-30">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-electric-500 flex items-center justify-center font-bold text-xs">
-            AJ
-          </div>
+        <div className="flex items-center gap-2.5">
+          <img src="/logo.png" alt="AJDesigners" className="w-8 h-8 object-contain drop-shadow-md" />
           <span className="font-display font-bold text-sm">AJDesigners Admin</span>
         </div>
         <button
@@ -74,10 +72,8 @@ export default function AdminLayout() {
         <div>
           {/* Logo Header */}
           <div className="p-6 border-b border-white/10 flex items-center justify-between">
-            <Link to="/admin" className="flex items-center gap-2.5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-electric-500 to-purple-brand flex items-center justify-center shadow-glow-blue">
-                <Shield className="w-5 h-5 text-white" />
-              </div>
+            <Link to="/admin" className="flex items-center gap-3">
+              <img src="/logo.png" alt="AJDesigners" className="w-10 h-10 object-contain drop-shadow-[0_0_10px_rgba(198,147,65,0.3)]" />
               <div>
                 <span className="font-display font-bold text-base block text-white">AJDesigners</span>
                 <span className="text-[10px] text-charcoal-400 uppercase tracking-widest block">Staff Console</span>

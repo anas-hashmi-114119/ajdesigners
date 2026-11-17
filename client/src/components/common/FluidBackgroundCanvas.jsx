@@ -49,12 +49,12 @@ export default function FluidBackgroundCanvas() {
     const colors = new Float32Array(particleCount * 3);
     const scales = new Float32Array(particleCount);
 
-    // Color palette: Electric Blue, Cyan, Purple, Soft Indigo
+    // Color palette: Luxury Artisan Gold, Champagne, Warm Amber, Antique Bronze
     const palette = [
-      new THREE.Color(0x3b82f6), // Electric blue
-      new THREE.Color(0x8b5cf6), // Purple brand
-      new THREE.Color(0x38bdf8), // Cyan highlight
-      new THREE.Color(0x6366f1), // Indigo
+      new THREE.Color(0xc69341), // Artisan Gold (#C69341)
+      new THREE.Color(0xf5d791), // Luminous Champagne (#F5D791)
+      new THREE.Color(0xdda74f), // Warm Amber Gold (#DDA74F)
+      new THREE.Color(0x8a5d20), // Antique Bronze (#8A5D20)
     ];
 
     for (let i = 0; i < particleCount; i++) {

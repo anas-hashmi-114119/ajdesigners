@@ -67,10 +67,10 @@ export default function CustomCursor() {
     >
       <div
         ref={badgeRef}
-        className="fixed top-0 left-0 px-2.5 py-1 rounded-full bg-[#111116]/95 border border-white/20 text-white shadow-xl backdrop-blur-md transition-opacity duration-150"
+        className="fixed top-0 left-0 px-2.5 py-1 rounded-full bg-[#111116]/95 border border-gold-500/30 text-white shadow-glow-gold backdrop-blur-md transition-opacity duration-150"
         style={{ willChange: 'transform' }}
       >
-        <span className="text-[10px] font-mono font-bold uppercase tracking-wider leading-none select-none text-electric-400">
+        <span className="text-[10px] font-mono font-bold uppercase tracking-wider leading-none select-none text-gold-400">
           {cursorText}
         </span>
       </div>

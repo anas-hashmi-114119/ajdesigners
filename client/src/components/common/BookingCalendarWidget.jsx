@@ -198,7 +198,7 @@ export default function BookingCalendarWidget({ className = '' }) {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-electric-400 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs font-semibold uppercase tracking-wider mb-4 shadow-sm">
             <Sparkles className="w-3.5 h-3.5" />
             <span>Interactive Booking Engine</span>
           </div>
@@ -215,10 +215,10 @@ export default function BookingCalendarWidget({ className = '' }) {
           {bookingStep === 'confirmed' ? (
             /* Confirmation Screen */
             <div className="p-10 sm:p-16 text-center max-w-2xl mx-auto">
-              <div className="w-20 h-20 rounded-full bg-electric-500/15 border border-electric-400/40 text-electric-400 flex items-center justify-center mx-auto mb-6 shadow-glow-blue animate-bounce">
+              <div className="w-20 h-20 rounded-full bg-gold-500/15 border border-gold-400/40 text-gold-400 flex items-center justify-center mx-auto mb-6 shadow-glow-gold animate-bounce">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
-              <span className="text-xs font-bold uppercase tracking-widest text-electric-400 bg-electric-500/10 px-3 py-1 rounded-full border border-electric-500/20">
+              <span className="text-xs font-bold uppercase tracking-widest text-gold-400 bg-gold-500/10 px-3 py-1 rounded-full border border-gold-500/20">
                 Session Confirmed
               </span>
               <h3 className="mt-4 text-2xl sm:text-3xl font-display font-extrabold text-white">
@@ -231,7 +231,7 @@ export default function BookingCalendarWidget({ className = '' }) {
 
               <div className="mt-8 p-6 rounded-2xl bg-[#181820] border border-white/[0.08] text-left space-y-3">
                 <div className="flex items-center gap-3 text-sm text-gray-200">
-                  <CalendarIcon className="w-4 h-4 text-electric-400 shrink-0" />
+                  <CalendarIcon className="w-4 h-4 text-gold-400 shrink-0" />
                   <span>
                     <strong>Date:</strong>{' '}
                     {selectedDate
@@ -240,13 +240,13 @@ export default function BookingCalendarWidget({ className = '' }) {
                   </span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-gray-200">
-                  <Clock className="w-4 h-4 text-purple-brand shrink-0" />
+                  <Clock className="w-4 h-4 text-gold-400 shrink-0" />
                   <span>
                     <strong>Time:</strong> {selectedSlot} ({timezone})
                   </span>
                 </div>
                 <div className="flex items-center gap-3 text-sm text-gray-200">
-                  <Video className="w-4 h-4 text-blue-400 shrink-0" />
+                  <Video className="w-4 h-4 text-champagne shrink-0" />
                   <span>
                     <strong>Location:</strong> Google Meet (Link provided in confirmation email)
                   </span>
@@ -268,7 +268,7 @@ export default function BookingCalendarWidget({ className = '' }) {
                   href={`https://wa.me/923292020295?text=Hello%20Yashwa%20%26%20Aroosa,%20I%20just%20scheduled%20a%20strategy%20call%20for%20${selectedSlot}!`}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-electric-500 to-purple-brand text-white text-xs font-bold shadow-glow-blue hover:scale-[1.02] transition-transform"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] text-black text-xs font-bold shadow-glow-gold hover:scale-[1.02] transition-transform"
                 >
                   <span>Chat on WhatsApp Instantly</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -294,7 +294,7 @@ export default function BookingCalendarWidget({ className = '' }) {
                 </div>
                 <div className="text-right hidden sm:block">
                   <span className="text-xs text-gray-400">Selected Slot</span>
-                  <div className="text-sm font-semibold text-electric-400">
+                  <div className="text-sm font-semibold text-gold-400">
                     {selectedDate && `${monthNames[selectedDate.getMonth()]} ${selectedDate.getDate()}`} @ {selectedSlot} ({timezone})
                   </div>
                 </div>
@@ -314,7 +314,7 @@ export default function BookingCalendarWidget({ className = '' }) {
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                         placeholder="e.g. Alex Morgan"
-                        className="w-full pl-10 pr-4 py-3 bg-[#181820] border border-white/[0.08] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-electric-500 transition-colors"
+                        className="w-full pl-10 pr-4 py-3 bg-[#181820] border border-white/[0.08] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors"
                       />
                     </div>
                   </div>
@@ -331,7 +331,7 @@ export default function BookingCalendarWidget({ className = '' }) {
                         value={formData.workEmail}
                         onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
                         placeholder="alex@company.com"
-                        className="w-full pl-10 pr-4 py-3 bg-[#181820] border border-white/[0.08] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-electric-500 transition-colors"
+                        className="w-full pl-10 pr-4 py-3 bg-[#181820] border border-white/[0.08] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors"
                       />
                     </div>
                   </div>
@@ -350,7 +350,7 @@ export default function BookingCalendarWidget({ className = '' }) {
                         value={formData.businessName}
                         onChange={(e) => setFormData({ ...formData, businessName: e.target.value })}
                         placeholder="e.g. Veloce Media"
-                        className="w-full pl-10 pr-4 py-3 bg-[#181820] border border-white/[0.08] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-electric-500 transition-colors"
+                        className="w-full pl-10 pr-4 py-3 bg-[#181820] border border-white/[0.08] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors"
                       />
                     </div>
                   </div>
@@ -364,7 +364,7 @@ export default function BookingCalendarWidget({ className = '' }) {
                       value={formData.websiteUrl}
                       onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })}
                       placeholder="https://yourbrand.com"
-                      className="w-full px-4 py-3 bg-[#181820] border border-white/[0.08] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-electric-500 transition-colors"
+                      className="w-full px-4 py-3 bg-[#181820] border border-white/[0.08] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors"
                     />
                   </div>
                 </div>
@@ -386,7 +386,7 @@ export default function BookingCalendarWidget({ className = '' }) {
                         onClick={() => setFormData({ ...formData, growthGoal: goal })}
                         className={`p-2.5 rounded-xl text-xs font-medium border text-center transition-all ${
                           formData.growthGoal === goal
-                            ? 'bg-electric-500/20 border-electric-400 text-white shadow-glow-blue'
+                            ? 'bg-gold-500/20 border-gold-400 text-gold-300 shadow-glow-gold'
                             : 'bg-[#181820] border-white/[0.08] text-gray-400 hover:text-white hover:border-white/20'
                         }`}
                       >
@@ -405,7 +405,7 @@ export default function BookingCalendarWidget({ className = '' }) {
                     value={formData.notes}
                     onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                     placeholder="Tell us what you're looking to achieve or scale..."
-                    className="w-full px-4 py-3 bg-[#181820] border border-white/[0.08] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-electric-500 transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-[#181820] border border-white/[0.08] rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-gold-500 transition-colors resize-none"
                   />
                 </div>
 
@@ -413,7 +413,7 @@ export default function BookingCalendarWidget({ className = '' }) {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-electric-500 to-purple-brand text-white font-bold text-sm shadow-glow-blue hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] text-black font-bold text-sm shadow-glow-gold hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
                   >
                     <span>{submitting ? 'Reserving Your Slot...' : 'Confirm Strategy Session'}</span>
                     <ArrowRight className="w-4 h-4" />
@@ -429,8 +429,8 @@ export default function BookingCalendarWidget({ className = '' }) {
                 <div>
                   <div className="flex items-center gap-3">
                     <div className="flex -space-x-2">
-                      <div className="w-11 h-11 rounded-full ring-2 ring-electric-500 bg-cover bg-center" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80')` }} />
-                      <div className="w-11 h-11 rounded-full ring-2 ring-purple-brand bg-cover bg-center" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80')` }} />
+                      <div className="w-11 h-11 rounded-full ring-2 ring-gold-500 bg-cover bg-center" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80')` }} />
+                      <div className="w-11 h-11 rounded-full ring-2 ring-bronze bg-cover bg-center" style={{ backgroundImage: `url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80')` }} />
                     </div>
                     <div>
                       <h4 className="text-sm font-bold text-white">Yashwa & Aroosa</h4>
@@ -447,15 +447,15 @@ export default function BookingCalendarWidget({ className = '' }) {
 
                   <div className="mt-6 space-y-3 pt-6 border-t border-white/[0.08]">
                     <div className="flex items-center gap-2.5 text-xs text-gray-300">
-                      <Clock className="w-4 h-4 text-electric-400" />
+                      <Clock className="w-4 h-4 text-gold-400" />
                       <span>30 Minutes Duration</span>
                     </div>
                     <div className="flex items-center gap-2.5 text-xs text-gray-300">
-                      <Video className="w-4 h-4 text-purple-brand" />
+                      <Video className="w-4 h-4 text-champagne" />
                       <span>Google Meet Private Video Link</span>
                     </div>
                     <div className="flex items-center gap-2.5 text-xs text-gray-300">
-                      <Globe2 className="w-4 h-4 text-cyan-400" />
+                      <Globe2 className="w-4 h-4 text-gold-400" />
                       <span>Worldwide Coverage (UTC-10 to UTC+12)</span>
                     </div>
                     <div className="flex items-center gap-2.5 text-xs text-gray-300">
@@ -467,13 +467,13 @@ export default function BookingCalendarWidget({ className = '' }) {
 
                 <div className="mt-8 pt-6 border-t border-white/[0.08]">
                   <label className="block text-[11px] font-semibold text-gray-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
-                    <Globe2 className="w-3.5 h-3.5 text-electric-400" />
+                    <Globe2 className="w-3.5 h-3.5 text-gold-400" />
                     <span>Select Your Timezone</span>
                   </label>
                   <select
                     value={timezone}
                     onChange={(e) => setTimezone(e.target.value)}
-                    className="w-full px-3.5 py-2.5 bg-[#181820] border border-white/[0.08] rounded-xl text-xs text-gray-200 focus:outline-none focus:border-electric-500 cursor-pointer"
+                    className="w-full px-3.5 py-2.5 bg-[#181820] border border-white/[0.08] rounded-xl text-xs text-gray-200 focus:outline-none focus:border-gold-500 cursor-pointer"
                   >
                     {TIMEZONES.map((tz) => (
                       <option key={tz.value} value={tz.value}>
@@ -541,10 +541,10 @@ export default function BookingCalendarWidget({ className = '' }) {
                         onClick={() => handleDateSelect(day)}
                         className={`h-9 w-full rounded-xl text-xs font-semibold flex items-center justify-center transition-all ${
                           isSelected
-                            ? 'bg-gradient-to-tr from-electric-500 to-purple-brand text-white shadow-glow-blue scale-105'
+                            ? 'bg-gradient-to-tr from-[#C69341] to-[#DDA74F] text-black font-bold shadow-glow-gold scale-105'
                             : past
                             ? 'text-gray-600 cursor-not-allowed opacity-30'
-                            : 'bg-[#181820]/60 text-gray-200 hover:bg-electric-500/20 hover:text-white hover:border-electric-400/50 border border-transparent'
+                            : 'bg-[#181820]/60 text-gray-200 hover:bg-gold-500/20 hover:text-white hover:border-gold-400/50 border border-transparent'
                         }`}
                       >
                         {day}
@@ -555,7 +555,7 @@ export default function BookingCalendarWidget({ className = '' }) {
 
                 <div className="mt-6 flex items-center justify-between text-[11px] text-gray-400 pt-4 border-t border-white/[0.08]">
                   <span className="flex items-center gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-electric-400 animate-ping" />
+                    <span className="w-2 h-2 rounded-full bg-gold-400 animate-ping" />
                     <span>Real-time availability</span>
                   </span>
                   <span>Slots updated hourly</span>
@@ -586,8 +586,8 @@ export default function BookingCalendarWidget({ className = '' }) {
                             !selectedDate
                               ? 'opacity-40 cursor-not-allowed bg-[#181820] border-transparent text-gray-500'
                               : active
-                              ? 'bg-electric-500 text-white border-electric-400 shadow-glow-blue'
-                              : 'bg-[#181820] text-gray-300 hover:text-white hover:border-electric-500/50 border-white/[0.05]'
+                              ? 'bg-gold-500 text-black font-bold border-gold-400 shadow-glow-gold'
+                              : 'bg-[#181820] text-gray-300 hover:text-white hover:border-gold-500/50 border-white/[0.05]'
                           }`}
                         >
                           <span>{slot}</span>
@@ -602,7 +602,7 @@ export default function BookingCalendarWidget({ className = '' }) {
                   <button
                     disabled={!selectedDate || !selectedSlot}
                     onClick={handleProceedToDetails}
-                    className="w-full py-3 rounded-xl bg-gradient-to-r from-electric-500 to-purple-brand text-white text-xs font-bold shadow-glow-blue hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full py-3 rounded-xl bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] text-black text-xs font-bold shadow-glow-gold hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     <span>Proceed to Next Step</span>
                     <ArrowRight className="w-3.5 h-3.5" />

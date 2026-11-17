@@ -121,7 +121,7 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
       >
         {/* Mobile-Only Heading (Cards stack cleanly on mobile) */}
         <div className="md:hidden text-center max-w-2xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-electric-400 text-xs font-semibold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs font-semibold uppercase tracking-wider mb-3">
             <Users2 className="w-3.5 h-3.5" />
             <span>Target Client Solutions</span>
           </div>
@@ -149,8 +149,8 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
             className="hidden md:flex absolute inset-0 z-30 flex-col items-center justify-center p-8 text-center bg-[#070709]/92 backdrop-blur-[6px] rounded-3xl border border-white/[0.14] shadow-2xl transition-all"
           >
             {/* Eyebrow Pill */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.08] border border-electric-500/30 text-electric-300 text-xs font-mono font-bold uppercase tracking-wider shadow-md mb-4">
-              <Users2 className="w-4 h-4 text-electric-400" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-300 text-xs font-mono font-bold uppercase tracking-wider shadow-md mb-4">
+              <Users2 className="w-4 h-4 text-gold-400" />
               <span>Target Client Solutions</span>
             </div>
 
@@ -167,9 +167,9 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
 
             {/* Dynamic Scroll Indicator */}
             <div className="mt-6 inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/[0.06] border border-white/[0.12] text-xs font-mono text-gray-300 shadow-inner">
-              <span className="w-2 h-2 rounded-full bg-electric-400 animate-ping" />
+              <span className="w-2 h-2 rounded-full bg-gold-400 animate-ping" />
               <span>Scroll to split solutions</span>
-              <span className="text-electric-400 font-bold text-sm animate-bounce">↓</span>
+              <span className="text-gold-400 font-bold text-sm animate-bounce">↓</span>
             </div>
           </motion.div>
 
@@ -189,17 +189,17 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
                 rotate: isDesktop ? leftRotate : 0,
                 transformOrigin: 'bottom right',
               }}
-              className="w-full md:w-1/2 rounded-3xl bg-[#111116] border border-white/[0.1] hover:border-electric-500/50 p-6 flex flex-col justify-between group relative overflow-hidden shadow-2xl mb-6 md:mb-0 transition-colors duration-300 transform-gpu"
+              className="w-full md:w-1/2 rounded-3xl bg-[#111116] border border-white/[0.1] hover:border-gold-500/50 p-6 flex flex-col justify-between group relative overflow-hidden shadow-2xl mb-6 md:mb-0 transition-colors duration-300 transform-gpu"
             >
               {/* Ambient Radial Hover Backlight */}
-              <div className="absolute top-0 right-0 w-52 h-52 bg-electric-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-electric-500/20 transition-all duration-500" />
+              <div className="absolute top-0 right-0 w-52 h-52 bg-gold-500/10 rounded-full blur-3xl pointer-events-none group-hover:bg-gold-500/20 transition-all duration-500" />
 
               {/* Dynamic Cursor Spotlight Sheen */}
               <div
                 className="absolute inset-0 pointer-events-none transition-opacity duration-300"
                 style={{
                   opacity: leftSheen.active ? 1 : 0,
-                  background: `radial-gradient(350px circle at ${leftSheen.x}% ${leftSheen.y}%, rgba(59, 130, 246, 0.15), transparent 70%)`,
+                  background: `radial-gradient(350px circle at ${leftSheen.x}% ${leftSheen.y}%, rgba(198, 147, 65, 0.15), transparent 70%)`,
                 }}
               />
 
@@ -211,7 +211,7 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
               >
                 <div>
                   {/* 1. Top Visual Banner: 180px Dark SaaS Motion Showcase */}
-                  <div className="h-[180px] w-full rounded-2xl overflow-hidden relative bg-[#0B0D13] border border-white/[0.08] group-hover:border-electric-500/40 transition-all duration-300 mb-5">
+                  <div className="h-[180px] w-full rounded-2xl overflow-hidden relative bg-[#0B0D13] border border-white/[0.08] group-hover:border-gold-500/40 transition-all duration-300 mb-5">
                     <div className="absolute inset-0 p-4 flex flex-col justify-between group-hover:scale-105 transition-transform duration-500">
                       {/* Mockup Mini Header */}
                       <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
@@ -223,7 +223,7 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
                             saas-acquisition.live
                           </span>
                         </div>
-                        <span className="text-[9px] font-mono text-electric-400 bg-electric-500/15 border border-electric-500/30 px-2 py-0.5 rounded-full font-bold">
+                        <span className="text-[9px] font-mono text-gold-400 bg-gold-500/15 border border-gold-500/30 px-2 py-0.5 rounded-full font-bold">
                           SPRINT S4
                         </span>
                       </div>
@@ -238,8 +238,8 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
                         >
                           <defs>
                             <linearGradient id="saasCurveGrad" x1="0" y1="0" x2="0" y2="1">
-                              <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.45" />
-                              <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.0" />
+                              <stop offset="0%" stopColor="#C69341" stopOpacity="0.45" />
+                              <stop offset="100%" stopColor="#C69341" stopOpacity="0.0" />
                             </linearGradient>
                           </defs>
                           <path
@@ -248,27 +248,27 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
                           />
                           <path
                             d="M 5 62 Q 55 54, 105 44 T 210 24 T 315 8"
-                            stroke="#3B82F6"
+                            stroke="#DDA74F"
                             strokeWidth="2.5"
                             strokeLinecap="round"
                           />
-                          <circle cx="105" cy="44" r="3.5" fill="#3B82F6" stroke="#FFFFFF" strokeWidth="1.5" />
-                          <circle cx="210" cy="24" r="3.5" fill="#60A5FA" stroke="#FFFFFF" strokeWidth="1.5" />
-                          <circle cx="315" cy="8" r="5.5" fill="#38BDF8" className="animate-ping" />
-                          <circle cx="315" cy="8" r="3.5" fill="#38BDF8" stroke="#FFFFFF" strokeWidth="2" />
+                          <circle cx="105" cy="44" r="3.5" fill="#C69341" stroke="#FFFFFF" strokeWidth="1.5" />
+                          <circle cx="210" cy="24" r="3.5" fill="#EAD08C" stroke="#FFFFFF" strokeWidth="1.5" />
+                          <circle cx="315" cy="8" r="5.5" fill="#C69341" className="animate-ping" />
+                          <circle cx="315" cy="8" r="3.5" fill="#F5D791" stroke="#FFFFFF" strokeWidth="2" />
                         </svg>
                       </div>
 
                       {/* Banner Bottom Metrics */}
                       <div className="flex items-center justify-between text-[10px] font-mono text-gray-300 pt-1.5 border-t border-white/[0.06]">
                         <span className="text-gray-300">Cohort Retention: 87.4%</span>
-                        <span className="text-electric-400 font-bold">Day 30 Velocity</span>
+                        <span className="text-gold-400 font-bold">Day 30 Velocity</span>
                       </div>
                     </div>
 
                     {/* Floating Metric Pill 1: 48h Turnaround */}
-                    <div className="absolute top-2.5 right-2.5 px-3 py-1 rounded-full bg-[#111116]/95 border border-electric-500/40 text-electric-300 text-[10px] font-mono font-bold flex items-center gap-1.5 shadow-xl">
-                      <Clock className="w-3.5 h-3.5 text-electric-400" />
+                    <div className="absolute top-2.5 right-2.5 px-3 py-1 rounded-full bg-[#111116]/95 border border-gold-500/40 text-gold-300 text-[10px] font-mono font-bold flex items-center gap-1.5 shadow-xl">
+                      <Clock className="w-3.5 h-3.5 text-gold-400" />
                       <span>48h Turnaround</span>
                     </div>
 
@@ -280,28 +280,28 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
                   </div>
 
                   {/* 2. Crisp, High-Contrast Title */}
-                  <h3 className="text-2xl font-display font-extrabold text-white tracking-tight group-hover:text-electric-300 transition-colors">
+                  <h3 className="text-2xl font-display font-extrabold text-white tracking-tight group-hover:text-gold-300 transition-colors">
                     For Startups & SaaS
                   </h3>
 
                   {/* 3. Three Ultra-Concise Single-Line Badges (100% Crisp) */}
                   <div className="mt-4 space-y-2.5">
                     <div className="flex items-center gap-2.5 text-xs text-gray-100 font-medium">
-                      <div className="w-5 h-5 rounded-md bg-electric-500/15 border border-electric-500/30 text-electric-400 flex items-center justify-center shrink-0">
+                      <div className="w-5 h-5 rounded-md bg-gold-500/15 border border-gold-500/30 text-gold-400 flex items-center justify-center shrink-0">
                         <Zap className="w-3 h-3" />
                       </div>
                       <span>TikTok & Meta Hook Testing</span>
                     </div>
 
                     <div className="flex items-center gap-2.5 text-xs text-gray-100 font-medium">
-                      <div className="w-5 h-5 rounded-md bg-electric-500/15 border border-electric-500/30 text-electric-400 flex items-center justify-center shrink-0">
+                      <div className="w-5 h-5 rounded-md bg-gold-500/15 border border-gold-500/30 text-gold-400 flex items-center justify-center shrink-0">
                         <Play className="w-3 h-3 fill-current ml-0.5" />
                       </div>
                       <span>Interactive Product UI Motion</span>
                     </div>
 
                     <div className="flex items-center gap-2.5 text-xs text-gray-100 font-medium">
-                      <div className="w-5 h-5 rounded-md bg-electric-500/15 border border-electric-500/30 text-electric-400 flex items-center justify-center shrink-0">
+                      <div className="w-5 h-5 rounded-md bg-gold-500/15 border border-gold-500/30 text-gold-400 flex items-center justify-center shrink-0">
                         <ArrowUpRight className="w-3 h-3" />
                       </div>
                       <span>High-Converting Landing Pages</span>
@@ -317,7 +317,7 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
                   <a
                     href="#booking-calendar"
                     onClick={onScrollToCalendar}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-electric-400 hover:text-white group-hover:text-electric-300 transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-gold-400 hover:text-white group-hover:text-gold-300 transition-colors"
                   >
                     <span>Book Startup Growth Call</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -338,17 +338,17 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
                 rotate: isDesktop ? rightRotate : 0,
                 transformOrigin: 'bottom left',
               }}
-              className="w-full md:w-1/2 rounded-3xl bg-[#111116] border border-white/[0.1] hover:border-purple-brand/50 p-6 flex flex-col justify-between group relative overflow-hidden shadow-2xl transition-colors duration-300 transform-gpu"
+              className="w-full md:w-1/2 rounded-3xl bg-[#111116] border border-white/[0.1] hover:border-gold-500/50 p-6 flex flex-col justify-between group relative overflow-hidden shadow-2xl transition-colors duration-300 transform-gpu"
             >
               {/* Ambient Radial Hover Backlight */}
-              <div className="absolute top-0 right-0 w-52 h-52 bg-purple-brand/10 rounded-full blur-3xl pointer-events-none group-hover:bg-purple-brand/20 transition-all duration-500" />
+              <div className="absolute top-0 right-0 w-52 h-52 bg-bronze/15 rounded-full blur-3xl pointer-events-none group-hover:bg-gold-500/20 transition-all duration-500" />
 
               {/* Dynamic Cursor Spotlight Sheen */}
               <div
                 className="absolute inset-0 pointer-events-none transition-opacity duration-300"
                 style={{
                   opacity: rightSheen.active ? 1 : 0,
-                  background: `radial-gradient(350px circle at ${rightSheen.x}% ${rightSheen.y}%, rgba(139, 92, 246, 0.15), transparent 70%)`,
+                  background: `radial-gradient(350px circle at ${rightSheen.x}% ${rightSheen.y}%, rgba(198, 147, 65, 0.15), transparent 70%)`,
                 }}
               />
 
@@ -360,13 +360,13 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
               >
                 <div>
                   {/* 1. Top Visual Banner: 180px Luxury Omnichannel Showcase */}
-                  <div className="h-[180px] w-full rounded-2xl overflow-hidden relative bg-[#0B0D13] border border-white/[0.08] group-hover:border-purple-brand/40 transition-all duration-300 mb-5">
+                  <div className="h-[180px] w-full rounded-2xl overflow-hidden relative bg-[#0B0D13] border border-white/[0.08] group-hover:border-gold-500/40 transition-all duration-300 mb-5">
                     <div className="absolute inset-0 p-4 flex flex-col justify-between group-hover:scale-105 transition-transform duration-500">
                       {/* Mockup Mini Header */}
                       <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
                         <div className="flex items-center gap-1.5">
-                          <span className="w-2 h-2 rounded-full bg-purple-brand" />
-                          <span className="text-[11px] font-mono text-purple-soft font-bold">
+                          <span className="w-2 h-2 rounded-full bg-gold-400" />
+                          <span className="text-[11px] font-mono text-champagne font-bold">
                             24/7 GLOBAL PIPELINE
                           </span>
                         </div>
@@ -385,15 +385,15 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
                         ].map((loc, i) => (
                           <div
                             key={i}
-                            className="p-2 rounded-xl bg-[#151022] border border-white/[0.08] text-center"
+                            className="p-2 rounded-xl bg-[#15120c] border border-gold-500/15 text-center"
                           >
                             <div className="flex items-center justify-center gap-1">
-                              <span className="w-1.5 h-1.5 rounded-full bg-purple-brand animate-ping" />
+                              <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-ping" />
                               <span className="text-xs font-mono font-bold text-white">
                                 {loc.code}
                               </span>
                             </div>
-                            <span className="text-[8px] font-mono text-purple-soft block mt-0.5 font-bold">
+                            <span className="text-[8px] font-mono text-champagne block mt-0.5 font-bold">
                               {loc.label}
                             </span>
                           </div>
@@ -403,46 +403,46 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
                       {/* Banner Bottom Metrics */}
                       <div className="flex items-center justify-between text-[10px] font-mono text-gray-300 pt-1.5 border-t border-white/[0.06]">
                         <span className="text-gray-300">Continuous 24h Handover</span>
-                        <span className="text-purple-soft font-bold">Global Operations</span>
+                        <span className="text-champagne font-bold">Global Operations</span>
                       </div>
                     </div>
 
                     {/* Floating Metric Badge 1: 6 Continents */}
-                    <div className="absolute top-2.5 right-2.5 px-3 py-1 rounded-full bg-[#111116]/95 border border-purple-brand/40 text-purple-soft text-[10px] font-mono font-bold flex items-center gap-1.5 shadow-xl">
-                      <Globe2 className="w-3.5 h-3.5 text-purple-brand" />
+                    <div className="absolute top-2.5 right-2.5 px-3 py-1 rounded-full bg-[#111116]/95 border border-gold-500/40 text-champagne text-[10px] font-mono font-bold flex items-center gap-1.5 shadow-xl">
+                      <Globe2 className="w-3.5 h-3.5 text-gold-400" />
                       <span>6 Continents</span>
                     </div>
 
                     {/* Floating Metric Badge 2: 100+ Assets/mo */}
-                    <div className="absolute bottom-2.5 left-2.5 px-3 py-1 rounded-full bg-[#111116]/95 border border-purple-brand/40 text-white text-[10px] font-mono font-bold flex items-center gap-1.5 shadow-xl">
-                      <Layers className="w-3.5 h-3.5 text-purple-brand" />
+                    <div className="absolute bottom-2.5 left-2.5 px-3 py-1 rounded-full bg-[#111116]/95 border border-gold-500/40 text-white text-[10px] font-mono font-bold flex items-center gap-1.5 shadow-xl">
+                      <Layers className="w-3.5 h-3.5 text-gold-400" />
                       <span>100+ Assets / mo</span>
                     </div>
                   </div>
 
                   {/* 2. Crisp, High-Contrast Title */}
-                  <h3 className="text-2xl font-display font-extrabold text-white tracking-tight group-hover:text-purple-300 transition-colors">
+                  <h3 className="text-2xl font-display font-extrabold text-white tracking-tight group-hover:text-champagne transition-colors">
                     For Established Brands & Agencies
                   </h3>
 
                   {/* 3. Three Ultra-Concise Single-Line Badges (100% Crisp) */}
                   <div className="mt-4 space-y-2.5">
                     <div className="flex items-center gap-2.5 text-xs text-gray-100 font-medium">
-                      <div className="w-5 h-5 rounded-md bg-purple-brand/15 border border-purple-brand/30 text-purple-brand flex items-center justify-center shrink-0">
+                      <div className="w-5 h-5 rounded-md bg-gold-500/15 border border-gold-500/30 text-gold-400 flex items-center justify-center shrink-0">
                         <Globe2 className="w-3 h-3" />
                       </div>
                       <span>Omnichannel Global Distribution</span>
                     </div>
 
                     <div className="flex items-center gap-2.5 text-xs text-gray-100 font-medium">
-                      <div className="w-5 h-5 rounded-md bg-purple-brand/15 border border-purple-brand/30 text-purple-brand flex items-center justify-center shrink-0">
+                      <div className="w-5 h-5 rounded-md bg-gold-500/15 border border-gold-500/30 text-gold-400 flex items-center justify-center shrink-0">
                         <Layers className="w-3 h-3" />
                       </div>
                       <span>AI Localized Video Dubbing</span>
                     </div>
 
                     <div className="flex items-center gap-2.5 text-xs text-gray-100 font-medium">
-                      <div className="w-5 h-5 rounded-md bg-purple-brand/15 border border-purple-brand/30 text-purple-brand flex items-center justify-center shrink-0">
+                      <div className="w-5 h-5 rounded-md bg-gold-500/15 border border-gold-500/30 text-gold-400 flex items-center justify-center shrink-0">
                         <Sparkles className="w-3 h-3" />
                       </div>
                       <span>3D Luxury Brand Systems</span>
@@ -458,7 +458,7 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
                   <a
                     href="#booking-calendar"
                     onClick={onScrollToCalendar}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-purple-brand hover:text-white group-hover:text-purple-soft transition-colors"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-gold-400 hover:text-white group-hover:text-champagne transition-colors"
                   >
                     <span>Book Enterprise Call</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />

@@ -58,12 +58,12 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link to="/" data-cursor-text="HOME" className="flex items-center gap-2.5 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-electric-500 to-purple-brand flex items-center justify-center shadow-glow-blue group-hover:scale-105 transition-transform duration-300 border border-white/20">
-              <span className="font-display font-extrabold text-white text-lg tracking-wider">AJ</span>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#C69341] via-[#DDA74F] to-[#8A5D20] flex items-center justify-center shadow-glow-gold group-hover:scale-105 transition-transform duration-300 border border-white/20">
+              <span className="font-display font-extrabold text-black text-lg tracking-wider">AJ</span>
             </div>
             <div className="flex flex-col">
-              <span className="font-display font-extrabold text-xl tracking-tight text-white group-hover:text-electric-400 transition-colors">
-                AJDesigners<span className="text-purple-brand">.</span>
+              <span className="font-display font-extrabold text-xl tracking-tight text-white group-hover:text-gold-400 transition-colors">
+                AJDesigners<span className="text-gold-500">.</span>
               </span>
               <span className="text-[9px] tracking-widest uppercase text-gray-400 font-semibold -mt-1">
                 Creative Minds. Digital Growth.
@@ -81,7 +81,7 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `px-4 py-2 text-xs font-semibold rounded-full transition-all duration-200 ${
                     isActive
-                      ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue'
+                      ? 'bg-gradient-to-r from-gold-500 to-gold-700 text-black font-bold shadow-glow-gold'
                       : 'text-gray-300 hover:text-white hover:bg-white/[0.06]'
                   }`
                 }
@@ -97,11 +97,11 @@ export default function Navbar() {
               href="#booking-calendar"
               onClick={handleScheduleClick}
               data-cursor-text="BOOK CALL"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-electric-500 via-blue-600 to-purple-brand hover:shadow-glow-blue hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 border border-white/10"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-black bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] hover:shadow-glow-gold hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 border border-white/20 shadow-md"
             >
-              <Calendar className="w-3.5 h-3.5" />
+              <Calendar className="w-3.5 h-3.5 text-black" />
               <span>Schedule a Call</span>
-              <ArrowUpRight className="w-3.5 h-3.5 opacity-80" />
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-90 text-black" />
             </a>
           </div>
 
@@ -128,7 +128,7 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
                     isActive
-                      ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white'
+                      ? 'bg-gradient-to-r from-gold-500 to-gold-700 text-black font-bold'
                       : 'text-gray-300 hover:bg-white/[0.05] hover:text-white'
                   }`
                 }
@@ -159,7 +159,7 @@ export default function Navbar() {
                 setMobileMenuOpen(false);
                 handleScheduleClick(e);
               }}
-              className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-white bg-gradient-to-r from-electric-500 to-purple-brand shadow-glow-blue"
+              className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-black bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] shadow-glow-gold"
             >
               <Calendar className="w-4 h-4" />
               <span>Schedule a Strategy Call</span>

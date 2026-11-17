@@ -53,7 +53,7 @@ export default function HeroVisualMotionCard() {
         }}
       >
         {/* Outer ambient glow backlight */}
-        <div className="absolute -inset-1 rounded-[32px] bg-gradient-to-r from-electric-500/25 via-purple-brand/25 to-blue-600/20 blur-xl opacity-75 group-hover:opacity-100 transition-opacity pointer-events-none" />
+        <div className="absolute -inset-1 rounded-[32px] bg-gradient-to-r from-gold-500/30 via-gold-400/20 to-bronze/30 blur-xl opacity-75 group-hover:opacity-100 transition-opacity pointer-events-none" />
 
       {/* Main Glassmorphic Card Container */}
       <div className="relative rounded-3xl bg-[#111116]/95 border border-white/[0.1] p-6 shadow-2xl backdrop-blur-2xl overflow-hidden">
@@ -61,7 +61,7 @@ export default function HeroVisualMotionCard() {
         <div
           className="absolute inset-0 pointer-events-none opacity-40 transition-opacity duration-300"
           style={{
-            background: `radial-gradient(450px circle at ${tilt.sheenX}% ${tilt.sheenY}%, rgba(59, 130, 246, 0.15), transparent 70%)`,
+            background: `radial-gradient(450px circle at ${tilt.sheenX}% ${tilt.sheenY}%, rgba(198, 147, 65, 0.16), transparent 70%)`,
           }}
         />
 
@@ -108,16 +108,16 @@ export default function HeroVisualMotionCard() {
               <defs>
                 {/* Area Gradient Fill */}
                 <linearGradient id="chartAreaGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.35" />
-                  <stop offset="50%" stopColor="#8B5CF6" stopOpacity="0.15" />
-                  <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.0" />
+                  <stop offset="0%" stopColor="#C69341" stopOpacity="0.35" />
+                  <stop offset="50%" stopColor="#9E6F24" stopOpacity="0.15" />
+                  <stop offset="100%" stopColor="#C69341" stopOpacity="0.0" />
                 </linearGradient>
 
                 {/* Line Gradient */}
                 <linearGradient id="chartStrokeGrad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stopColor="#3B82F6" />
-                  <stop offset="60%" stopColor="#8B5CF6" />
-                  <stop offset="100%" stopColor="#38BDF8" />
+                  <stop offset="0%" stopColor="#F5D791" />
+                  <stop offset="50%" stopColor="#C69341" />
+                  <stop offset="100%" stopColor="#DDA74F" />
                 </linearGradient>
 
                 {/* Glow Filter */}
@@ -152,18 +152,18 @@ export default function HeroVisualMotionCard() {
 
               {/* Glowing Interactive Data Nodes */}
               {/* Node 1 */}
-              <circle cx="160" cy="70" r="4.5" fill="#3B82F6" stroke="#FFFFFF" strokeWidth="2" />
+              <circle cx="160" cy="70" r="4.5" fill="#C69341" stroke="#FFFFFF" strokeWidth="2" />
               {/* Node 2 */}
-              <circle cx="270" cy="38" r="4.5" fill="#8B5CF6" stroke="#FFFFFF" strokeWidth="2" />
+              <circle cx="270" cy="38" r="4.5" fill="#DDA74F" stroke="#FFFFFF" strokeWidth="2" />
 
               {/* Peak Node with Animated Ripple */}
-              <circle cx="375" cy="12" r="9" fill="#38BDF8" fillOpacity="0.3" className="animate-ping" />
-              <circle cx="375" cy="12" r="5" fill="#38BDF8" stroke="#FFFFFF" strokeWidth="2.5" />
+              <circle cx="375" cy="12" r="9" fill="#C69341" fillOpacity="0.3" className="animate-ping" />
+              <circle cx="375" cy="12" r="5" fill="#F5D791" stroke="#FFFFFF" strokeWidth="2.5" />
             </svg>
 
             {/* Floating Milestone Pill over Peak Node */}
-            <div className="absolute top-1 right-2 px-2.5 py-1 rounded-full bg-[#111116] border border-electric-400/40 text-[9px] font-mono font-bold text-white shadow-glow-blue flex items-center gap-1">
-              <span className="w-1.5 h-1.5 rounded-full bg-electric-400 animate-pulse" />
+            <div className="absolute top-1 right-2 px-2.5 py-1 rounded-full bg-[#111116] border border-gold-500/40 text-[9px] font-mono font-bold text-white shadow-glow-gold flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse" />
               <span>Scale Stage: Day 42</span>
             </div>
           </div>
@@ -184,7 +184,7 @@ export default function HeroVisualMotionCard() {
               
               {/* Centered Play Button */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-7 h-7 rounded-full bg-electric-500/90 text-white flex items-center justify-center shadow-glow-blue group-hover/thumb:scale-110 transition-transform">
+                <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-[#C69341] via-[#DDA74F] to-[#8A5D20] text-black flex items-center justify-center shadow-glow-gold group-hover/thumb:scale-110 transition-transform">
                   <Play className="w-3 h-3 fill-current ml-0.5" />
                 </div>
               </div>
@@ -201,7 +201,7 @@ export default function HeroVisualMotionCard() {
                 <span className="text-[10px] font-bold text-white uppercase tracking-wider truncate">
                   AI UGC Ad Creative
                 </span>
-                <span className="text-[8px] bg-electric-500/20 text-electric-300 px-1.5 py-0.5 rounded font-mono font-bold">
+                <span className="text-[8px] bg-gold-500/20 text-gold-300 px-1.5 py-0.5 rounded font-mono font-bold">
                   4K
                 </span>
               </div>
@@ -211,13 +211,13 @@ export default function HeroVisualMotionCard() {
 
               {/* Live Dancing Soundwave Equalizer */}
               <div className="mt-2.5 flex items-center gap-1">
-                <span className="text-[9px] font-mono text-electric-400 font-bold mr-1">AUDIO</span>
+                <span className="text-[9px] font-mono text-gold-400 font-bold mr-1">AUDIO</span>
                 <div className="flex items-end gap-[3px] h-4">
-                  <span className="w-1 bg-electric-400 rounded-full animate-equalizer-1" />
-                  <span className="w-1 bg-purple-brand rounded-full animate-equalizer-2" />
-                  <span className="w-1 bg-blue-400 rounded-full animate-equalizer-3" />
+                  <span className="w-1 bg-gold-400 rounded-full animate-equalizer-1" />
+                  <span className="w-1 bg-[#DDA74F] rounded-full animate-equalizer-2" />
+                  <span className="w-1 bg-[#F5D791] rounded-full animate-equalizer-3" />
                   <span className="w-1 bg-emerald-400 rounded-full animate-equalizer-4" />
-                  <span className="w-1 bg-purple-soft rounded-full animate-equalizer-2" />
+                  <span className="w-1 bg-[#C69341] rounded-full animate-equalizer-2" />
                 </div>
               </div>
             </div>
@@ -250,8 +250,8 @@ export default function HeroVisualMotionCard() {
                 />
                 <defs>
                   <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
-                    <stop offset="0%" stopColor="#3B82F6" />
-                    <stop offset="100%" stopColor="#8B5CF6" />
+                    <stop offset="0%" stopColor="#F5D791" />
+                    <stop offset="100%" stopColor="#C69341" />
                   </linearGradient>
                 </defs>
               </svg>
@@ -260,7 +260,7 @@ export default function HeroVisualMotionCard() {
                 <span className="text-xs font-display font-extrabold text-white leading-none">
                   3.8x
                 </span>
-                <span className="text-[8px] font-mono text-electric-400 font-bold leading-none mt-0.5">
+                <span className="text-[8px] font-mono text-gold-400 font-bold leading-none mt-0.5">
                   ROAS
                 </span>
               </div>
@@ -284,12 +284,12 @@ export default function HeroVisualMotionCard() {
         {/* 4. Bottom Activity Pulse Bar */}
         <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-xs text-gray-400 relative z-10 font-mono">
           <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-electric-400 animate-pulse" />
+            <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse" />
             <span className="text-[11px] text-gray-300">
               Strategy: Yashwa & Aroosa
             </span>
           </div>
-          <span className="text-[10px] text-purple-soft bg-purple-brand/15 px-2.5 py-0.5 rounded-full border border-purple-brand/30">
+          <span className="text-[10px] text-gold-300 bg-gold-500/15 px-2.5 py-0.5 rounded-full border border-gold-500/30">
             Sprint 14 of 30
           </span>
         </div>

@@ -9,19 +9,19 @@ export default function Footer() {
   return (
     <footer className="bg-[#070709] text-gray-300 border-t border-white/[0.08] relative overflow-hidden">
       {/* Background ambient lighting */}
-      <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-electric-500/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-purple-brand/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-0 left-1/3 w-[500px] h-[500px] bg-gold-500/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-[500px] h-[500px] bg-bronze/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-12 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-16 border-b border-white/[0.08]">
           {/* Brand Info */}
           <div className="lg:col-span-2 space-y-4">
             <Link to="/" data-cursor-text="HOME" className="flex items-center gap-2.5 group">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-electric-500 to-purple-brand flex items-center justify-center shadow-glow-blue border border-white/20 group-hover:scale-105 transition-transform duration-300">
-                <span className="font-display font-extrabold text-white text-lg tracking-wider">AJ</span>
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-[#C69341] via-[#DDA74F] to-[#8A5D20] text-black flex items-center justify-center shadow-glow-gold border border-gold-300/30 group-hover:scale-105 transition-transform duration-300">
+                <span className="font-display font-extrabold text-black text-lg tracking-wider">AJ</span>
               </div>
-              <span className="font-display font-extrabold text-2xl tracking-tight text-white group-hover:text-electric-400 transition-colors">
-                AJDesigners<span className="text-purple-brand">.</span>
+              <span className="font-display font-extrabold text-2xl tracking-tight text-white group-hover:text-gold-400 transition-colors">
+                AJDesigners<span className="text-[#C69341]">.</span>
               </span>
             </Link>
 
@@ -35,7 +35,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 data-cursor-text="INSTAGRAM"
-                className="w-10 h-10 rounded-xl bg-[#111116] border border-white/[0.08] flex items-center justify-center text-gray-400 hover:text-white hover:border-electric-500/50 hover:bg-electric-500/10 transition-all"
+                className="w-10 h-10 rounded-xl bg-[#111116] border border-white/[0.08] flex items-center justify-center text-gray-400 hover:text-white hover:border-gold-500/50 hover:bg-gold-500/10 transition-all"
                 aria-label="Instagram"
               >
                 <InstagramIcon className="w-4 h-4" />
@@ -45,7 +45,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 data-cursor-text="LINKEDIN"
-                className="w-10 h-10 rounded-xl bg-[#111116] border border-white/[0.08] flex items-center justify-center text-gray-400 hover:text-white hover:border-electric-500/50 hover:bg-electric-500/10 transition-all"
+                className="w-10 h-10 rounded-xl bg-[#111116] border border-white/[0.08] flex items-center justify-center text-gray-400 hover:text-white hover:border-gold-500/50 hover:bg-gold-500/10 transition-all"
                 aria-label="LinkedIn"
               >
                 <LinkedinIcon className="w-4 h-4" />
@@ -55,7 +55,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noreferrer"
                 data-cursor-text="FACEBOOK"
-                className="w-10 h-10 rounded-xl bg-[#111116] border border-white/[0.08] flex items-center justify-center text-gray-400 hover:text-white hover:border-electric-500/50 hover:bg-electric-500/10 transition-all"
+                className="w-10 h-10 rounded-xl bg-[#111116] border border-white/[0.08] flex items-center justify-center text-gray-400 hover:text-white hover:border-gold-500/50 hover:bg-gold-500/10 transition-all"
                 aria-label="Facebook"
               >
                 <FacebookIcon className="w-4 h-4" />
@@ -63,7 +63,7 @@ export default function Footer() {
             </div>
 
             <div className="pt-2 text-xs text-gray-400 flex items-center gap-2">
-              <Globe2 className="w-4 h-4 text-electric-400 shrink-0" />
+              <Globe2 className="w-4 h-4 text-gold-400 shrink-0" />
               <span>Global Remote Operations • Serving US, UK, Canada, Australia, UAE & Europe</span>
             </div>
           </div>
@@ -135,8 +135,8 @@ export default function Footer() {
             <h4 className="text-xs font-bold tracking-widest uppercase text-white font-mono">Inquiries</h4>
             <div className="space-y-3 text-xs text-gray-400">
               <div className="flex items-center gap-2.5">
-                <Mail className="w-4 h-4 text-electric-400 shrink-0" />
-                <a href="mailto:contact@ajdesigners.com" className="text-white hover:text-electric-400 transition-colors font-medium">
+                <Mail className="w-4 h-4 text-gold-400 shrink-0" />
+                <a href="mailto:contact@ajdesigners.com" className="text-white hover:text-gold-400 transition-colors font-medium">
                   contact@ajdesigners.com
                 </a>
               </div>
@@ -151,7 +151,7 @@ export default function Footer() {
               <div>
                 <a
                   href="#booking-calendar"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-electric-400 hover:text-electric-300"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-gold-400 hover:text-gold-300"
                 >
                   <span>Book Free Strategy Call</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

@@ -214,31 +214,31 @@ function BlueprintCard({ guide, onSelect }) {
         {/* 3D Glassmorphic Blueprint Cover Mockup Overlaid on Image */}
         <div className="absolute inset-x-5 top-4 bottom-4 flex items-center justify-center pointer-events-none">
           {guide.mockupType === 'ugc' && (
-            <div className="w-full h-full rounded-2xl bg-gradient-to-br from-blue-950/70 via-black/80 to-blue-900/40 backdrop-blur-md border border-blue-500/30 p-3.5 flex flex-col justify-between shadow-2xl transform group-hover:-translate-y-1 transition-transform duration-500">
-              <div className="flex items-center justify-between text-[10px] font-mono text-blue-300">
+            <div className="w-full h-full rounded-2xl bg-gradient-to-br from-amber-950/70 via-black/80 to-yellow-950/40 backdrop-blur-md border border-gold-500/30 p-3.5 flex flex-col justify-between shadow-2xl transform group-hover:-translate-y-1 transition-transform duration-500">
+              <div className="flex items-center justify-between text-[10px] font-mono text-gold-300">
                 <span className="flex items-center gap-1">
-                  <Video className="w-3 h-3 text-electric-400" />
+                  <Video className="w-3 h-3 text-gold-400" />
                   <span>PLAYBOOK // AI UGC</span>
                 </span>
-                <span className="px-1.5 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                <span className="px-1.5 py-0.5 rounded bg-gold-500/20 text-gold-300 border border-gold-500/30">
                   {guide.edition}
                 </span>
               </div>
               <div className="space-y-1">
-                <div className="h-1.5 w-3/4 bg-blue-400/40 rounded-full" />
-                <div className="h-1 w-1/2 bg-blue-400/20 rounded-full" />
+                <div className="h-1.5 w-3/4 bg-gold-400/40 rounded-full" />
+                <div className="h-1 w-1/2 bg-gold-400/20 rounded-full" />
               </div>
             </div>
           )}
 
           {guide.mockupType === 'social' && (
-            <div className="w-full h-full rounded-2xl bg-gradient-to-br from-purple-950/70 via-black/80 to-indigo-900/40 backdrop-blur-md border border-purple-500/30 p-3.5 flex flex-col justify-between shadow-2xl transform group-hover:-translate-y-1 transition-transform duration-500">
-              <div className="flex items-center justify-between text-[10px] font-mono text-purple-300">
+            <div className="w-full h-full rounded-2xl bg-gradient-to-br from-stone-900/80 via-black/80 to-amber-950/40 backdrop-blur-md border border-gold-500/30 p-3.5 flex flex-col justify-between shadow-2xl transform group-hover:-translate-y-1 transition-transform duration-500">
+              <div className="flex items-center justify-between text-[10px] font-mono text-gold-300">
                 <span className="flex items-center gap-1">
-                  <Calendar className="w-3 h-3 text-purple-400" />
+                  <Calendar className="w-3 h-3 text-gold-400" />
                   <span>BLUEPRINT // 1-TO-30</span>
                 </span>
-                <span className="px-1.5 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                <span className="px-1.5 py-0.5 rounded bg-gold-500/20 text-gold-300 border border-gold-500/30">
                   {guide.edition}
                 </span>
               </div>
@@ -249,7 +249,7 @@ function BlueprintCard({ guide, onSelect }) {
                     key={day}
                     className="p-1 rounded bg-white/[0.04] border border-white/10 text-center text-[9px] font-mono text-gray-300"
                   >
-                    <span className="block text-purple-300 font-bold">{day}</span>
+                    <span className="block text-champagne font-bold">{day}</span>
                     <span className="block text-[8px] text-gray-400">{i % 2 === 0 ? 'Reel' : 'Post'}</span>
                   </div>
                 ))}
@@ -258,23 +258,23 @@ function BlueprintCard({ guide, onSelect }) {
           )}
 
           {guide.mockupType === 'branding' && (
-            <div className="w-full h-full rounded-2xl bg-gradient-to-br from-cyan-950/70 via-black/80 to-slate-900/40 backdrop-blur-md border border-cyan-500/30 p-3.5 flex flex-col justify-between shadow-2xl transform group-hover:-translate-y-1 transition-transform duration-500">
-              <div className="flex items-center justify-between text-[10px] font-mono text-cyan-300">
+            <div className="w-full h-full rounded-2xl bg-gradient-to-br from-yellow-950/70 via-black/80 to-stone-900/40 backdrop-blur-md border border-gold-500/30 p-3.5 flex flex-col justify-between shadow-2xl transform group-hover:-translate-y-1 transition-transform duration-500">
+              <div className="flex items-center justify-between text-[10px] font-mono text-gold-300">
                 <span className="flex items-center gap-1">
-                  <Palette className="w-3 h-3 text-cyan-400" />
+                  <Palette className="w-3 h-3 text-gold-400" />
                   <span>SYSTEM // TOKENS</span>
                 </span>
-                <span className="px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                <span className="px-1.5 py-0.5 rounded bg-gold-500/20 text-gold-300 border border-gold-500/30">
                   {guide.edition}
                 </span>
               </div>
               {/* Mini Color Swatches Graphic */}
               <div className="flex items-center gap-2 pt-1">
                 <span className="w-4 h-4 rounded-full bg-[#070709] border border-white/30 shadow-sm" />
-                <span className="w-4 h-4 rounded-full bg-[#2563EB] shadow-sm" />
-                <span className="w-4 h-4 rounded-full bg-[#A855F7] shadow-sm" />
-                <span className="w-4 h-4 rounded-full bg-white shadow-sm" />
-                <span className="text-[9px] font-mono text-cyan-300 ml-auto">Figma Sync</span>
+                <span className="w-4 h-4 rounded-full bg-[#C69341] shadow-sm" />
+                <span className="w-4 h-4 rounded-full bg-[#DDA74F] shadow-sm" />
+                <span className="w-4 h-4 rounded-full bg-[#F5D791] shadow-sm" />
+                <span className="text-[9px] font-mono text-champagne ml-auto">Figma Sync</span>
               </div>
             </div>
           )}
@@ -287,9 +287,9 @@ function BlueprintCard({ guide, onSelect }) {
             return (
               <div
                 key={idx}
-                className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md border ${badge.border} text-[10px] font-mono font-bold ${badge.color} shadow-lg`}
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-black/80 backdrop-blur-md border border-gold-500/30 text-[10px] font-mono font-bold text-gold-300 shadow-lg"
               >
-                <BadgeIcon className="w-3 h-3" />
+                <BadgeIcon className="w-3 h-3 text-gold-400" />
                 <span>{badge.text}</span>
               </div>
             );
@@ -302,7 +302,7 @@ function BlueprintCard({ guide, onSelect }) {
         <div>
           {/* Category Pill & Read Time */}
           <div className="flex items-center justify-between text-xs text-gray-400 mb-3">
-            <span className="font-bold text-electric-400 uppercase tracking-wider text-[10px] bg-electric-500/10 px-2.5 py-1 rounded-full border border-electric-500/20 font-mono">
+            <span className="font-bold text-gold-400 uppercase tracking-wider text-[10px] bg-gold-500/10 px-2.5 py-1 rounded-full border border-gold-500/20 font-mono">
               {guide.tag}
             </span>
             <div className="flex items-center gap-1.5 text-gray-400 text-[11px] font-mono">
@@ -311,7 +311,7 @@ function BlueprintCard({ guide, onSelect }) {
             </div>
           </div>
 
-          <h3 className="text-lg sm:text-xl font-display font-bold text-white group-hover:text-electric-300 transition-colors leading-snug line-clamp-1">
+          <h3 className="text-lg sm:text-xl font-display font-bold text-white group-hover:text-gold-300 transition-colors leading-snug line-clamp-1">
             {guide.title}
           </h3>
           <p className="mt-2 text-xs sm:text-sm text-gray-400 leading-relaxed line-clamp-2">
@@ -321,7 +321,7 @@ function BlueprintCard({ guide, onSelect }) {
 
         {/* Read Guide CTA + Edition Badge */}
         <div className="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between">
-          <span className="text-xs font-bold text-white group-hover:text-electric-400 transition-colors flex items-center gap-2">
+          <span className="text-xs font-bold text-white group-hover:text-gold-400 transition-colors flex items-center gap-2">
             <span>Read Guide</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </span>
@@ -357,16 +357,16 @@ export default function AuthorityGuides() {
   return (
     <section id="authority-guides" className="py-20 sm:py-24 bg-[#070709] relative overflow-hidden">
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/4 w-[500px] h-[300px] bg-electric-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
-      <div className="absolute bottom-10 right-1/4 w-[400px] h-[300px] bg-purple-brand/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-1/2 left-1/4 w-[500px] h-[300px] bg-gold-500/5 rounded-full blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute bottom-10 right-1/4 w-[400px] h-[300px] bg-bronze/5 rounded-full blur-[140px] pointer-events-none -z-10" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header: Normalized Heading Proportions */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-14 gap-6">
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-purple-soft text-xs font-semibold uppercase tracking-wider mb-3">
-              <Sparkles className="w-3.5 h-3.5 text-purple-brand" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs font-semibold uppercase tracking-wider mb-3">
+              <Sparkles className="w-3.5 h-3.5 text-gold-400" />
               <span>Free Educational Blueprints</span>
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-white tracking-tight">
@@ -377,7 +377,7 @@ export default function AuthorityGuides() {
             </p>
           </div>
           <div className="text-xs text-gray-400 flex items-center gap-2 shrink-0">
-            <BookOpen className="w-4 h-4 text-electric-400" />
+            <BookOpen className="w-4 h-4 text-gold-400" />
             <span className="font-mono text-[11px]">Authored by Yashwa & Aroosa</span>
           </div>
         </div>
@@ -455,13 +455,13 @@ export default function AuthorityGuides() {
                 {/* Strategic Takeaways Box */}
                 <div className="p-5 rounded-2xl bg-[#181820] border border-white/[0.08]">
                   <h4 className="text-xs font-bold uppercase tracking-wider text-gray-300 mb-3 flex items-center gap-1.5 font-mono">
-                    <BookmarkCheck className="w-4 h-4 text-electric-400" />
+                    <BookmarkCheck className="w-4 h-4 text-gold-400" />
                     <span>Key Strategic Takeaways</span>
                   </h4>
                   <div className="space-y-2.5">
                     {activeGuide.takeaways.map((item, idx) => (
                       <div key={idx} className="flex items-start gap-2.5 text-xs text-gray-300">
-                        <CheckCircle2 className="w-4 h-4 text-electric-400 shrink-0 mt-0.5" />
+                        <CheckCircle2 className="w-4 h-4 text-gold-400 shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </div>
                     ))}
@@ -480,7 +480,7 @@ export default function AuthorityGuides() {
                         className="p-4 rounded-xl bg-white/[0.02] border border-white/[0.06]"
                       >
                         <div className="flex items-center gap-2 mb-1.5">
-                          <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-electric-500/10 text-electric-400 border border-electric-500/20">
+                          <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-gold-500/10 text-gold-400 border border-gold-500/20">
                             STEP {ch.number}
                           </span>
                           <span className="text-xs sm:text-sm font-bold text-white">
@@ -501,9 +501,9 @@ export default function AuthorityGuides() {
                 </div>
 
                 {/* Bottom Conversion Banner */}
-                <div className="p-6 rounded-2xl bg-gradient-to-r from-blue-950/40 via-purple-950/30 to-black border border-electric-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="p-6 rounded-2xl bg-gradient-to-r from-amber-950/40 via-yellow-950/30 to-black border border-gold-500/30 flex flex-col sm:flex-row items-center justify-between gap-4">
                   <div>
-                    <span className="text-[11px] uppercase tracking-wider font-mono text-electric-400 font-bold block">
+                    <span className="text-[11px] uppercase tracking-wider font-mono text-gold-400 font-bold block">
                       Direct Implementation
                     </span>
                     <h5 className="text-sm sm:text-base font-bold text-white mt-0.5">
@@ -516,7 +516,7 @@ export default function AuthorityGuides() {
                   <a
                     href="#booking-calendar"
                     onClick={() => setActiveGuide(null)}
-                    className="shrink-0 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-electric-500 to-purple-brand text-white text-xs font-bold shadow-glow-blue hover:scale-[1.02] transition-transform"
+                    className="shrink-0 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] text-black text-xs font-bold shadow-glow-gold hover:scale-[1.02] transition-transform"
                   >
                     <span>Book Strategy Sprint</span>
                     <ArrowRight className="w-3.5 h-3.5" />

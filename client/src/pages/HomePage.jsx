@@ -117,15 +117,15 @@ export default function HomePage() {
         <HeroCanvasShader />
 
         {/* Ambient Glows */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-electric-500/10 rounded-full blur-[150px] pointer-events-none -z-10" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[450px] bg-gold-500/10 rounded-full blur-[150px] pointer-events-none -z-10" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Hero Left Copy */}
             <div ref={heroLeftRef} className="lg:col-span-7 space-y-6 text-center lg:text-left">
               {/* Eyebrow Badge */}
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-electric-400 text-xs font-semibold uppercase tracking-wider shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-electric-400 animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/20 text-gold-400 text-xs font-semibold uppercase tracking-wider shadow-sm">
+                <span className="w-2 h-2 rounded-full bg-gold-400 animate-pulse" />
                 <span>END-TO-END DIGITAL & CREATIVE GROWTH</span>
               </div>
 
@@ -147,7 +147,7 @@ export default function HomePage() {
                   href="#booking-calendar"
                   onClick={handleScrollToCalendar}
                   data-cursor-text="BOOK CALL"
-                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-electric-500 via-blue-600 to-purple-brand hover:shadow-glow-blue hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 border border-white/20 shrink-0 shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold text-black bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] hover:shadow-glow-gold hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 border border-gold-300/30 shrink-0 shadow-lg"
                 >
                   <Calendar className="w-4 h-4 shrink-0" />
                   <span>Book a Free Strategy Call</span>
@@ -159,7 +159,7 @@ export default function HomePage() {
                   href="#services-section"
                   onClick={handleScrollToServices}
                   data-cursor-text="SERVICES"
-                  className="inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-gray-200 bg-[#111116] hover:bg-[#181820] hover:text-white border border-white/[0.08] hover:border-white/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shrink-0"
+                  className="inline-flex items-center justify-center gap-1.5 px-4 sm:px-5 py-3.5 rounded-full text-xs sm:text-sm font-semibold text-gray-200 bg-[#111116] hover:bg-[#181820] hover:text-white border border-white/[0.08] hover:border-gold-500/40 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shrink-0"
                 >
                   <span>Explore Services</span>
                   <ArrowUpRight className="w-4 h-4 text-gray-400 shrink-0" />
@@ -177,7 +177,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="border-x border-white/[0.08] px-3">
-                  <div className="text-2xl sm:text-3xl font-display font-extrabold text-electric-400">
+                  <div className="text-2xl sm:text-3xl font-display font-extrabold text-gold-400">
                     <StatCounter target={48} suffix="hr" />
                   </div>
                   <div className="text-xs text-gray-400 font-medium mt-0.5">
@@ -185,7 +185,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-display font-extrabold text-purple-soft">
+                  <div className="text-2xl sm:text-3xl font-display font-extrabold text-champagne">
                     <StatCounter target={2} suffix="x" />
                   </div>
                   <div className="text-xs text-gray-400 font-medium mt-0.5">
@@ -210,18 +210,18 @@ export default function HomePage() {
         <div className="animate-marquee flex items-center gap-10 whitespace-nowrap">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="flex items-center gap-10 text-lg sm:text-2xl font-display font-extrabold uppercase tracking-wider text-gray-200">
-              <span className="hover:text-electric-400 transition-colors">AI UGC Ads</span>
-              <span className="w-2.5 h-2.5 rounded-full bg-electric-400 shadow-glow-blue shrink-0" />
-              <span className="hover:text-purple-brand transition-colors">Social Media Management</span>
-              <span className="w-2.5 h-2.5 rounded-full bg-purple-brand shadow-glow-purple shrink-0" />
-              <span className="hover:text-electric-400 transition-colors">Content Creation</span>
-              <span className="w-2.5 h-2.5 rounded-full bg-electric-400 shadow-glow-blue shrink-0" />
-              <span className="hover:text-purple-brand transition-colors">Paid Campaigns</span>
-              <span className="w-2.5 h-2.5 rounded-full bg-purple-brand shadow-glow-purple shrink-0" />
-              <span className="hover:text-electric-400 transition-colors">Graphic Design & Branding</span>
-              <span className="w-2.5 h-2.5 rounded-full bg-electric-400 shadow-glow-blue shrink-0" />
-              <span className="hover:text-purple-brand transition-colors">Web & Landing Pages</span>
-              <span className="w-2.5 h-2.5 rounded-full bg-purple-brand shadow-glow-purple shrink-0" />
+              <span className="hover:text-gold-400 transition-colors">AI UGC Ads</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-gold-400 shadow-glow-gold shrink-0" />
+              <span className="hover:text-champagne transition-colors">Social Media Management</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-gold-500 shadow-glow-gold shrink-0" />
+              <span className="hover:text-gold-400 transition-colors">Content Creation</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-gold-400 shadow-glow-gold shrink-0" />
+              <span className="hover:text-champagne transition-colors">Paid Campaigns</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-gold-500 shadow-glow-gold shrink-0" />
+              <span className="hover:text-gold-400 transition-colors">Graphic Design & Branding</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-gold-400 shadow-glow-gold shrink-0" />
+              <span className="hover:text-champagne transition-colors">Web & Landing Pages</span>
+              <span className="w-2.5 h-2.5 rounded-full bg-gold-500 shadow-glow-gold shrink-0" />
             </div>
           ))}
         </div>
@@ -268,7 +268,7 @@ export default function HomePage() {
                 <div
                   key={idx}
                   className={`rounded-2xl bg-[#111116] border transition-all duration-300 overflow-hidden ${
-                    isOpen ? 'border-electric-500/40 shadow-glow-blue' : 'border-white/[0.08] hover:border-white/20'
+                    isOpen ? 'border-gold-500/40 shadow-glow-gold' : 'border-white/[0.08] hover:border-gold-500/20'
                   }`}
                 >
                   <button
@@ -279,7 +279,7 @@ export default function HomePage() {
                       {faq.q}
                     </span>
                     {isOpen ? (
-                      <ChevronUp className="w-4 h-4 text-electric-400 shrink-0" />
+                      <ChevronUp className="w-4 h-4 text-gold-400 shrink-0" />
                     ) : (
                       <ChevronDown className="w-4 h-4 text-gray-500 shrink-0" />
                     )}

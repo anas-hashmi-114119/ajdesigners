@@ -169,7 +169,7 @@ export default function HomePage() {
               {/* Social Proof Strip with Live Count-Up Animations */}
               <div className="pt-8 border-t border-white/[0.08] grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 text-center lg:text-left">
                 <div>
-                  <div className="text-2xl sm:text-3xl font-display font-extrabold text-white">
+                  <div className="text-2xl sm:text-3xl font-display font-extrabold text-gold-400">
                     <StatCounter target={180} suffix="+" />
                   </div>
                   <div className="text-xs text-gray-400 font-medium mt-0.5">
@@ -185,7 +185,7 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-display font-extrabold text-champagne">
+                  <div className="text-2xl sm:text-3xl font-display font-extrabold text-gold-400">
                     <StatCounter target={2} suffix="x" />
                   </div>
                   <div className="text-xs text-gray-400 font-medium mt-0.5">

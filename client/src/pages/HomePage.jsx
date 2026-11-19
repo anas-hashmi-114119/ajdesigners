@@ -14,6 +14,7 @@ import HeroVisualMotionCard from '../components/home/HeroVisualMotionCard';
 import TargetClientSolutions from '../components/home/TargetClientSolutions';
 import HorizontalServicesStage from '../components/home/HorizontalServicesStage';
 import InteractiveWorkflowPipeline from '../components/home/InteractiveWorkflowPipeline';
+import ClientReviewsShowcase from '../components/home/ClientReviewsShowcase';
 
 // Smooth GPU-accelerated Number Count-Up for Hero Stats
 function StatCounter({ target, suffix = '', prefix = '', duration = 1600 }) {
@@ -248,7 +249,12 @@ export default function HomePage() {
       <AuthorityGuides />
 
       {/* ========================================================= */}
-      {/* 7. FREQUENTLY ASKED QUESTIONS                            */}
+      {/* 7. VERIFIED CLIENT REVIEWS & WALL OF PROOF                */}
+      {/* ========================================================= */}
+      <ClientReviewsShowcase />
+
+      {/* ========================================================= */}
+      {/* 8. FREQUENTLY ASKED QUESTIONS                            */}
       {/* ========================================================= */}
       <section className="py-24 bg-[#070709] relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">

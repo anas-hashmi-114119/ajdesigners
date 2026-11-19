@@ -14,6 +14,7 @@ import HeroVisualMotionCard from '../components/home/HeroVisualMotionCard';
 import TargetClientSolutions from '../components/home/TargetClientSolutions';
 import HorizontalServicesStage from '../components/home/HorizontalServicesStage';
 import InteractiveWorkflowPipeline from '../components/home/InteractiveWorkflowPipeline';
+import MeetTheTeam from '../components/home/MeetTheTeam';
 import ClientReviewsShowcase from '../components/home/ClientReviewsShowcase';
 
 // Smooth GPU-accelerated Number Count-Up for Hero Stats
@@ -253,7 +254,14 @@ export default function HomePage() {
       </div>
 
       {/* ========================================================= */}
-      {/* 7. VERIFIED CLIENT REVIEWS & WALL OF PROOF                */}
+      {/* 7. INTERACTIVE "MEET THE TEAM" SECTION                    */}
+      {/* ========================================================= */}
+      <div className="cv-auto">
+        <MeetTheTeam />
+      </div>
+
+      {/* ========================================================= */}
+      {/* 8. VERIFIED CLIENT REVIEWS & WALL OF PROOF                */}
       {/* ========================================================= */}
       <div className="cv-auto">
         <ClientReviewsShowcase />

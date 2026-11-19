@@ -11,6 +11,7 @@ import {
   TrendingUp,
 } from 'lucide-react';
 import BookingCalendarWidget from '../components/common/BookingCalendarWidget';
+import MeetTheTeam from '../components/home/MeetTheTeam';
 
 export default function AboutPage() {
   const coreValues = [
@@ -124,71 +125,8 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. FOUNDERS SPOTLIGHT (Yashwa & Aroosa) */}
-      <section className="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-electric-400 text-xs font-semibold uppercase tracking-wider mb-4">
-            <UserCheck className="w-3.5 h-3.5" />
-            <span>Leadership Duo</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-display font-extrabold text-white tracking-tight">
-            Meet Yashwa & Aroosa.
-          </h2>
-          <p className="mt-3 text-base text-gray-400">
-            Co-Founders steering creative direction, algorithmic distribution, and international client partnerships.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {/* Yashwa */}
-          <div className="p-8 rounded-3xl bg-[#111116] border border-white/[0.08] hover:border-electric-500/50 hover:shadow-glow-blue transition-all flex flex-col justify-between">
-            <div>
-              <div className="h-64 w-full rounded-2xl overflow-hidden mb-6 bg-black relative">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80"
-                  alt="Yashwa - Co-Founder & Strategy Director"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#111116] via-transparent to-transparent" />
-                <span className="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-wider text-white bg-electric-500/80 px-3 py-1 rounded-full backdrop-blur-md">
-                  Co-Founder & Strategy Director
-                </span>
-              </div>
-              <h3 className="text-2xl font-display font-bold text-white">Yashwa</h3>
-              <p className="text-xs text-electric-400 font-semibold mb-3">
-                Performance Marketing & Growth Systems
-              </p>
-              <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-                Leads ad creative testing, B2B lead generation architecture, and quantitative conversion rate optimization across Meta, Google, and LinkedIn channels.
-              </p>
-            </div>
-          </div>
-
-          {/* Aroosa */}
-          <div className="p-8 rounded-3xl bg-[#111116] border border-white/[0.08] hover:border-purple-brand/50 hover:shadow-glow-purple transition-all flex flex-col justify-between">
-            <div>
-              <div className="h-64 w-full rounded-2xl overflow-hidden mb-6 bg-black relative">
-                <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80"
-                  alt="Aroosa - Co-Founder & Creative Director"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#111116] via-transparent to-transparent" />
-                <span className="absolute bottom-4 left-4 text-[10px] font-bold uppercase tracking-wider text-white bg-purple-brand/80 px-3 py-1 rounded-full backdrop-blur-md">
-                  Co-Founder & Creative Director
-                </span>
-              </div>
-              <h3 className="text-2xl font-display font-bold text-white">Aroosa</h3>
-              <p className="text-xs text-purple-soft font-semibold mb-3">
-                Visual Art Direction & AI Production
-              </p>
-              <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-                Oversees brand identity systems, AI video synthesizer modeling, short-form viral storytelling, and high-fashion luxury aesthetic standards.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* 3. FOUNDERS & EXECUTIVE TEAM SPOTLIGHT */}
+      <MeetTheTeam />
 
       {/* 4. CORE VALUES */}
       <section className="py-24 bg-[#09090d] border-t border-white/[0.08]">

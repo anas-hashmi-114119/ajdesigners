@@ -17,6 +17,7 @@ import serviceRoutes from './routes/serviceRoutes.js';
 import pricingRoutes from './routes/pricingRoutes.js';
 import settingsRoutes from './routes/settingsRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
+import reviewRoutes from './routes/reviewRoutes.js';
 
 dotenv.config();
 
@@ -79,6 +80,7 @@ app.use('/api/services', serviceRoutes);
 app.use('/api/pricing', pricingRoutes);
 app.use('/api/settings', settingsRoutes);
 app.use('/api/upload', uploadRoutes);
+app.use('/api/reviews', reviewRoutes);
 
 // Error Handling
 app.use(notFoundHandler);

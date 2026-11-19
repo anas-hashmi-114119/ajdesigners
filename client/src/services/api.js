@@ -109,5 +109,11 @@ export const uploadAPI = {
   },
 };
 
+// Reviews Endpoints
+export const reviewAPI = {
+  getAll: (params) => api.get('/reviews', { params }),
+  create: (data) => api.post('/reviews', data),
+};
+
 export default api;
 

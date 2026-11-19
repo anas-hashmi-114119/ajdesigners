@@ -516,7 +516,7 @@ export default function AuthorityGuides() {
                   <a
                     href="#booking-calendar"
                     onClick={() => setActiveGuide(null)}
-                    className="shrink-0 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] text-black text-xs font-bold shadow-glow-gold hover:scale-[1.02] transition-transform"
+                    className="shrink-0 w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black text-xs font-extrabold shadow-glow-gold hover:scale-[1.02] transition-transform"
                   >
                     <span>Book Strategy Sprint</span>
                     <ArrowRight className="w-3.5 h-3.5" />

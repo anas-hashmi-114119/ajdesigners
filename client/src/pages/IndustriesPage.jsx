@@ -315,12 +315,12 @@ export default function IndustriesPage() {
               <button
                 key={ind.id}
                 onClick={() => setSelectedIndustry(ind.id)}
-                className={`px-4 py-2.5 rounded-full text-xs font-bold whitespace-nowrap flex items-center gap-2 transition-all shrink-0 ${isSelected
-                    ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue border border-white/20'
+                className={`px-4 py-2.5 rounded-full text-xs font-extrabold whitespace-nowrap flex items-center gap-2 transition-all shrink-0 ${isSelected
+                    ? 'bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black shadow-glow-gold border border-white/40'
                     : 'bg-[#111116] text-gray-400 hover:text-white hover:bg-white/[0.06] border border-white/[0.08]'
                   }`}
               >
-                <Icon className={`w-3.5 h-3.5 ${isSelected ? 'text-white' : 'text-gray-400'}`} />
+                <Icon className={`w-3.5 h-3.5 ${isSelected ? 'text-black' : 'text-gray-400'}`} />
                 <span>{ind.name}</span>
               </button>
             );
@@ -331,8 +331,8 @@ export default function IndustriesPage() {
         <div className="bg-[#111116] rounded-3xl p-8 sm:p-12 border border-white/[0.08] shadow-2xl relative overflow-hidden backdrop-blur-xl">
           <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-white/[0.08] mb-8">
             <div className="flex items-center gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-electric-500 to-purple-brand text-white flex items-center justify-center shadow-glow-blue shrink-0">
-                <CurrentIcon className="w-8 h-8" />
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black flex items-center justify-center shadow-glow-gold shrink-0">
+                <CurrentIcon className="w-8 h-8 text-black" />
               </div>
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-electric-400">
@@ -350,7 +350,7 @@ export default function IndustriesPage() {
             <div>
               <a
                 href="#booking-calendar"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-bold text-white bg-gradient-to-r from-electric-500 to-purple-brand hover:scale-[1.02] transition-transform shadow-glow-blue"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-xs font-extrabold text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] hover:scale-[1.02] transition-transform shadow-glow-gold"
               >
                 <span>Book {current.name} Call</span>
                 <ArrowUpRight className="w-4 h-4" />

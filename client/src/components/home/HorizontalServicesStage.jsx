@@ -873,7 +873,7 @@ export default function HorizontalServicesStage() {
               <a
                 href="#booking-calendar"
                 onClick={() => setSelectedService(null)}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] text-black font-bold text-xs sm:text-sm shadow-glow-gold hover:scale-[1.02] transition-transform"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black font-extrabold text-xs sm:text-sm shadow-glow-gold hover:scale-[1.02] transition-transform"
               >
                 <span>Book This Sprint</span>
                 <ArrowRight className="w-4 h-4" />

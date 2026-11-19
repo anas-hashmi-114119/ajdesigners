@@ -269,7 +269,7 @@ export default function AdminSettings() {
           <button
             type="submit"
             disabled={saving}
-            className="px-8 py-3.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-electric-500 to-purple-brand shadow-glow-blue hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 transition-all flex items-center gap-2"
+            className="px-8 py-3.5 rounded-full text-xs font-extrabold text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] shadow-glow-gold hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 transition-all flex items-center gap-2"
           >
             <Save className="w-4 h-4" />
             <span>{saving ? 'Saving...' : 'Save Settings'}</span>

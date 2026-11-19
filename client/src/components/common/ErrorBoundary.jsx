@@ -32,7 +32,7 @@ export default class ErrorBoundary extends React.Component {
             </p>
             <button
               onClick={this.handleReload}
-              className="mt-6 px-6 py-2.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-electric-500 to-purple-brand hover:shadow-glow-blue transition-all"
+              className="mt-6 px-6 py-2.5 rounded-full text-xs font-extrabold text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] hover:shadow-glow-gold transition-all"
             >
               Refresh Application
             </button>

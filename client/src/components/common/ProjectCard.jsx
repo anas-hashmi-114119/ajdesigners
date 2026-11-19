@@ -33,8 +33,8 @@ export default function ProjectCard({ project, onSelect }) {
           </div>
 
           <div className="absolute bottom-3.5 right-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-electric-500 to-purple-brand text-white flex items-center justify-center shadow-glow-blue scale-90 group-hover:scale-100 transition-transform">
-              <Eye className="w-4 h-4" />
+            <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black flex items-center justify-center shadow-glow-gold scale-90 group-hover:scale-100 transition-transform">
+              <Eye className="w-4 h-4 text-black" />
             </div>
           </div>
         </div>

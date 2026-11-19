@@ -30,7 +30,7 @@ export default function CTASection({
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             to={buttonLink}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-bold text-white bg-gradient-to-r from-electric-500 via-electric-600 to-purple-brand shadow-glow-blue hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-full text-sm font-extrabold text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] shadow-glow-gold hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
           >
             <span>{buttonText}</span>
             <ArrowUpRight className="w-4 h-4" />

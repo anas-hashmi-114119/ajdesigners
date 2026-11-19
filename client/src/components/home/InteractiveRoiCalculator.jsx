@@ -189,7 +189,7 @@ export default function InteractiveRoiCalculator() {
             <div className="pt-4 border-t border-white/[0.08]">
               <a
                 href="#booking-calendar"
-                className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-gradient-to-r from-electric-500 via-purple-brand to-cyan-400 text-white font-bold text-sm shadow-glow-blue hover:scale-[1.02] transition-all"
+                className="w-full inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black font-extrabold text-sm shadow-glow-gold hover:scale-[1.02] transition-all"
               >
                 <span>Lock In This Growth Model</span>
                 <ArrowRight className="w-4 h-4" />

@@ -75,3 +75,4 @@ const reviewSchema = new mongoose.Schema(
 reviewSchema.index({ createdAt: -1 });
 
 export default mongoose.model('Review', reviewSchema);
+

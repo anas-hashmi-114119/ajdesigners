@@ -83,7 +83,7 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `px-4 py-2 text-xs font-semibold rounded-full transition-all duration-200 ${
                     isActive
-                      ? 'bg-gradient-to-r from-gold-500 to-gold-700 text-black font-bold shadow-glow-gold'
+                      ? 'bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black font-extrabold shadow-glow-gold'
                       : 'text-gray-300 hover:text-white hover:bg-white/[0.06]'
                   }`
                 }
@@ -99,7 +99,7 @@ export default function Navbar() {
               href="#booking-calendar"
               onClick={handleScheduleClick}
               data-cursor-text="BOOK CALL"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-black bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] hover:shadow-glow-gold hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 border border-white/20 shadow-md"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-extrabold text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] hover:shadow-glow-gold hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 border border-white/30 shadow-md"
             >
               <Calendar className="w-3.5 h-3.5 text-black" />
               <span>Schedule a Call</span>
@@ -130,7 +130,7 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   `px-4 py-3 rounded-xl text-sm font-semibold transition-colors ${
                     isActive
-                      ? 'bg-gradient-to-r from-gold-500 to-gold-700 text-black font-bold'
+                      ? 'bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black font-extrabold shadow-glow-gold'
                       : 'text-gray-300 hover:bg-white/[0.05] hover:text-white'
                   }`
                 }
@@ -161,7 +161,7 @@ export default function Navbar() {
                 setMobileMenuOpen(false);
                 handleScheduleClick(e);
               }}
-              className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-bold text-black bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] shadow-glow-gold"
+              className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl text-sm font-extrabold text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] shadow-glow-gold"
             >
               <Calendar className="w-4 h-4" />
               <span>Schedule a Strategy Call</span>

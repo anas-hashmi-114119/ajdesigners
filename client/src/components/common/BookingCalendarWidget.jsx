@@ -268,7 +268,7 @@ export default function BookingCalendarWidget({ className = '' }) {
                   href={`https://wa.me/923292020295?text=Hello%20Yashwa%20%26%20Aroosa,%20I%20just%20scheduled%20a%20strategy%20call%20for%20${selectedSlot}!`}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] text-black text-xs font-bold shadow-glow-gold hover:scale-[1.02] transition-transform"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black text-xs font-extrabold shadow-glow-gold hover:scale-[1.02] transition-transform"
                 >
                   <span>Chat on WhatsApp Instantly</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -413,7 +413,7 @@ export default function BookingCalendarWidget({ className = '' }) {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] text-black font-bold text-sm shadow-glow-gold hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black font-extrabold text-sm shadow-glow-gold hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
                   >
                     <span>{submitting ? 'Reserving Your Slot...' : 'Confirm Strategy Session'}</span>
                     <ArrowRight className="w-4 h-4" />
@@ -541,7 +541,7 @@ export default function BookingCalendarWidget({ className = '' }) {
                         onClick={() => handleDateSelect(day)}
                         className={`h-9 w-full rounded-xl text-xs font-semibold flex items-center justify-center transition-all ${
                           isSelected
-                            ? 'bg-gradient-to-tr from-[#C69341] to-[#DDA74F] text-black font-bold shadow-glow-gold scale-105'
+                            ? 'bg-gradient-to-tr from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black font-extrabold shadow-glow-gold scale-105'
                             : past
                             ? 'text-gray-600 cursor-not-allowed opacity-30'
                             : 'bg-[#181820]/60 text-gray-200 hover:bg-gold-500/20 hover:text-white hover:border-gold-400/50 border border-transparent'
@@ -602,7 +602,7 @@ export default function BookingCalendarWidget({ className = '' }) {
                   <button
                     disabled={!selectedDate || !selectedSlot}
                     onClick={handleProceedToDetails}
-                    className="w-full py-3 rounded-xl bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] text-black text-xs font-bold shadow-glow-gold hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full py-3 rounded-xl bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black text-xs font-extrabold shadow-glow-gold hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     <span>Proceed to Next Step</span>
                     <ArrowRight className="w-3.5 h-3.5" />

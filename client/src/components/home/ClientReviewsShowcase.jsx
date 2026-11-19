@@ -355,7 +355,7 @@ export default function ClientReviewsShowcase() {
             <button
               onClick={() => setIsModalOpen(true)}
               data-cursor-text="ADD REVIEW"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold text-black bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] hover:shadow-glow-gold hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 border border-gold-300/30 shadow-md"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-extrabold text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] hover:shadow-glow-gold hover:scale-[1.03] active:scale-[0.97] transition-all duration-200 border border-white/30 shadow-md"
             >
               <PlusCircle className="w-4 h-4 text-black" />
               <span>Leave a Review</span>
@@ -720,7 +720,7 @@ export default function ClientReviewsShowcase() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-black bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] hover:shadow-glow-gold hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-extrabold text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] hover:shadow-glow-gold hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50"
                     >
                       {isSubmitting ? (
                         <>

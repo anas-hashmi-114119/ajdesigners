@@ -148,7 +148,7 @@ export default function HomePage() {
                   href="#booking-calendar"
                   onClick={handleScrollToCalendar}
                   data-cursor-text="BOOK CALL"
-                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-full text-xs sm:text-sm font-bold text-black bg-gradient-to-r from-[#C69341] via-[#DDA74F] to-[#8A5D20] hover:shadow-glow-gold hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 border border-gold-300/30 shrink-0 shadow-lg"
+                  className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-full text-xs sm:text-sm font-extrabold text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] hover:shadow-glow-gold hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 border border-white/30 shrink-0 shadow-lg"
                 >
                   <Calendar className="w-4 h-4 shrink-0" />
                   <span>Book a Free Strategy Call</span>

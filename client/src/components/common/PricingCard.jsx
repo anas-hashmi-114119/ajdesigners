@@ -15,8 +15,8 @@ export default function PricingCard({ pkg }) {
     >
       {/* Recommended Ribbon */}
       {isRecommended && (
-        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-electric-500 to-purple-brand text-white text-[11px] font-extrabold uppercase tracking-widest shadow-md flex items-center gap-1.5">
-          <Sparkles className="w-3 h-3" />
+        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black text-[11px] font-extrabold uppercase tracking-widest shadow-glow-gold flex items-center gap-1.5">
+          <Sparkles className="w-3 h-3 text-black" />
           <span>{pkg.badgeText || 'MOST RECOMMENDED'}</span>
         </div>
       )}
@@ -83,7 +83,7 @@ export default function PricingCard({ pkg }) {
           data-cursor-text="SELECT"
           className={`w-full py-3.5 px-6 rounded-full text-xs font-bold inline-flex items-center justify-center gap-2 transition-all duration-200 ${
             isRecommended
-              ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue hover:scale-[1.02] active:scale-[0.98]'
+              ? 'bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black font-extrabold shadow-glow-gold hover:scale-[1.02] active:scale-[0.98]'
               : 'bg-navy-900 text-white hover:bg-electric-600'
           }`}
         >

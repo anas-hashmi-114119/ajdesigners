@@ -80,7 +80,7 @@ export default function ServiceDetailPage() {
             <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
                 href="#booking-calendar"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-xs font-bold text-white bg-gradient-to-r from-electric-500 to-purple-brand shadow-glow-blue hover:scale-[1.02] active:scale-[0.98] transition-all"
+                className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-xs font-extrabold text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] shadow-glow-gold hover:scale-[1.02] active:scale-[0.98] transition-all"
               >
                 <span>Book Free Strategy Call for {service.title}</span>
                 <ArrowUpRight className="w-4 h-4" />
@@ -159,7 +159,7 @@ export default function ServiceDetailPage() {
               <div className="mt-6 pt-4 border-t border-white/[0.08]">
                 <a
                   href="#booking-calendar"
-                  className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-bold text-white bg-gradient-to-r from-electric-500 to-purple-brand py-3 rounded-xl shadow-glow-blue"
+                  className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-extrabold text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] py-3 rounded-xl shadow-glow-gold"
                 >
                   <span>Book Consultation for This Discipline</span>
                   <ArrowRight className="w-3.5 h-3.5" />

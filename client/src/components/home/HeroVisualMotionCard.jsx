@@ -206,7 +206,7 @@ export default function HeroVisualMotionCard() {
               
               {/* Centered Play Button */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-[#C69341] via-[#DDA74F] to-[#8A5D20] text-black flex items-center justify-center shadow-glow-gold group-hover/thumb:scale-110 transition-transform">
+                <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black flex items-center justify-center shadow-glow-gold group-hover/thumb:scale-110 transition-transform">
                   <Play className="w-3 h-3 fill-current ml-0.5" />
                 </div>
               </div>

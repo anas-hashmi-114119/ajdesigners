@@ -186,7 +186,7 @@ export default function FannedPortfolioShowcase() {
                 <a
                   href="#booking-calendar"
                   onClick={() => setActiveProject(null)}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-electric-500 to-purple-brand text-white text-xs font-bold shadow-glow-blue hover:scale-[1.02] transition-transform"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black text-xs font-extrabold shadow-glow-gold hover:scale-[1.02] transition-transform"
                 >
                   <span>Build This For Your Brand</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

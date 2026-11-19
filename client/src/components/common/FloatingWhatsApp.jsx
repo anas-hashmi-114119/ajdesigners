@@ -11,7 +11,7 @@ export default function FloatingWhatsApp() {
         <div className="mb-3 w-80 bg-[#111116] rounded-3xl p-5 shadow-2xl border border-white/[0.08] backdrop-blur-xl animate-in fade-in duration-200 text-gray-200">
           <div className="flex items-center justify-between pb-3 border-b border-white/[0.08] mb-3">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-electric-500 to-purple-brand text-white flex items-center justify-center font-bold text-xs shadow-glow-blue">
+              <div className="w-8 h-8 rounded-xl bg-gradient-to-tr from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black flex items-center justify-center font-extrabold text-xs shadow-glow-gold">
                 AJ
               </div>
               <div>
@@ -38,10 +38,10 @@ export default function FloatingWhatsApp() {
             <a
               href="#booking-calendar"
               onClick={() => setIsOpen(false)}
-              className="w-full py-2.5 px-4 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-electric-500 to-purple-brand shadow-glow-blue flex items-center justify-center gap-1.5 hover:scale-[1.02] transition-transform"
+              className="w-full py-2.5 px-4 rounded-xl text-xs font-extrabold text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] shadow-glow-gold flex items-center justify-center gap-1.5 hover:scale-[1.02] transition-transform"
             >
               <span>Schedule a Strategy Session</span>
-              <ArrowUpRight className="w-3.5 h-3.5" />
+              <ArrowUpRight className="w-3.5 h-3.5 text-black" />
             </a>
 
             <a
@@ -60,10 +60,10 @@ export default function FloatingWhatsApp() {
       <button
         onClick={() => setIsOpen(!isOpen)}
         data-cursor-text="CHAT"
-        className="w-14 h-14 rounded-full bg-gradient-to-tr from-electric-500 to-purple-brand text-white shadow-glow-blue hover:scale-110 active:scale-95 transition-all flex items-center justify-center border border-white/20"
+        className="w-14 h-14 rounded-full bg-gradient-to-tr from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black shadow-glow-gold hover:scale-110 active:scale-95 transition-all flex items-center justify-center border border-white/30"
         aria-label="Direct WhatsApp Consultation"
       >
-        {isOpen ? <X className="w-6 h-6" /> : <MessageCircle className="w-6 h-6" />}
+        {isOpen ? <X className="w-6 h-6 text-black" /> : <MessageCircle className="w-6 h-6 text-black" />}
       </button>
     </div>
   );

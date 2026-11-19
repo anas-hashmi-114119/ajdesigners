@@ -86,9 +86,9 @@ export default function PortfolioPage() {
             <div className="mt-6 inline-flex p-1.5 rounded-full bg-[#111116] border border-white/[0.08]">
               <button
                 onClick={() => setMockupTab('macbook')}
-                className={`px-5 py-2 rounded-full text-xs font-bold transition-all ${
+                className={`px-5 py-2 rounded-full text-xs font-extrabold transition-all ${
                   mockupTab === 'macbook'
-                    ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue'
+                    ? 'bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black shadow-glow-gold'
                     : 'text-gray-400 hover:text-white'
                 }`}
               >
@@ -96,9 +96,9 @@ export default function PortfolioPage() {
               </button>
               <button
                 onClick={() => setMockupTab('iphone')}
-                className={`px-5 py-2 rounded-full text-xs font-bold transition-all ${
+                className={`px-5 py-2 rounded-full text-xs font-extrabold transition-all ${
                   mockupTab === 'iphone'
-                    ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue'
+                    ? 'bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black shadow-glow-gold'
                     : 'text-gray-400 hover:text-white'
                 }`}
               >
@@ -106,9 +106,9 @@ export default function PortfolioPage() {
               </button>
               <button
                 onClick={() => setMockupTab('billboard')}
-                className={`px-5 py-2 rounded-full text-xs font-bold transition-all ${
+                className={`px-5 py-2 rounded-full text-xs font-extrabold transition-all ${
                   mockupTab === 'billboard'
-                    ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue'
+                    ? 'bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black shadow-glow-gold'
                     : 'text-gray-400 hover:text-white'
                 }`}
               >
@@ -156,7 +156,7 @@ export default function PortfolioPage() {
               onClick={() => setActiveCategory(cat)}
               className={`px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap shrink-0 ${
                 activeCategory === cat
-                  ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue border border-white/20'
+                  ? 'bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black font-extrabold shadow-glow-gold border border-white/40'
                   : 'bg-[#111116] text-gray-400 hover:text-white hover:bg-white/[0.06] border border-white/[0.08]'
               }`}
             >
@@ -255,7 +255,7 @@ export default function PortfolioPage() {
               <a
                 href="#booking-calendar"
                 onClick={() => setSelectedProject(null)}
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-electric-500 to-purple-brand shadow-glow-blue"
+                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-extrabold text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] shadow-glow-gold"
               >
                 <span>Inquire About Similar Project</span>
                 <ArrowUpRight className="w-3.5 h-3.5" />

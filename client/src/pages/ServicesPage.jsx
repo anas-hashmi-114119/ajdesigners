@@ -125,7 +125,7 @@ export default function ServicesPage() {
           </p>
           <a
             href="#booking-calendar"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-electric-500 to-purple-brand hover:scale-[1.02] transition-transform shadow-glow-blue"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-xs font-extrabold text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] hover:scale-[1.02] transition-transform shadow-glow-gold"
           >
             <span>Request a Customized Retainer Proposal</span>
             <ArrowUpRight className="w-4 h-4" />

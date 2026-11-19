@@ -129,7 +129,7 @@ export default function BlogPage() {
 
                 <Link
                   to={`/blog/${featuredPost.slug}`}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold text-white bg-gradient-to-r from-electric-500 to-purple-brand shadow-glow-blue"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-extrabold text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] shadow-glow-gold"
                 >
                   <span>Read Article</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -150,7 +150,7 @@ export default function BlogPage() {
               onClick={() => setSelectedCategory(cat)}
               className={`px-4 py-2 rounded-full text-xs font-bold transition-all whitespace-nowrap shrink-0 ${
                 selectedCategory === cat
-                  ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue border border-white/20'
+                  ? 'bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black font-extrabold shadow-glow-gold border border-white/40'
                   : 'bg-[#111116] text-gray-400 hover:text-white hover:bg-white/[0.06] border border-white/[0.08]'
               }`}
             >

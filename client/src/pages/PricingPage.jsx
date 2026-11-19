@@ -299,7 +299,7 @@ export default function PricingPage() {
               <div className="mt-8">
                 <button
                   onClick={handleScrollToBooking}
-                  className="w-full py-3.5 rounded-full bg-gradient-to-r from-electric-500 to-purple-brand text-white font-bold text-xs uppercase tracking-wider shadow-glow-blue hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3.5 rounded-full bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black font-extrabold text-xs uppercase tracking-wider shadow-glow-gold hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-2"
                 >
                   <span>Book 15-Min Call to Lock Plan</span>
                   <ArrowRight className="w-4 h-4" />
@@ -332,7 +332,7 @@ export default function PricingPage() {
               }`}
             >
               {tier.badge && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-electric-500 to-purple-brand text-white text-[10px] font-extrabold tracking-widest uppercase shadow-glow-blue">
+                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black text-[10px] font-extrabold tracking-widest uppercase shadow-glow-gold">
                   {tier.badge}
                 </div>
               )}
@@ -366,7 +366,7 @@ export default function PricingPage() {
                   onClick={handleScrollToBooking}
                   className={`w-full py-3 rounded-full text-xs font-bold transition-all ${
                     tier.highlighted
-                      ? 'bg-gradient-to-r from-electric-500 to-purple-brand text-white shadow-glow-blue hover:scale-[1.02]'
+                      ? 'bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] text-black font-extrabold shadow-glow-gold hover:scale-[1.02]'
                       : 'bg-white/[0.06] hover:bg-white/[0.1] text-white border border-white/10'
                   }`}
                 >

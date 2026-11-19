@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Play, TrendingUp, Sparkles, Flame, CheckCircle2, ArrowUpRight, BarChart2 } from 'lucide-react';
 
 /**
@@ -11,45 +11,66 @@ import { Play, TrendingUp, Sparkles, Flame, CheckCircle2, ArrowUpRight, BarChart
  */
 export default function HeroVisualMotionCard() {
   const cardRef = useRef(null);
-  const [tilt, setTilt] = useState({ x: 0, y: 0, sheenX: 50, sheenY: 50 });
-  const [isHovered, setIsHovered] = useState(false);
+  const sheenRef = useRef(null);
+  const rafId = useRef(null);
+  const rectRef = useRef(null);
 
-  // Smooth mouse-tilt physics
+  const handleMouseEnter = () => {
+    if (cardRef.current) {
+      rectRef.current = cardRef.current.getBoundingClientRect();
+    }
+  };
+
+  // Hardware-accelerated mouse tilt with zero React re-renders
   const handleMouseMove = (e) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
+    if (!cardRef.current || !sheenRef.current) return;
+    if (!rectRef.current) {
+      rectRef.current = cardRef.current.getBoundingClientRect();
+    }
+
+    const rect = rectRef.current;
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotateX = ((y - centerY) / centerY) * -8; // subtle tilt
-    const rotateY = ((x - centerX) / centerX) * 8;
+    const rotateX = ((y - centerY) / centerY) * -7;
+    const rotateY = ((x - centerX) / centerX) * 7;
     const sheenX = (x / rect.width) * 100;
     const sheenY = (y / rect.height) * 100;
 
-    setTilt({ x: rotateX, y: rotateY, sheenX, sheenY });
+    if (rafId.current) cancelAnimationFrame(rafId.current);
+    rafId.current = requestAnimationFrame(() => {
+      if (cardRef.current) {
+        cardRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      }
+      if (sheenRef.current) {
+        sheenRef.current.style.background = `radial-gradient(450px circle at ${sheenX}% ${sheenY}%, rgba(198, 147, 65, 0.16), transparent 70%)`;
+      }
+    });
   };
 
   const handleMouseLeave = () => {
-    setIsHovered(false);
-    setTilt({ x: 0, y: 0, sheenX: 50, sheenY: 50 });
-  };
-
-  const handleMouseEnter = () => {
-    setIsHovered(true);
+    if (rafId.current) cancelAnimationFrame(rafId.current);
+    rectRef.current = null;
+    if (cardRef.current) {
+      cardRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+    }
+    if (sheenRef.current) {
+      sheenRef.current.style.background = 'radial-gradient(450px circle at 50% 50%, rgba(198, 147, 65, 0.16), transparent 70%)';
+    }
   };
 
   return (
     <div className="relative animate-hero-float w-full max-w-lg mx-auto lg:max-w-none">
       <div
         ref={cardRef}
-        onMouseMove={handleMouseMove}
         onMouseEnter={handleMouseEnter}
+        onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
-        className="relative perspective-1000 transition-transform duration-200 ease-out"
+        className="relative perspective-1000 transition-transform duration-200 ease-out will-change-transform"
         style={{
-          transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+          transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg)',
         }}
       >
         {/* Outer ambient glow backlight */}
@@ -59,9 +80,10 @@ export default function HeroVisualMotionCard() {
       <div className="relative rounded-3xl bg-[#111116]/95 border border-white/[0.1] p-6 shadow-2xl backdrop-blur-2xl overflow-hidden">
         {/* Dynamic Proximity Radial Light Sheen */}
         <div
+          ref={sheenRef}
           className="absolute inset-0 pointer-events-none opacity-40 transition-opacity duration-300"
           style={{
-            background: `radial-gradient(450px circle at ${tilt.sheenX}% ${tilt.sheenY}%, rgba(198, 147, 65, 0.16), transparent 70%)`,
+            background: 'radial-gradient(450px circle at 50% 50%, rgba(198, 147, 65, 0.16), transparent 70%)',
           }}
         />
 

@@ -241,24 +241,30 @@ export default function HomePage() {
       {/* ========================================================= */}
       {/* 5. "HOW IT WORKS" (5-STEP HORIZONTAL WORKFLOW PIPELINE)  */}
       {/* ========================================================= */}
-      <InteractiveWorkflowPipeline />
+      <div className="cv-auto">
+        <InteractiveWorkflowPipeline />
+      </div>
 
       {/* ========================================================= */}
       {/* 6. "LEARN BEFORE YOU BUY" (AUTHORITY GUIDES)              */}
       {/* ========================================================= */}
-      <AuthorityGuides />
+      <div className="cv-auto">
+        <AuthorityGuides />
+      </div>
 
       {/* ========================================================= */}
       {/* 7. VERIFIED CLIENT REVIEWS & WALL OF PROOF                */}
       {/* ========================================================= */}
-      <ClientReviewsShowcase />
+      <div className="cv-auto">
+        <ClientReviewsShowcase />
+      </div>
 
       {/* ========================================================= */}
       {/* 8. FREQUENTLY ASKED QUESTIONS                            */}
       {/* ========================================================= */}
-      <section className="py-24 bg-[#070709] relative">
+      <section className="py-28 bg-[#070709] relative cv-auto">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center mb-14">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold text-white">
               Frequently Asked Questions
             </h2>
@@ -303,9 +309,11 @@ export default function HomePage() {
       </section>
 
       {/* ========================================================= */}
-      {/* 8. EMBEDDED STRATEGY CALL CALENDAR (CRUCIAL CONVERSION)   */}
+      {/* 9. EMBEDDED STRATEGY CALL CALENDAR (CRUCIAL CONVERSION)   */}
       {/* ========================================================= */}
-      <BookingCalendarWidget />
+      <div className="cv-auto">
+        <BookingCalendarWidget />
+      </div>
     </div>
   );
 }

@@ -2,8 +2,8 @@ import React, { useEffect, useRef } from 'react';
 
 /**
  * High-Performance Interactive Liquid Gradient & Wave Shader Canvas
- * Generates real-time flowing fluid plasma in Electric Blue (#2563EB) & Purple (#7C3AED)
- * reacting smoothly to mouse movement.
+ * Luxury Artisan Gold (#C69341), Warm Bronze & Champagne
+ * Optimized with IntersectionObserver and cached transforms for 120 FPS buttery scrolling.
  */
 export default function HeroCanvasShader() {
   const canvasRef = useRef(null);
@@ -12,40 +12,52 @@ export default function HeroCanvasShader() {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const ctx = canvas.getContext('2d');
-    let animationFrameId;
+    const ctx = canvas.getContext('2d', { alpha: false });
+    if (!ctx) return;
+
+    let animationFrameId = null;
+    let isVisible = true;
     let width = (canvas.width = canvas.offsetWidth);
     let height = (canvas.height = canvas.offsetHeight);
 
     let mouse = { x: width * 0.5, y: height * 0.5, targetX: width * 0.5, targetY: height * 0.5 };
     let time = 0;
+    let canvasRect = canvas.getBoundingClientRect();
 
     const handleResize = () => {
       if (!canvas) return;
       width = canvas.width = canvas.offsetWidth;
       height = canvas.height = canvas.offsetHeight;
+      canvasRect = canvas.getBoundingClientRect();
+    };
+
+    const handleScroll = () => {
+      if (isVisible) {
+        canvasRect = canvas.getBoundingClientRect();
+      }
     };
 
     const handleMouseMove = (e) => {
-      const rect = canvas.getBoundingClientRect();
-      mouse.targetX = e.clientX - rect.left;
-      mouse.targetY = e.clientY - rect.top;
+      if (!isVisible) return;
+      mouse.targetX = e.clientX - canvasRect.left;
+      mouse.targetY = e.clientY - canvasRect.top;
     };
 
-    window.addEventListener('resize', handleResize);
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('resize', handleResize, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
 
     // Harmonic Plasma Rendering Loop
     const render = () => {
+      if (!isVisible) return;
+
       time += 0.015;
 
-      // Mouse lerp
-      mouse.x += (mouse.targetX - mouse.x) * 0.05;
-      mouse.y += (mouse.targetY - mouse.y) * 0.05;
+      // Mouse lerp with fast convergence
+      mouse.x += (mouse.targetX - mouse.x) * 0.06;
+      mouse.y += (mouse.targetY - mouse.y) * 0.06;
 
-      ctx.clearRect(0, 0, width, height);
-
-      // Gradient 1: Deep Obsidian base
+      // Base Obsidian Background
       const bgGrad = ctx.createLinearGradient(0, 0, width, height);
       bgGrad.addColorStop(0, '#070709');
       bgGrad.addColorStop(1, '#0e0d0b');
@@ -98,11 +110,47 @@ export default function HeroCanvasShader() {
       animationFrameId = requestAnimationFrame(render);
     };
 
-    render();
+    // IntersectionObserver to halt rendering loop when scrolled out of view
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isVisible = entry.isIntersecting;
+        if (isVisible) {
+          canvasRect = canvas.getBoundingClientRect();
+          if (!animationFrameId) {
+            animationFrameId = requestAnimationFrame(render);
+          }
+        } else {
+          if (animationFrameId) {
+            cancelAnimationFrame(animationFrameId);
+            animationFrameId = null;
+          }
+        }
+      },
+      { threshold: 0.05 }
+    );
+
+    observer.observe(canvas);
+
+    // Visibility change (pause on background tabs)
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+          animationFrameId = null;
+        }
+      } else if (isVisible && !animationFrameId) {
+        animationFrameId = requestAnimationFrame(render);
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
       window.removeEventListener('resize', handleResize);
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, []);
@@ -111,7 +159,7 @@ export default function HeroCanvasShader() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full pointer-events-none"
-      style={{ opacity: 0.9 }}
+      style={{ opacity: 0.9, willChange: 'transform' }}
     />
   );
 }

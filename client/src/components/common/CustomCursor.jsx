@@ -18,6 +18,8 @@ export default function CustomCursor() {
     const mediaQuery = window.matchMedia('(pointer: fine)');
     if (!mediaQuery.matches) return;
 
+    let isRunning = false;
+
     const handleMouseMove = (e) => {
       mouse.current.x = e.clientX;
       mouse.current.y = e.clientY;
@@ -28,17 +30,27 @@ export default function CustomCursor() {
       if (target) {
         const text = target.getAttribute('data-cursor-text');
         setCursorText(text || '');
+        if (!isRunning) {
+          isRunning = true;
+          rafId.current = requestAnimationFrame(loop);
+        }
       } else {
         setCursorText('');
+        isRunning = false;
+        if (rafId.current) {
+          cancelAnimationFrame(rafId.current);
+          rafId.current = null;
+        }
       }
     };
 
     window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    document.addEventListener('mouseover', handleElementHover);
+    document.addEventListener('mouseover', handleElementHover, { passive: true });
 
-    // Smooth RAF tracking for the contextual text pill
+    // Smooth RAF tracking for the contextual text pill only when hovering labeled elements
     const loop = () => {
-      // Offset slightly to the bottom-right of the arrow tip (x + 16, y + 18)
+      if (!isRunning) return;
+
       badgePos.current.x += (mouse.current.x + 16 - badgePos.current.x) * 0.45;
       badgePos.current.y += (mouse.current.y + 18 - badgePos.current.y) * 0.45;
 
@@ -48,8 +60,6 @@ export default function CustomCursor() {
 
       rafId.current = requestAnimationFrame(loop);
     };
-
-    rafId.current = requestAnimationFrame(loop);
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);

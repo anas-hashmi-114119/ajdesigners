@@ -10,28 +10,29 @@ export default function SmoothScrollProvider({ children }) {
     // Check if device supports coarse pointer (touch device)
     const isTouch = window.matchMedia('(pointer: coarse)').matches;
 
+    // On touch devices, use native hardware momentum for pure 120Hz ProMotion feel
     const lenis = new Lenis({
-      duration: isTouch ? 1.0 : 1.2,
+      duration: 0.85, // Snappy, responsive, zero sluggish drag
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.9,
-      touchMultiplier: 1.5,
+      wheelMultiplier: 1.0, // 1:1 direct input, no artificial input latency
+      touchMultiplier: 1.0,
+      syncTouch: false, // Let native OS handle touch physics
       infinite: false,
     });
 
     lenisRef.current = lenis;
-
-    // Attach to window for global access if needed
     window.__lenis = lenis;
 
+    let rafId;
     function raf(time) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
 
-    const rafId = requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
       cancelAnimationFrame(rafId);

@@ -35,14 +35,14 @@ export default function FluidBackgroundCanvas() {
     );
     camera.position.z = 80;
 
-    // Strict DPR clamp to preserve GPU bandwidth
-    const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    // Strict DPR clamp to preserve GPU bandwidth & guarantee 120 FPS
+    const dpr = Math.min(window.devicePixelRatio || 1, 1.2);
     renderer.setPixelRatio(dpr);
     renderer.setSize(window.innerWidth, window.innerHeight);
     container.appendChild(renderer.domElement);
 
-    // Create 3D Interactive Particle Field
-    const particleCount = window.innerWidth < 768 ? 400 : 900;
+    // Create 3D Interactive Particle Field (optimized count for buttery responsiveness)
+    const particleCount = window.innerWidth < 768 ? 160 : 380;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(particleCount * 3);
     const initialPositions = new Float32Array(particleCount * 3);

@@ -29,16 +29,14 @@ import {
  */
 export default function TargetClientSolutions({ onScrollToCalendar }) {
   const trackRef = useRef(null);
+  const leftSheenRef = useRef(null);
+  const rightSheenRef = useRef(null);
   const [isDesktop, setIsDesktop] = useState(() => {
     if (typeof window !== 'undefined') {
       return window.innerWidth >= 768;
     }
     return true;
   });
-
-  // Sheen spotlight coordinates
-  const [leftSheen, setLeftSheen] = useState({ x: 50, y: 50, active: false });
-  const [rightSheen, setRightSheen] = useState({ x: 50, y: 50, active: false });
 
   // Responsive breakpoint detector
   useEffect(() => {
@@ -84,23 +82,35 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
   // Inner card content opacity: reveals as overlay dissolves
   const cardContentOpacity = useTransform(smoothProgress, [0, 0.22, 0.6, 1], [0.3, 0.3, 1, 1]);
 
-  // Spotlight Sheen handlers
+  // Zero re-render spotlight sheen handlers
   const handleLeftMouseMove = (e) => {
+    if (!leftSheenRef.current) return;
     const rect = e.currentTarget.getBoundingClientRect();
-    setLeftSheen({
-      x: ((e.clientX - rect.left) / rect.width) * 100,
-      y: ((e.clientY - rect.top) / rect.height) * 100,
-      active: true,
-    });
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    leftSheenRef.current.style.opacity = '1';
+    leftSheenRef.current.style.background = `radial-gradient(350px circle at ${x}% ${y}%, rgba(198, 147, 65, 0.15), transparent 70%)`;
+  };
+
+  const handleLeftMouseLeave = () => {
+    if (leftSheenRef.current) {
+      leftSheenRef.current.style.opacity = '0';
+    }
   };
 
   const handleRightMouseMove = (e) => {
+    if (!rightSheenRef.current) return;
     const rect = e.currentTarget.getBoundingClientRect();
-    setRightSheen({
-      x: ((e.clientX - rect.left) / rect.width) * 100,
-      y: ((e.clientY - rect.top) / rect.height) * 100,
-      active: true,
-    });
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    rightSheenRef.current.style.opacity = '1';
+    rightSheenRef.current.style.background = `radial-gradient(350px circle at ${x}% ${y}%, rgba(198, 147, 65, 0.15), transparent 70%)`;
+  };
+
+  const handleRightMouseLeave = () => {
+    if (rightSheenRef.current) {
+      rightSheenRef.current.style.opacity = '0';
+    }
   };
 
   return (
@@ -183,7 +193,7 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
             <motion.div
               data-cursor-text="STARTUPS"
               onMouseMove={handleLeftMouseMove}
-              onMouseLeave={() => setLeftSheen((s) => ({ ...s, active: false }))}
+              onMouseLeave={handleLeftMouseLeave}
               style={{
                 x: isDesktop ? leftX : 0,
                 rotate: isDesktop ? leftRotate : 0,
@@ -196,11 +206,8 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
 
               {/* Dynamic Cursor Spotlight Sheen */}
               <div
-                className="absolute inset-0 pointer-events-none transition-opacity duration-300"
-                style={{
-                  opacity: leftSheen.active ? 1 : 0,
-                  background: `radial-gradient(350px circle at ${leftSheen.x}% ${leftSheen.y}%, rgba(198, 147, 65, 0.15), transparent 70%)`,
-                }}
+                ref={leftSheenRef}
+                className="absolute inset-0 pointer-events-none transition-opacity duration-200 opacity-0"
               />
 
               <motion.div
@@ -332,7 +339,7 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
             <motion.div
               data-cursor-text="BRANDS"
               onMouseMove={handleRightMouseMove}
-              onMouseLeave={() => setRightSheen((s) => ({ ...s, active: false }))}
+              onMouseLeave={handleRightMouseLeave}
               style={{
                 x: isDesktop ? rightX : 0,
                 rotate: isDesktop ? rightRotate : 0,
@@ -345,11 +352,8 @@ export default function TargetClientSolutions({ onScrollToCalendar }) {
 
               {/* Dynamic Cursor Spotlight Sheen */}
               <div
-                className="absolute inset-0 pointer-events-none transition-opacity duration-300"
-                style={{
-                  opacity: rightSheen.active ? 1 : 0,
-                  background: `radial-gradient(350px circle at ${rightSheen.x}% ${rightSheen.y}%, rgba(198, 147, 65, 0.15), transparent 70%)`,
-                }}
+                ref={rightSheenRef}
+                className="absolute inset-0 pointer-events-none transition-opacity duration-200 opacity-0"
               />
 
               <motion.div

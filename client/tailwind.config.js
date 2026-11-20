@@ -64,8 +64,6 @@ export default {
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
         display: ['"Plus Jakarta Sans"', 'Manrope', 'sans-serif'],
-        serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-        mono: ['"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {
         'glow-gold': '0 0 35px -5px rgba(198, 147, 65, 0.35)',

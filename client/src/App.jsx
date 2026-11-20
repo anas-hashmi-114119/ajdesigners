@@ -18,6 +18,7 @@ import ServicesPage from './pages/ServicesPage';
 import ServiceDetailPage from './pages/ServiceDetailPage';
 import IndustriesPage from './pages/IndustriesPage';
 import PortfolioPage from './pages/PortfolioPage';
+import AureliaNocturnePage from './pages/AureliaNocturnePage';
 import PricingPage from './pages/PricingPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
@@ -79,6 +80,10 @@ export default function App() {
             {/* 404 Fallback */}
             <Route path="*" element={<HomePage />} />
           </Route>
+
+          {/* Standalone Haute Horlogerie Flagship Website Concept */}
+          <Route path="/portfolio/aurelia-nocturne" element={<AureliaNocturnePage />} />
+          <Route path="/aurelia-nocturne" element={<AureliaNocturnePage />} />
 
           {/* Admin Authentication */}
           <Route path="/admin/login" element={<AdminLoginPage />} />

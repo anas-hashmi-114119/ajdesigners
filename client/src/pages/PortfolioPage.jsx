@@ -73,6 +73,90 @@ export default function PortfolioPage() {
         </div>
       </section>
 
+      {/* ========================================================= */}
+      {/* 2. PINNACLE FLAGSHIP CONCEPT: AURELIA NOCTURNE            */}
+      {/* ========================================================= */}
+      <section className="py-12 bg-gradient-to-b from-[#070709] via-[#0B0D13] to-[#070709] border-y border-[#C69341]/30 relative overflow-hidden">
+        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[600px] h-[350px] bg-gold-500/10 rounded-full blur-[160px] pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="p-8 sm:p-12 lg:p-16 rounded-3xl bg-[#0E0E14] border border-[#C69341]/40 shadow-[0_0_60px_rgba(198,147,65,0.22)] grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gold-500/10 border border-gold-500/30 text-gold-400 text-xs font-mono uppercase tracking-widest">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Flagship Digital Experience • Awwwards-Caliber Concept</span>
+              </div>
+
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-serif font-light text-white tracking-tight leading-tight">
+                Aurelia Nocturne: <br />
+                <span className="text-gold-300 italic font-normal">Haute Horlogerie & Astronomical Complications</span>
+              </h2>
+
+              <p className="text-sm sm:text-base text-gray-300 font-light leading-relaxed max-w-xl">
+                A bespoke fictional luxury website concept engineered by AJDesigners. Features an interactive mechanical winding crown, live Day/Night Tritium luminescence switcher, scrubbable exploded caliber visualizer, and cryptographic Swiss provenance registry.
+              </p>
+
+              {/* Feature Chips */}
+              <div className="flex flex-wrap gap-2 pt-1 text-xs font-mono text-gray-300">
+                <span className="px-3 py-1 rounded-lg bg-[#181820] border border-white/10 text-gold-400">
+                  Virtual Mechanical Crown
+                </span>
+                <span className="px-3 py-1 rounded-lg bg-[#181820] border border-white/10 text-gold-400">
+                  Midnight Tritium Glow Mode
+                </span>
+                <span className="px-3 py-1 rounded-lg bg-[#181820] border border-white/10 text-gold-400">
+                  Exploded Caliber AN-01
+                </span>
+                <span className="px-3 py-1 rounded-lg bg-[#181820] border border-white/10 text-gold-400">
+                  122-Year Moonphase Scrubber
+                </span>
+              </div>
+
+              <div className="pt-4 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <Link
+                  to="/portfolio/aurelia-nocturne"
+                  className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-xs sm:text-sm font-extrabold text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] hover:shadow-glow-gold hover:scale-[1.03] active:scale-[0.98] transition-all shadow-lg"
+                >
+                  <span>Launch Live Concept Experience</span>
+                  <ArrowUpRight className="w-4 h-4 text-black" />
+                </Link>
+
+                <span className="text-xs font-mono text-gray-400">
+                  Direct Live Route: /portfolio/aurelia-nocturne
+                </span>
+              </div>
+            </div>
+
+            {/* Right Visual Preview */}
+            <div className="lg:col-span-5 relative">
+              <Link
+                to="/portfolio/aurelia-nocturne"
+                className="group block relative rounded-2xl overflow-hidden aspect-[4/3] border border-gold-500/30 shadow-2xl bg-black cursor-pointer"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=85"
+                  alt="Aurelia Nocturne Preview"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-80" />
+
+                <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs font-mono text-white bg-[#070709]/80 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/10">
+                  <div>
+                    <span className="text-gold-400 font-bold block">CALIBER AN-01</span>
+                    <span className="text-[10px] text-gray-400">Tourbillon • Tantalum • Meteorite</span>
+                  </div>
+                  <span className="text-gold-300 font-bold flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    <span>EXPLORE</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 2. 3D INTERACTIVE DEVICE FRAME STUDIO */}
       <section className="py-16 bg-[#09090d] border-y border-white/[0.08]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

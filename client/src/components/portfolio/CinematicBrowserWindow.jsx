@@ -1,25 +1,30 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Lock, Eye, Play, Pause, ArrowUpRight, RotateCcw } from 'lucide-react';
+import { Lock, Play, Pause, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 
+/**
+ * CinematicBrowserWindow
+ * Displays a realistic browser window mockup with multi-picture preview slides
+ * that automatically cycle every 2 seconds with smooth transitions and interactive controls.
+ * Strictly no modal popups on click - allows direct interaction with the slides.
+ */
 export default function CinematicBrowserWindow({
   project,
-  onExplore,
-  autoScrollSpeed = 16, // seconds for full scroll
   aspectHeight = 'h-[360px] sm:h-[420px] md:h-[460px]',
 }) {
-  const [isHovered, setIsHovered] = useState(false);
+  const slides = project?.slides || [];
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const containerRef = useRef(null);
-  const scrollTrackRef = useRef(null);
 
-  // Performance: IntersectionObserver pauses animation when outside viewport
+  // Pause automatic transitions when out of viewport for performance
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsVisible(entry.isIntersecting);
       },
-      { threshold: 0.15 }
+      { threshold: 0.2 }
     );
 
     if (containerRef.current) {
@@ -29,15 +34,30 @@ export default function CinematicBrowserWindow({
     return () => observer.disconnect();
   }, []);
 
-  // Check prefers-reduced-motion
+  // 2-Second Automatic Slide Progression
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    if (mediaQuery.matches) {
-      setIsPlaying(false);
+    if (!isPlaying || !isVisible || isHovered || slides.length <= 1) {
+      return;
     }
-  }, []);
 
-  const shouldAnimate = isPlaying && isVisible && !isHovered;
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 2000);
+
+    return () => clearInterval(timer);
+  }, [isPlaying, isVisible, isHovered, slides.length]);
+
+  const handleNext = (e) => {
+    e?.stopPropagation();
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const handlePrev = (e) => {
+    e?.stopPropagation();
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
+  const activeSlideData = slides[currentSlide] || slides[0] || {};
 
   return (
     <div
@@ -47,117 +67,144 @@ export default function CinematicBrowserWindow({
       className="group relative rounded-2xl sm:rounded-3xl bg-[#111116] border border-white/[0.1] hover:border-gold-500/50 shadow-2xl transition-all duration-500 overflow-hidden flex flex-col transform-gpu"
     >
       {/* ========================================================================= */}
-      {/* 1. REALISTIC BROWSER CHROME HEADER                                       */}
+      {/* 1. BROWSER CHROME HEADER                                                  */}
       {/* ========================================================================= */}
-      <div className="bg-[#181820] border-b border-white/[0.08] px-4 py-3 flex items-center justify-between gap-4 select-none">
-        {/* Left: macOS Traffic Light Window Controls */}
+      <div className="bg-[#181820] border-b border-white/[0.08] px-4 py-3 flex items-center justify-between gap-3 select-none">
+        {/* macOS Traffic Lights */}
         <div className="flex items-center gap-2">
           <span className="w-3 h-3 rounded-full bg-[#FF5F56] border border-black/20 shadow-sm" />
           <span className="w-3 h-3 rounded-full bg-[#FFBD2E] border border-black/20 shadow-sm" />
           <span className="w-3 h-3 rounded-full bg-[#27C93F] border border-black/20 shadow-sm" />
         </div>
 
-        {/* Center: Address Bar with SSL Security & Custom Domain */}
-        <div className="flex-1 max-w-sm sm:max-w-md mx-auto">
+        {/* Address Bar with SSL Lock and Domain */}
+        <div className="flex-1 max-w-xs sm:max-w-sm md:max-w-md mx-auto">
           <div className="h-7 px-3.5 rounded-full bg-[#0E0E14] border border-white/[0.06] flex items-center justify-center gap-2 text-[11px] font-mono text-gray-400 group-hover:border-gold-500/30 transition-colors">
             <Lock className="w-3 h-3 text-gold-400 shrink-0" />
             <span className="text-gray-300 font-medium truncate">https://{project.domain}</span>
           </div>
         </div>
 
-        {/* Right: Live Interactive Controls */}
+        {/* Live Controls: Slide Index & Play/Pause */}
         <div className="flex items-center gap-2">
+          <span className="text-[10px] font-mono font-bold text-gray-400 bg-black/40 px-2 py-0.5 rounded-full border border-white/5">
+            {currentSlide + 1}/{slides.length}
+          </span>
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsPlaying(!isPlaying);
-            }}
-            title={isPlaying ? 'Pause Auto-Scroll' : 'Resume Auto-Scroll'}
-            className="p-1.5 rounded-md hover:bg-white/[0.08] text-gray-400 hover:text-white transition-colors"
-            aria-label="Toggle auto-scroll playback"
+            onClick={() => setIsPlaying(!isPlaying)}
+            title={isPlaying ? 'Pause 2s slideshow' : 'Resume 2s slideshow'}
+            className="p-1 rounded-md hover:bg-white/[0.08] text-gray-400 hover:text-white transition-colors"
+            aria-label="Toggle auto slideshow"
           >
-            {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5 text-gold-400" />}
+            {isPlaying ? (
+              <Pause className="w-3.5 h-3.5" />
+            ) : (
+              <Play className="w-3.5 h-3.5 text-gold-400" />
+            )}
           </button>
         </div>
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. BROWSER VIEWPORT & SMOOTH FULL-PAGE AUTO-SCROLL SIMULATION             */}
+      {/* 2. SLIDESHOW VIEWPORT (CROSSFADES EVERY 2 SECONDS)                         */}
       {/* ========================================================================= */}
       <div
-        onClick={() => onExplore && onExplore(project)}
-        className={`relative ${aspectHeight} w-full overflow-hidden bg-[#0A0A0E] cursor-pointer`}
+        className={`relative ${aspectHeight} w-full overflow-hidden bg-[#0A0A0E] select-none`}
+        onClick={handleNext}
+        title="Click to view next preview screen"
       >
-        {/* Animated Scrolling Track Container */}
-        <div
-          ref={scrollTrackRef}
-          className="w-full flex flex-col"
-          style={{
-            transform: shouldAnimate ? 'translateY(calc(-100% + 400px))' : undefined,
-            transition: shouldAnimate
-              ? `transform ${autoScrollSpeed}s cubic-bezier(0.42, 0, 0.58, 1) infinite alternate`
-              : 'transform 0.4s ease-out',
-          }}
-        >
-          {/* Complete Multi-Section Website Preview Rendering */}
-          <div className="w-full flex flex-col">
-            {/* 1. Website Hero Visual */}
-            <div className="relative w-full aspect-[16/10] bg-black">
+        {/* Render all slides with smooth crossfade */}
+        {slides.map((slide, sIdx) => {
+          const isActive = sIdx === currentSlide;
+          return (
+            <div
+              key={sIdx}
+              className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
+                isActive ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+              }`}
+            >
               <img
-                src={project.heroImage}
-                alt={`${project.title} Hero Viewport`}
-                className="w-full h-full object-cover object-top"
+                src={slide.image}
+                alt={`${project.title} - ${slide.title}`}
+                className={`w-full h-full object-cover object-top transition-transform duration-1000 ${
+                  isActive ? 'scale-100' : 'scale-105'
+                }`}
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0E] via-transparent to-transparent opacity-40" />
+              {/* Subtle gradient overlay for legibility */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0E] via-transparent to-transparent opacity-80" />
+            </div>
+          );
+        })}
+
+        {/* Gloss sheen effect */}
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.02] to-white/[0.05] pointer-events-none z-20" />
+
+        {/* Previous / Next Manual Navigation Arrows (Visible on Hover) */}
+        <button
+          onClick={handlePrev}
+          aria-label="Previous preview image"
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-lg"
+        >
+          <ChevronLeft className="w-4 h-4" />
+        </button>
+
+        <button
+          onClick={handleNext}
+          aria-label="Next preview image"
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center border border-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 shadow-lg"
+        >
+          <ChevronRight className="w-4 h-4" />
+        </button>
+
+        {/* Bottom Slide Info Overlay */}
+        <div className="absolute bottom-4 inset-x-4 z-30 flex flex-col gap-2">
+          {/* Active Screen Caption Pill */}
+          <div className="flex items-center justify-between gap-2">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-black/80 backdrop-blur-md border border-white/10 text-white text-xs shadow-lg max-w-[85%] truncate">
+              <Sparkles className="w-3 h-3 text-gold-400 shrink-0" />
+              <span className="font-semibold text-gold-200 truncate">
+                {activeSlideData.label || activeSlideData.title}
+              </span>
+              <span className="text-gray-400 hidden sm:inline text-[11px] truncate">
+                — {activeSlideData.caption}
+              </span>
             </div>
 
-            {/* 2. Middle Section Architecture */}
-            {project.sectionScreenshots && project.sectionScreenshots.length > 0 && (
-              <div className="w-full space-y-2 p-3 bg-[#0A0A0E]">
-                <div className="w-full aspect-[16/9] rounded-xl overflow-hidden border border-white/[0.05]">
-                  <img
-                    src={project.sectionScreenshots[1]?.image || project.longScreenshot}
-                    alt={`${project.title} Section Preview`}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-                {/* 3. Footer / Conversion Section */}
-                <div className="w-full aspect-[16/9] rounded-xl overflow-hidden border border-white/[0.05]">
-                  <img
-                    src={project.sectionScreenshots[2]?.image || project.mobileImage}
-                    alt={`${project.title} Conversion Section`}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              </div>
-            )}
+            {/* Hover status hint */}
+            <span className="text-[10px] font-mono text-gray-400 hidden md:inline bg-black/60 px-2.5 py-0.5 rounded-full border border-white/5">
+              {isHovered ? 'Paused' : 'Auto 2s'}
+            </span>
           </div>
-        </div>
 
-        {/* Viewport Glass Sheen Reflection */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.02] to-white/[0.05] pointer-events-none" />
-
-        {/* Hover Cue: "Explore Case Study" Button Overlay */}
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-6">
-          <div className="px-6 py-3 rounded-full text-xs font-mono font-extrabold uppercase tracking-widest text-black bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] shadow-glow-gold flex items-center gap-2 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-            <Eye className="w-4 h-4 text-black" />
-            <span>Explore Full Case Study</span>
-            <ArrowUpRight className="w-4 h-4 text-black" />
+          {/* 4-Segment Progress Bar */}
+          <div className="grid grid-cols-4 gap-1.5 w-full pt-1">
+            {slides.map((_, pIdx) => {
+              const isCurrent = pIdx === currentSlide;
+              const isPassed = pIdx < currentSlide;
+              return (
+                <button
+                  key={pIdx}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCurrentSlide(pIdx);
+                  }}
+                  className="h-1.5 rounded-full bg-white/20 hover:bg-white/40 overflow-hidden transition-all duration-300 relative group/seg"
+                  aria-label={`Jump to slide ${pIdx + 1}`}
+                >
+                  <div
+                    className={`h-full rounded-full transition-all duration-300 ${
+                      isCurrent
+                        ? 'bg-gradient-to-r from-[#FFF1D2] via-[#F5D791] to-[#C69341] w-full shadow-[0_0_8px_rgba(245,215,145,0.8)]'
+                        : isPassed
+                        ? 'bg-gold-400/80 w-full'
+                        : 'w-0'
+                    }`}
+                  />
+                </button>
+              );
+            })}
           </div>
-        </div>
-
-        {/* Bottom Status Indicator Pill */}
-        <div className="absolute bottom-3 left-3 z-10">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] font-mono tracking-wider text-gray-300 bg-[#0E0E14]/90 backdrop-blur-md border border-white/10 shadow-lg">
-            <span
-              className="w-1.5 h-1.5 rounded-full"
-              style={{ backgroundColor: project.accentColor || '#C69341' }}
-            />
-            <span>{isHovered ? 'Paused for Inspection' : 'Cinematic Auto-Scroll'}</span>
-          </span>
         </div>
       </div>
     </div>

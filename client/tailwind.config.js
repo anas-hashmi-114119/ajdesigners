@@ -77,9 +77,9 @@ export default {
         'hero-gradient': 'radial-gradient(ellipse at top, rgba(198,147,65,0.18), transparent 70%), radial-gradient(ellipse at bottom right, rgba(158,111,36,0.14), transparent 70%)',
         'gold-mesh': 'radial-gradient(circle at 20% 20%, rgba(198, 147, 65, 0.14) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(221, 167, 79, 0.10) 0%, transparent 40%)',
         'dark-mesh': 'radial-gradient(circle at 20% 20%, rgba(198, 147, 65, 0.12) 0%, transparent 40%), radial-gradient(circle at 80% 80%, rgba(158, 111, 36, 0.10) 0%, transparent 40%)',
-        'gradient-gold': 'linear-gradient(135deg, #F5D791 0%, #C69341 50%, #9E6F24 100%)',
+        'gradient-gold': 'linear-gradient(135deg, #FFF1D2 0%, #F5D791 35%, #E5AC54 70%, #C69341 100%)',
         'gradient-gold-subtle': 'linear-gradient(135deg, rgba(198, 147, 65, 0.15) 0%, rgba(158, 111, 36, 0.05) 100%)',
-        'gradient-electric': 'linear-gradient(135deg, #F5D791 0%, #C69341 50%, #9E6F24 100%)',
+        'gradient-electric': 'linear-gradient(135deg, #FFF1D2 0%, #F5D791 35%, #E5AC54 70%, #C69341 100%)',
       }
     },
   },

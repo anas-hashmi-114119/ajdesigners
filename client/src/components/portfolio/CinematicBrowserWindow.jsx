@@ -9,7 +9,7 @@ import { Lock, Play, Pause, ChevronLeft, ChevronRight, Sparkles } from 'lucide-r
  */
 export default function CinematicBrowserWindow({
   project,
-  aspectHeight = 'h-[360px] sm:h-[420px] md:h-[460px]',
+  aspectHeight = 'aspect-[16/10] sm:aspect-[16/9.5] md:aspect-[16/9]',
 }) {
   const slides = project?.slides || [];
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -126,13 +126,13 @@ export default function CinematicBrowserWindow({
               <img
                 src={slide.image}
                 alt={`${project.title} - ${slide.title}`}
-                className={`w-full h-full object-cover object-top transition-transform duration-1000 ${
+                className={`w-full h-full object-cover object-center transition-transform duration-1000 ${
                   isActive ? 'scale-100' : 'scale-105'
                 }`}
                 loading="lazy"
               />
-              {/* Subtle gradient overlay for legibility */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0E] via-transparent to-transparent opacity-80" />
+              {/* Subtle bottom gradient overlay for legibility of captions & progress bar */}
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#0A0A0E]/95 via-[#0A0A0E]/40 to-transparent pointer-events-none" />
             </div>
           );
         })}

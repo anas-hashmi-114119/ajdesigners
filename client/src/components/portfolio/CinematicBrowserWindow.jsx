@@ -77,11 +77,11 @@ export default function CinematicBrowserWindow({
           <span className="w-3 h-3 rounded-full bg-[#27C93F] border border-black/20 shadow-sm" />
         </div>
 
-        {/* Address Bar with SSL Lock and Domain */}
+        {/* Title Bar */}
         <div className="flex-1 max-w-xs sm:max-w-sm md:max-w-md mx-auto">
           <div className="h-7 px-3.5 rounded-full bg-[#0E0E14] border border-white/[0.06] flex items-center justify-center gap-2 text-[11px] font-mono text-gray-400 group-hover:border-gold-500/30 transition-colors">
-            <Lock className="w-3 h-3 text-gold-400 shrink-0" />
-            <span className="text-gray-300 font-medium truncate">https://{project.domain}</span>
+            <Sparkles className="w-3 h-3 text-gold-400 shrink-0" />
+            <span className="text-gray-300 font-semibold truncate">AJDesigners • {project.title}</span>
           </div>
         </div>
 

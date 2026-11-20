@@ -7,7 +7,6 @@ export const CINEMATIC_WEBSITES = [
   {
     id: 'lumen-apparel',
     title: 'LUMEN LUXURY APPAREL',
-    domain: 'lumen-apparel.com',
     industry: 'E-Commerce & High-Fashion DTC Flagship',
     year: '2026',
     tagline: 'Structured Elegance — High-Converting Luxury Fashion Storefront with 1-Click Express Checkout.',
@@ -56,7 +55,6 @@ export const CINEMATIC_WEBSITES = [
   {
     id: 'verdant-roasters',
     title: 'VERDANT ROASTERS',
-    domain: 'verdantroasters.com',
     industry: 'Specialty Coffee & Direct-to-Consumer Subscriptions',
     year: '2026',
     tagline: 'Small-Batch Single Origin Roasts // Sourced For Flavor & Recurring Subscriptions.',
@@ -104,7 +102,6 @@ export const CINEMATIC_WEBSITES = [
   {
     id: 'kineta-studio',
     title: 'KINETA STUDIO',
-    domain: 'kinetastudio.com',
     industry: 'Architectural Design, Interior Spaces & Bespoke Furniture',
     year: '2026',
     tagline: 'Timeless Spaces & Handcrafted Form // Architectural Portfolio & Atelier Inquiries.',
@@ -152,7 +149,6 @@ export const CINEMATIC_WEBSITES = [
   {
     id: 'solis-trail-gear',
     title: 'SOLIS TRAIL GEAR',
-    domain: 'solistrailgear.com',
     industry: 'Technical Outdoor Apparel & Ultralight Alpinism DTC',
     year: '2026',
     tagline: 'Engineered for High-Altitude Endurance // Technical Alpinism & Pack Customization.',

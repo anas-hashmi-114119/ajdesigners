@@ -65,15 +65,15 @@ export default function CinematicWebGallery() {
                   isEven ? 'lg:col-span-5 lg:order-2' : 'lg:col-span-5 lg:order-1'
                 }`}
               >
-                {/* Serial Number & Domain Badge */}
+                {/* Serial Number & Category Badge */}
                 <div className="flex items-center gap-3">
                   <span className="text-3xl sm:text-4xl font-display font-black text-gold-400/40">
                     0{idx + 1}
                   </span>
                   <div className="h-4 w-px bg-white/20" />
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#181820] text-gold-400 border border-gold-500/30 text-[11px] font-mono uppercase tracking-wider font-bold shadow-sm">
-                    <Lock className="w-3 h-3 text-gold-400" />
-                    <span>{project.domain}</span>
+                    <Sparkles className="w-3 h-3 text-gold-400" />
+                    <span>Client Case Study</span>
                   </span>
                   <span className="text-xs font-mono text-gray-500 uppercase tracking-widest hidden sm:inline">
                     {project.year}

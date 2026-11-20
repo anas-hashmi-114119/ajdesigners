@@ -5,45 +5,45 @@ import { InstagramIcon, LinkedinIcon, TwitterXIcon } from '../common/SocialIcons
 
 const TEAM_MEMBERS = [
   {
-    id: 'yashwa',
-    name: 'Yashwa',
-    designation: 'CEO & Strategy Director',
-    designationBadge: 'CEO',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=85',
-    bio: 'Yashwa spearheads agency vision, digital strategy, and performance media acquisition at AJDesigners. With over 8 years of growth marketing experience, he designs quantitative conversion funnels and ad campaigns that scale international brands profitably.',
+    id: 'alexander',
+    name: 'Alexander Cruz',
+    designation: 'Founder & Managing Director',
+    designationBadge: 'FOUNDER & CEO',
+    image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=85',
+    bio: 'Alexander directs the strategic vision, enterprise accounts, and market expansion at AJDesigners. With over a decade in brand architecture and venture scaling, he helps high-growth companies build compounding digital market presence.',
     socials: {
       linkedin: 'https://www.linkedin.com/company/ajdesigners',
       twitter: 'https://x.com/ajdesigners',
       instagram: 'https://www.instagram.com/ajdesigners',
-      email: 'mailto:yashwa@ajdesigners.com',
+      email: 'mailto:contact@ajdesigners.com',
     },
   },
   {
-    id: 'aroosa',
-    name: 'Aroosa',
-    designation: 'CCO & Creative Director',
-    designationBadge: 'CCO',
-    image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=85',
-    bio: 'Aroosa directs creative brand identity, visual storytelling, and high-converting video production at AJDesigners. Blending luxury aesthetic principles with consumer psychology, she leads the studio in crafting scroll-stopping visual assets for high-growth businesses worldwide.',
+    id: 'sophia',
+    name: 'Sophia Chen',
+    designation: 'Principal Creative Director',
+    designationBadge: 'CREATIVE DIRECTOR',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=900&q=85',
+    bio: 'Sophia leads identity systems, visual storytelling, and high-impact design across all client flagships. Blending contemporary aesthetics with conversion psychology, her work establishes category leadership for global consumer brands.',
     socials: {
       linkedin: 'https://www.linkedin.com/company/ajdesigners',
       twitter: 'https://x.com/ajdesigners',
       instagram: 'https://www.instagram.com/ajdesigners',
-      email: 'mailto:aroosa@ajdesigners.com',
+      email: 'mailto:contact@ajdesigners.com',
     },
   },
   {
-    id: 'joshua',
-    name: 'Joshua Vance',
-    designation: 'Head of AI & Performance Media',
-    designationBadge: 'Head of AI',
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=900&q=85',
-    bio: 'Joshua leads AI-driven creative automation workflows and performance media scaling at AJDesigners. Bringing a decade of ad tech and growth acceleration experience, he designs synthetic media pipelines that allow global partners to scale high-retention video variations rapidly.',
+    id: 'marcus',
+    name: 'Marcus Thorne',
+    designation: 'Head of Growth & Performance',
+    designationBadge: 'HEAD OF GROWTH',
+    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=900&q=85',
+    bio: 'Marcus oversees data-driven acquisition architectures, paid media systems, and conversion telemetry. He specializes in designing rapid experimentation engines that scale brands profitably across international markets.',
     socials: {
       linkedin: 'https://www.linkedin.com/company/ajdesigners',
       twitter: 'https://x.com/ajdesigners',
       instagram: 'https://www.instagram.com/ajdesigners',
-      email: 'mailto:joshua@ajdesigners.com',
+      email: 'mailto:contact@ajdesigners.com',
     },
   },
 ];
@@ -245,14 +245,11 @@ export default function MeetTheTeam() {
                       <div className="absolute inset-0 bg-gradient-to-t from-[#070709] via-[#070709]/40 to-transparent opacity-90" />
                     </div>
 
-                    {/* Bottom Overlay: JUST the Designation & Name */}
+                    {/* Bottom Overlay: JUST the Designation before click */}
                     <div className="relative z-10 p-4 sm:p-5">
-                      <div className="text-[11px] font-mono font-bold tracking-widest uppercase text-gold-400">
+                      <div className="text-xs sm:text-sm font-mono font-bold tracking-widest uppercase text-gold-400 group-hover:text-gold-300 transition-colors">
                         {member.designationBadge}
                       </div>
-                      <h3 className="text-base sm:text-lg font-display font-extrabold text-white tracking-tight mt-0.5">
-                        {member.name}
-                      </h3>
                     </div>
                   </div>
                 )}
